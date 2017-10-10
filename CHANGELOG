@@ -1,6 +1,6 @@
 version 0.0.1 :
   - Create the maze
   - Initialize walls
-  - Display
+  - Display the maze
 
 Please note that the generation of the perfect maze is not implemented yet
