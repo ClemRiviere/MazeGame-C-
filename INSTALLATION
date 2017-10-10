@@ -4,6 +4,7 @@ To install the program, please follow these steps :
   - To clean the compilation files and the exe file type "make distclean"
   - To launch the program, type "./bin/mazeGame" in the root folder of the project
 
+
 To generate the documentation of the program, please follow these steps :
   - Type "make doc" in the root folder of the project
   - To clean the doc files, type "make docclean".
