@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['row',['row',['../structDimensions.html#af02c9ac02497eb90dbd532ac808532c6',1,'Dimensions']]]
+  ['d',['d',['../structMaze.html#afb47b0ab672eb3cb255e02e4dfef7309',1,'Maze']]]
 ];

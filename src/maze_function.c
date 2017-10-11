@@ -32,50 +32,52 @@
      scanf("%d",&d->col);
  }
 
- int ** createMaze(Dimensions d){
+ Maze createMaze(Dimensions d){
      int i;
-     int ** maze = (int **)malloc(sizeof(int*)*d.row);
+     Maze maze;
+     maze.grid = (int **)malloc(sizeof(int*)*d.row);
      for (i=0;i<d.row;i++){
-         maze[i] = (int *)malloc(sizeof(int)*d.col);
+         maze.grid[i] = (int *)malloc(sizeof(int)*d.col);
      }
-     if(maze==NULL)
+     if(maze.grid==NULL)
      {
          fprintf(stderr,"Malloc problem (Maze allocation) !");
          exit(EXIT_FAILURE);
      }
+     maze.d = d;
      return maze;
  }
 
- void destroyMaze(int ** maze,Dimensions d){
+ void destroyMaze(Maze *maze){
      int i;
-     for (i=0;i<d.row;i++){
-         free(maze[i]);
+     for (i=0;i<maze->d.row;i++){
+         free(maze->grid[i]);
      }
-     free(maze);
+     free(maze->grid);
  }
 
-  void initMaze(int ** maze,Dimensions d){
+  void initMaze(Maze *maze){
      int i,j;
      int cpt = 1;
-     for (i=0;i<d.row;i++){
-         for (j=0;j<d.col;j++){
+     for (i=0;i<maze->d.row;i++){
+         for (j=0;j<maze->d.col;j++){
              if (j%2==0 || i%2==0){
-                 maze[i][j]=WALL;
+                 maze->grid[i][j]=WALL;
              }
              else {
-                 maze[i][j]=cpt;
+                 maze->grid[i][j]=cpt;
                  cpt += 1;
              }
          }
      }
  }
 
- void displayMaze(int ** maze,Dimensions d){
+ void displayMaze(Maze maze){
      int i,j;
      int cpt = 0;
-     for (i=0;i<d.row;i++){
-         for (j=0;j<d.col;j++){
-             if (maze[i][j]==WALL){
+     for (i=0;i<maze.d.row;i++){
+         for (j=0;j<maze.d.col;j++){
+             if (maze.grid[i][j]==WALL){
                  printf("#");
              }
              else {
@@ -85,6 +87,10 @@
          }
          printf("\n");
      }
-     printf("%d\n",cpt);
-     printf("%d\n",(d.row/2)*(d.col/2));
+     /*printf("%d\n",cpt);
+     printf("%d\n",(maze.d.row/2)*(maze.d.col/2));*/
  }
+
+ /*void generateMaze(Maze maze){
+
+ }*/

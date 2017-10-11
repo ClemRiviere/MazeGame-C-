@@ -32,13 +32,19 @@
 
 /**
  * @brief The main function of the program
+ * Gets the dimensions of the maze
+ * Creates the maze
+ * Initializes the maze with walls
+ * Displays the maze
+ * Destroys the maze
  */
 int main(void){
     Dimensions dim;
+    Maze maze;
     getDimensions(&dim);
-    int ** maze = createMaze(dim);
-    initMaze(maze,dim);
-    displayMaze(maze,dim);
-    destroyMaze(maze,dim);
+    maze = createMaze(dim);
+    initMaze(&maze);
+    displayMaze(maze);
+    destroyMaze(&maze);
     return 0;
 }
