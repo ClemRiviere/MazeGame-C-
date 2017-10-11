@@ -11,7 +11,7 @@
 
 /**
  * @author Clément Rivière <criviere@ecole.ensicaen.fr>
- * @version     0.0.3 - 11-10-2017
+ * @version     1.0.0 - 11-10-2017
  *
  * @todo nothing to do for the moment.
  * @bug no known bug for the moment.
@@ -76,6 +76,7 @@
      int i,j;
      int cpt_id = 1;
      int cpt_wall = 0;
+     srand(time(NULL));
      /* Init walls and the id of cells */
      for (i=0;i<maze->d.row;i++){
          for (j=0;j<maze->d.col;j++){
@@ -122,6 +123,101 @@
  }
 
 
- /*void generateMaze(Maze maze){
+int generateMaze(Maze *maze, int *nb_broken){
+     int wall_break = 0;
+     int random = rand()%maze->n_walls;
+     Position wall_pos = maze->walls[random];
 
- }*/
+     /**CONTROLS PRINTFS
+     printf("RANDOM : %d",random);
+     printf("X : %d | Y : %d\n",wall_pos.x,wall_pos.y);*/
+
+     /* Horizontal */
+     if (maze->grid[wall_pos.x][wall_pos.y-1] != WALL &&
+          maze->grid[wall_pos.x][wall_pos.y+1] != WALL &&
+          maze->grid[wall_pos.x][wall_pos.y-1] != maze->grid[wall_pos.x][wall_pos.y+1]){
+         maze->grid[wall_pos.x][wall_pos.y] = maze->grid[wall_pos.x][wall_pos.y-1];
+         wall_break = 1;
+     }
+     /* Vertical */
+     else if (maze->grid[wall_pos.x-1][wall_pos.y] != WALL &&
+                maze->grid[wall_pos.x+1][wall_pos.y] != WALL &&
+                maze->grid[wall_pos.x-1][wall_pos.y] != maze->grid[wall_pos.x+1][wall_pos.y]){
+         maze->grid[wall_pos.x][wall_pos.y] = maze->grid[wall_pos.x-1][wall_pos.y];
+         wall_break = 1;
+    }
+    if (wall_break == 1){
+      delete_wall(maze, random);
+      fill_id(maze, wall_pos);
+      *nb_broken+=1;
+    }
+    /* TEST PRINT
+    displayMaze(*maze);
+    printf("\n\n");*/
+    return generation_end(*maze,*nb_broken);
+ }
+
+ int generation_end(Maze maze,int nb_broken){
+    /* Condition finded on the internet */
+    /* TEST PRINT
+    printf("NB_BROKEN : %d\n",nb_broken);
+    */
+    if (nb_broken == (maze.d.row/2)*(maze.d.col/2)-1){
+      return 1;
+    }
+    return 0;
+ }
+
+ void delete_wall(Maze *maze, int pos){
+   int i;
+   for (i=pos;i<maze->n_walls;i++){
+     maze->walls[i] = maze->walls[i+1];
+   }
+   maze->n_walls -= 1;
+   maze->walls = (Position *) realloc(maze->walls, (maze->n_walls) * sizeof(Position *));
+   /** CONTROLS PRINTF
+   for (i=0;i<maze->n_walls;i++){
+     printf("[X : %d | Y : %d]\n",maze->walls[i].x,maze->walls[i].y);
+   }
+   printf("N_WALLS : %d\n",maze->n_walls);*/
+ }
+
+ void fill_id(Maze *maze, Position pos){
+   Position new_pos;
+   /* LEFT */
+   if (maze->grid[pos.x][pos.y-1]!=WALL &&
+        maze->grid[pos.x][pos.y-1]!=maze->grid[pos.x][pos.y]){
+      /* FILLING ID*/
+      maze->grid[pos.x][pos.y-1] = maze->grid[pos.x][pos.y];
+      new_pos.x = pos.x;
+      new_pos.y = pos.y-1;
+      fill_id(maze,new_pos);
+   }
+   /* RIGHT */
+   if (maze->grid[pos.x][pos.y+1]!=WALL &&
+        maze->grid[pos.x][pos.y+1]!=maze->grid[pos.x][pos.y]){
+      /* FILLING ID*/
+      maze->grid[pos.x][pos.y+1] = maze->grid[pos.x][pos.y];
+      new_pos.x = pos.x;
+      new_pos.y = pos.y+1;
+      fill_id(maze,new_pos);
+   }
+   /* ABOVE */
+   if (maze->grid[pos.x-1][pos.y]!=WALL &&
+        maze->grid[pos.x-1][pos.y]!=maze->grid[pos.x][pos.y]){
+      /* FILLING ID*/
+      maze->grid[pos.x-1][pos.y] = maze->grid[pos.x][pos.y];
+      new_pos.x = pos.x-1;
+      new_pos.y = pos.y;
+      fill_id(maze,new_pos);
+   }
+   /* UNDER */
+   if (maze->grid[pos.x+1][pos.y]!=WALL &&
+        maze->grid[pos.x+1][pos.y]!=maze->grid[pos.x][pos.y]){
+      /* FILLING ID*/
+      maze->grid[pos.x+1][pos.y] = maze->grid[pos.x][pos.y];
+      new_pos.x = pos.x+1;
+      new_pos.y = pos.y;
+      fill_id(maze,new_pos);
+   }
+ }
