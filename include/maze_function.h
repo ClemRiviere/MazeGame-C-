@@ -11,9 +11,9 @@
 
 /**
  * @author Clément Rivière <criviere@ecole.ensicaen.fr>
- * @version     0.0.1 - 10-10-2017
+ * @version     0.0.3 - 11-10-2017
  *
- * @todo Implement the maze struct
+ * @todo nothing to do for the moment.
  * @bug no known bug for the moment.
  */
 
@@ -44,13 +44,25 @@
  } Dimensions;
 
  /**
+  * @brief Position of a element in a maze.
+  *
+  * The coords of any element of the maze
+  */
+ typedef struct{
+     int x;    /**< The X position */
+     int y;    /**< The Y position */
+ } Position;
+
+ /**
   * @brief The maze structure.
   *
   * The grid and the dimensions of the maze.
   */
  typedef struct{
-     int ** grid;     /**< The 2D int tab that corresponds to the maze grid */
-     Dimensions d;  /**< The dimensions of the maze */
+     int ** grid;       /**< The 2D int tab that corresponds to the maze grid */
+     Dimensions d;      /**< The dimensions of the maze */
+     Position * walls;  /**< The walls in the maze */
+     int n_walls;       /**< The number of center walls (without the contour) */
  } Maze;
 
  /**
@@ -103,7 +115,7 @@
   * @param d the dimensions of the maze
   * @see Dimensions
   */
- /* void generateMaze(Maze maze); */
+ /*void generateMaze(Maze maze);*/
 
 
 #endif

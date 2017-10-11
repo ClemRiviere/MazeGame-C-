@@ -100,6 +100,7 @@ Collaboration diagram for Maze:</div>
 <div class="center"><img src="structMaze__coll__graph.png" border="0" usemap="#Maze_coll__map" alt="Collaboration graph"/></div>
 <map name="Maze_coll__map" id="Maze_coll__map">
 <area shape="rect" id="node2" href="structDimensions.html" title="Dimensions of a 2D tab. " alt="" coords="5,5,96,32"/>
+<area shape="rect" id="node3" href="structPosition.html" title="Position of a element in a maze. " alt="" coords="120,5,189,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -109,6 +110,10 @@ Public Attributes</h2></td></tr>
 <tr class="separator:ab45557eff6acf4621abb791fb8be4e1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb47b0ab672eb3cb255e02e4dfef7309"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structDimensions.html">Dimensions</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMaze.html#afb47b0ab672eb3cb255e02e4dfef7309">d</a></td></tr>
 <tr class="separator:afb47b0ab672eb3cb255e02e4dfef7309"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6dbd36abee381365b2b4e9cc36d1765"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structPosition.html">Position</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMaze.html#ab6dbd36abee381365b2b4e9cc36d1765">walls</a></td></tr>
+<tr class="separator:ab6dbd36abee381365b2b4e9cc36d1765"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4543355b629a66bd0b04ec4078594482"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMaze.html#a4543355b629a66bd0b04ec4078594482">n_walls</a></td></tr>
+<tr class="separator:a4543355b629a66bd0b04ec4078594482"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The maze structure. </p>
@@ -137,6 +142,32 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>The 2D int tab that corresponds to the maze grid </p>
+
+</div>
+</div>
+<a class="anchor" id="a4543355b629a66bd0b04ec4078594482"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Maze::n_walls</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The number of center walls (without the contour) </p>
+
+</div>
+</div>
+<a class="anchor" id="ab6dbd36abee381365b2b4e9cc36d1765"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structPosition.html">Position</a>* Maze::walls</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The walls in the maze </p>
 
 </div>
 </div>

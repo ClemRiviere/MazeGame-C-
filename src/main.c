@@ -11,7 +11,7 @@
 
 /**
  * @author Clément Rivière <criviere@ecole.ensicaen.fr>
- * @version     0.0.1 - 10-10-2017
+ * @version     0.0.3 - 11-10-2017
  *
  * @todo nothing to do for the moment.
  * @bug no known bug for the moment.
