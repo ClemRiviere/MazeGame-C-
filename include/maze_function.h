@@ -11,9 +11,9 @@
 
 /**
  * @author Clément Rivière <criviere@ecole.ensicaen.fr>
- * @version     0.0.1 - 10-10-2017
+ * @version     1.0.0 - 11-10-2017
  *
- * @todo Implement the maze struct
+ * @todo nothing to do for the moment.
  * @bug no known bug for the moment.
  */
 
@@ -29,6 +29,8 @@
 
  #include <stdio.h>
  #include <stdlib.h>
+ #include <time.h>
+ #include <stdarg.h>
 
  /* Define the id of walls to 0. */
  #define WALL 0
@@ -44,13 +46,25 @@
  } Dimensions;
 
  /**
+  * @brief Position of a element in a maze.
+  *
+  * The coords of any element of the maze
+  */
+ typedef struct{
+     int x;    /**< The X position : the row */
+     int y;    /**< The Y position : the col */
+ } Position;
+
+ /**
   * @brief The maze structure.
   *
   * The grid and the dimensions of the maze.
   */
  typedef struct{
-     int ** grid;     /**< The 2D int tab that corresponds to the maze grid */
-     Dimensions d;  /**< The dimensions of the maze */
+     int ** grid;       /**< The 2D int tab that corresponds to the maze grid */
+     Dimensions d;      /**< The dimensions of the maze */
+     Position * walls;  /**< The walls in the maze */
+     int n_walls;       /**< The number of center walls (without the contour) */
  } Maze;
 
  /**
@@ -65,7 +79,6 @@
   *
   * @param d the dimensions of the maze.
   * @return maze the allocated maze tab.
-  * @see Dimensions
   */
  Maze createMaze(Dimensions d);
 
@@ -74,7 +87,6 @@
   *
   * @param maze the maze tab that needs to bee free
   * @param d the dimensions of the maze
-  * @see Dimensions
   */
  void destroyMaze(Maze *maze);
 
@@ -83,7 +95,6 @@
   *
   * @param maze the maze tab that needs to bee initialized
   * @param d the dimensions of the maze
-  * @see Dimensions
   */
  void initMaze(Maze *maze);
 
@@ -92,18 +103,41 @@
   *
   * @param maze the displayed maze
   * @param d the dimensions of the maze
-  * @see Dimensions
   */
  void displayMaze(Maze maze);
 
  /**
-  * @brief Generate a perfect maze from an initialized one.
+  * @brief Generate a perfect maze from an initialized one. Variable number of args.
   *
   * @param maze the maze that will be transformed.
-  * @param d the dimensions of the maze
-  * @see Dimensions
+  * @param an int param when the function is executed with recursivity
+  * @return 0 if the generation is not finished yet.
   */
- /* void generateMaze(Maze maze); */
+ int generateMaze(Maze *maze,int *nb_broken);
+
+ /**
+  * @brief Test if the generation is finished
+  *
+  * @param maze the displayed maze
+  * @return an int at 1 if it's finished, otherwise at 0
+  */
+ int generation_end(Maze maze,int nb_broken);
+
+ /**
+  * @brief Delete a wall that have been broken from the maze walls tab
+  *
+  * @param maze the maze that will be transformed.
+  * @param pos the position of the wall to destroy in the walls tab.
+  */
+ void delete_wall(Maze *maze, int pos);
+
+ /**
+  * @brief Fill id of adjacent cells
+  *
+  * @param maze the maze that will be transformed.
+  * @param pos the position of the current cell
+  */
+ void fill_id(Maze *maze, Position pos);
 
 
 #endif

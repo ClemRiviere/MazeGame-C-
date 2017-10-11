@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['main',['main',['../main_8c.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main.c']]]
+  ['initmaze',['initMaze',['../maze__function_8h.html#a42d287e9a15f79274ea7bdc3068630de',1,'initMaze(Maze *maze):&#160;maze_function.c'],['../maze__function_8c.html#a42d287e9a15f79274ea7bdc3068630de',1,'initMaze(Maze *maze):&#160;maze_function.c']]]
 ];

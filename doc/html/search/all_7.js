@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['todo_20list',['Todo List',['../todo.html',1,'']]]
+  ['n_5fwalls',['n_walls',['../structMaze.html#a4543355b629a66bd0b04ec4078594482',1,'Maze']]]
 ];
