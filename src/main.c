@@ -25,19 +25,8 @@
  * There is no generation of maze for the moment, it's just a tab.
  */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "../include/main.h"
 
-#include "../include/maze_function.h"
-
-/**
- * @brief The main function of the program
- * Gets the dimensions of the maze
- * Creates the maze
- * Initializes the maze with walls
- * Displays the maze
- * Destroys the maze
- */
 int main(void){
     Dimensions dim;
     Maze maze;

@@ -20,7 +20,7 @@
 /**
  * @file maze_function.c
  *
- * The maze functions for the maze generator program.
+ * @brief The maze functions for the maze generator program.
  */
 
  #include "../include/maze_function.h"

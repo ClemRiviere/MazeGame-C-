@@ -24,7 +24,7 @@
 /**
  * @file maze_function.h
  *
- * All the functions needed to interact with the maze for the maze generator program.
+ * @brief All the functions needed to interact with the maze for the maze generator program.
  */
 
  #include <stdio.h>
