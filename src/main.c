@@ -11,7 +11,7 @@
 
 /**
  * @author Clément Rivière <criviere@ecole.ensicaen.fr>
- * @version     1.0.0 - 11-10-2017
+ * @version     1.0.1 - 12-10-2017
  *
  * @todo nothing to do for the moment.
  * @bug no known bug for the moment.
@@ -30,14 +30,10 @@
 int main(void){
     Dimensions dim;
     Maze maze;
-    int res;
-    int nb_broken = 0;
     getDimensions(&dim);
     maze = createMaze(dim);
     initMaze(&maze);
-    do{
-      res = generateMaze(&maze,&nb_broken);
-    }while(res == 0);
+    generateMaze(&maze);
     displayMaze(maze);
     destroyMaze(&maze);
     return 0;

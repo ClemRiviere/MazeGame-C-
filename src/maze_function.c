@@ -11,7 +11,7 @@
 
 /**
  * @author Clément Rivière <criviere@ecole.ensicaen.fr>
- * @version     1.0.0 - 11-10-2017
+ * @version     1.0.1 - 12-10-2017
  *
  * @todo nothing to do for the moment.
  * @bug no known bug for the moment.
@@ -43,6 +43,8 @@
      for (i=0;i<d.row;i++){
          maze.grid[i] = (int *)malloc(sizeof(int)*d.col);
      }
+
+     /* Check for malloc problems */
      if(maze.grid==NULL)
      {
          fprintf(stderr,"Malloc problem (Maze allocation) !");
@@ -122,8 +124,15 @@
      printf("%d\n",(maze.d.row/2)*(maze.d.col/2));*/
  }
 
+void generateMaze(Maze *maze){
+    int res;
+    int nb_broken = 0;
+    do{
+      res = processMazeGeneration(maze,&nb_broken);
+    }while(res == 0);
+}
 
-int generateMaze(Maze *maze, int *nb_broken){
+int processMazeGeneration(Maze *maze, int *nb_broken){
      int wall_break = 0;
      int random = rand()%maze->n_walls;
      Position wall_pos = maze->walls[random];
