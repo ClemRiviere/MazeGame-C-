@@ -11,7 +11,7 @@
 
 /**
  * @author Clément Rivière <criviere@ecole.ensicaen.fr>
- * @version     1.0.0 - 11-10-2017
+ * @version     1.0.1 - 12-10-2017
  *
  * @todo nothing to do for the moment.
  * @bug no known bug for the moment.
@@ -25,30 +25,15 @@
  * There is no generation of maze for the moment, it's just a tab.
  */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "../include/main.h"
 
-#include "../include/maze_function.h"
-
-/**
- * @brief The main function of the program
- * Gets the dimensions of the maze
- * Creates the maze
- * Initializes the maze with walls
- * Displays the maze
- * Destroys the maze
- */
 int main(void){
     Dimensions dim;
     Maze maze;
-    int res;
-    int nb_broken = 0;
     getDimensions(&dim);
     maze = createMaze(dim);
     initMaze(&maze);
-    do{
-      res = generateMaze(&maze,&nb_broken);
-    }while(res == 0);
+    generateMaze(&maze);
     displayMaze(maze);
     destroyMaze(&maze);
     return 0;

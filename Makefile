@@ -12,6 +12,7 @@
 APP = mazeGame
 CC = gcc
 RM = rm
+RMFLAGS = -rf
 CPPFLAGS = -Wall -Wextra
 CCFLAGS = -ansi
 
@@ -21,40 +22,52 @@ SRC_DIR = ./src
 LIB_DIR = ./lib
 BIN_DIR = ./bin
 DOC_DIR = ./doc
+OBJ_DIR = ./src/obj
 
-.PHONY: all clean distclean
+DOXYFILE = doxyfile
+HTML = YES
+LATEX = NO
+RTF = NO
 
-all: $(APP)
+SOURCES  := $(wildcard $(SRC_DIR)/*.c)
+OBJECTS  := $(SOURCES:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
-$(APP): $(SRC_DIR)/main.o $(SRC_DIR)/maze_function.o
+.PHONY: all clean distclean docclean
+
+all: createObjectTree $(APP)
+
+$(APP): $(OBJECTS)
 	$(CC) $(LDFLAGS) $^ -o $(BIN_DIR)/$@
 
-# When the .h name is different than the target, we need to define the dependences here
-#
-# Exemple :
-# A.o : B.h
-# Here, when B.h will change, A.o will be recompilated.
+createObjectTree:
+	mkdir -p $(OBJ_DIR)
 
-main.o : maze_function.h
+main.o: maze_function.h
 
-# When the .h name is the same than the target one, we just use %
-$(SRC_DIR)/%.o: $(SRC_DIR)/%.c $(INCLUDE_DIR)/%.h
+$(OBJECTS): $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(INCLUDE_DIR)/%.h
 	$(CC) $(CPPFLAGS) $(CCFLAGS) -c -I $(INCLUDE_DIR) -o $@ $<
 
 clean:
-	$(RM) $(SRC_DIR)/*.o
+	$(RM) $(RMFLAGS) $(OBJ_DIR)
 
 distclean: clean
-	$(RM) $(BIN_DIR)/$(APP)
+	$(RM) $(RMFLAGS) $(BIN_DIR)/$(APP)
+	$(RM) $(RMFLAGS) $(DOC_DIR)/$(DOXYFILE)
 
 docclean:
-	$(RM) -rf $(DOC_DIR)/html/
-	$(RM) -rf $(DOC_DIR)/latex/
+	$(RM) $(RMFLAGS) $(DOC_DIR)/*
 
-doxyfile.inc:
-	echo INPUT = ./include ./src > $(DOC_DIR)/doxyfile.inc
-	echo FILE_PATTERNS = *.h *.c >> $(DOC_DIR)/doxyfile.inc
-	echo OUTPUT_DIRECTORY = $(DOC_DIR) >> $(DOC_DIR)/doxyfile.inc
+doxysetup:
+	-touch $(DOC_DIR)/$(DOXYFILE)
+	-echo PROJECT_NAME = "$(APP)" > $(DOC_DIR)/$(DOXYFILE)
+	-echo EXCLUDE = >> $(DOC_DIR)/$(DOXYFILE)
+	-echo INPUT = $(SRC_DIR) $(INCLUDE_DIR) >> $(DOC_DIR)/$(DOXYFILE)
+	-echo FILE_PATTERNS = *.h *.c >> $(DOC_DIR)/$(DOXYFILE)
+	-echo GENERATE_LATEX = $(LATEX) >> $(DOC_DIR)/$(DOXYFILE)
+	-echo GENERATE_HTML = $(HTML) >> $(DOC_DIR)/$(DOXYFILE)
+	-echo GENERATE_RTF = $(RTF) >> $(DOC_DIR)/$(DOXYFILE)
+	-echo OUTPUT_DIRECTORY = $(DOC_DIR) >> $(DOC_DIR)/$(DOXYFILE)
 
-doc: doxyfile.inc $(APP)
-	doxygen $(DOC_DIR)/doxyfile.mk
+doc: doxysetup createObjectTree $(APP)
+	-doxygen $(DOC_DIR)/$(DOXYFILE)
+

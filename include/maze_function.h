@@ -11,7 +11,7 @@
 
 /**
  * @author Clément Rivière <criviere@ecole.ensicaen.fr>
- * @version     1.0.0 - 11-10-2017
+ * @version     1.0.1 - 12-10-2017
  *
  * @todo nothing to do for the moment.
  * @bug no known bug for the moment.
@@ -24,7 +24,7 @@
 /**
  * @file maze_function.h
  *
- * All the functions needed to interact with the maze for the maze generator program.
+ * @brief All the functions needed to interact with the maze for the maze generator program.
  */
 
  #include <stdio.h>
@@ -71,6 +71,7 @@
   * @brief Request the dimensions of the maze.
   *
   * @param d a pointer on the dimension struct of the maze.
+  * @todo adding controls on entries
   */
  void getDimensions(Dimensions *d);
 
@@ -86,7 +87,6 @@
   * @brief Free the maze allocated memory
   *
   * @param maze the maze tab that needs to bee free
-  * @param d the dimensions of the maze
   */
  void destroyMaze(Maze *maze);
 
@@ -94,7 +94,6 @@
   * @brief Inititalize the maze : set the WALL and BLANK case
   *
   * @param maze the maze tab that needs to bee initialized
-  * @param d the dimensions of the maze
   */
  void initMaze(Maze *maze);
 
@@ -102,24 +101,32 @@
   * @brief Display the maze
   *
   * @param maze the displayed maze
-  * @param d the dimensions of the maze
   */
  void displayMaze(Maze maze);
 
  /**
-  * @brief Generate a perfect maze from an initialized one. Variable number of args.
+  * @brief Generate a perfect maze from an initialized one
   *
   * @param maze the maze that will be transformed.
-  * @param an int param when the function is executed with recursivity
+  */
+ void generateMaze(Maze *maze);
+
+ /**
+  * @brief The process of one generation step
+  *
+  * @param maze the maze that will be transformed.
+  * @param nb_broken the number of broken walls
   * @return 0 if the generation is not finished yet.
   */
- int generateMaze(Maze *maze,int *nb_broken);
+ int processMazeGeneration(Maze *maze,int *nb_broken);
 
  /**
   * @brief Test if the generation is finished
   *
   * @param maze the displayed maze
+  * @param nb_broken the number of broken walls
   * @return an int at 1 if it's finished, otherwise at 0
+  * @todo improve the if conditions
   */
  int generation_end(Maze maze,int nb_broken);
 
@@ -136,6 +143,7 @@
   *
   * @param maze the maze that will be transformed.
   * @param pos the position of the current cell
+  * @todo improve the if conditions
   */
  void fill_id(Maze *maze, Position pos);
 
