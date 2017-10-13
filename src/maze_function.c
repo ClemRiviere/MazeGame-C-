@@ -130,6 +130,9 @@ void generateMaze(Maze *maze){
     do{
       res = processMazeGeneration(maze,&nb_broken);
     }while(res == 0);
+    /* Entrance and exit cells */
+    maze->grid[1][0] = maze->grid[1][1];
+    maze->grid[maze->d.row-2][maze->d.col-1] = maze->grid[1][1];
 }
 
 int processMazeGeneration(Maze *maze, int *nb_broken){

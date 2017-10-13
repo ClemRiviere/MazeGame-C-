@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['position',['Position',['../structPosition.html',1,'']]],
-  ['processmazegeneration',['processMazeGeneration',['../maze__function_8c.html#a439a6cd6b5ad5dc8322e81f2328118bd',1,'processMazeGeneration(Maze *maze, int *nb_broken):&#160;maze_function.c'],['../maze__function_8h.html#a439a6cd6b5ad5dc8322e81f2328118bd',1,'processMazeGeneration(Maze *maze, int *nb_broken):&#160;maze_function.c']]]
+  ['n_5fwalls',['n_walls',['../structMaze.html#a4543355b629a66bd0b04ec4078594482',1,'Maze']]]
 ];

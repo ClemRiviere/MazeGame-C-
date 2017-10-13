@@ -1,0 +1,5 @@
+<map id="include/menu.h" name="include/menu.h">
+<area shape="rect" id="node2" href="$main_8h.html" title="The main function of the mazeGame program. " alt="" coords="5,80,112,107"/>
+<area shape="rect" id="node4" href="$menu_8c.html" title="The mazeGame menu fonctions. " alt="" coords="137,80,223,107"/>
+<area shape="rect" id="node3" href="$main_8c.html" title="The main function of the maze generator program. First version of the program, only create the maze..." alt="" coords="17,155,100,181"/>
+</map>

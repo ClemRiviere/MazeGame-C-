@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>mazeGame: src/main.c File Reference</title>
+<title>mazeGame: include/menu.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -81,64 +81,58 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">main.c File Reference</div>  </div>
+<div class="title">menu.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>The main function of the maze generator program. First version of the program, only create the maze, initialize the walls, and display. There is no generation of maze for the moment, it's just a tab.  
+<p>All the mazeGame menu fonctions.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="main_8h_source.html">../include/main.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;ncurses.h&gt;</code><br />
+<code>#include &lt;sys/ioctl.h&gt;</code><br />
+<code>#include &lt;locale.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for main.c:</div>
+Include dependency graph for menu.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="main_8c__incl.png" border="0" usemap="#src_2main_8c" alt=""/></div>
-<map name="src_2main_8c" id="src_2main_8c">
-<area shape="rect" id="node2" href="main_8h.html" title="The main function of the mazeGame program. " alt="" coords="217,80,335,107"/>
-<area shape="rect" id="node5" href="maze__function_8h.html" title="All the functions needed to interact with the maze for the maze generator program. " alt="" coords="38,155,213,181"/>
-<area shape="rect" id="node8" href="menu_8h.html" title="All the mazeGame menu fonctions. " alt="" coords="339,155,461,181"/>
+<div class="center"><img src="menu_8h__incl.png" border="0" usemap="#include_2menu_8h" alt=""/></div>
+<map name="include_2menu_8h" id="include_2menu_8h">
 </map>
 </div>
-</div><table class="memberdecls">
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="menu_8h__dep__incl.png" border="0" usemap="#include_2menu_8hdep" alt=""/></div>
+<map name="include_2menu_8hdep" id="include_2menu_8hdep">
+<area shape="rect" id="node2" href="main_8h.html" title="The main function of the mazeGame program. " alt="" coords="5,80,112,107"/>
+<area shape="rect" id="node4" href="menu_8c.html" title="The mazeGame menu fonctions. " alt="" coords="137,80,223,107"/>
+<area shape="rect" id="node3" href="main_8c.html" title="The main function of the maze generator program. First version of the program, only create the maze..." alt="" coords="17,155,100,181"/>
+</map>
+</div>
+</div>
+<p><a href="menu_8h_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a840291bc02cba5474a4cb46a9b9566fe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main</a> (void)</td></tr>
-<tr class="memdesc:a840291bc02cba5474a4cb46a9b9566fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">The main function of the program Gets the dimensions of the maze Creates the maze Initializes the maze with walls Displays the maze Destroys the maze.  <a href="#a840291bc02cba5474a4cb46a9b9566fe">More...</a><br /></td></tr>
-<tr class="separator:a840291bc02cba5474a4cb46a9b9566fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae416b423fdaa1973cce5ef887bd6a0d5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae416b423fdaa1973cce5ef887bd6a0d5"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8h.html#ae416b423fdaa1973cce5ef887bd6a0d5">launchMenu</a> ()</td></tr>
+<tr class="memdesc:ae416b423fdaa1973cce5ef887bd6a0d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Launch the game menu. <br /></td></tr>
+<tr class="separator:ae416b423fdaa1973cce5ef887bd6a0d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The main function of the maze generator program. First version of the program, only create the maze, initialize the walls, and display. There is no generation of maze for the moment, it's just a tab. </p>
+<div class="textblock"><p>All the mazeGame menu fonctions. </p>
 <dl class="section author"><dt>Author</dt><dd>Clément Rivière <a href="#" onclick="location.href='mai'+'lto:'+'cri'+'vi'+'ere'+'@e'+'col'+'e.'+'ens'+'ic'+'aen'+'.f'+'r'; return false;">crivi<span style="display: none;">.nosp@m.</span>ere@<span style="display: none;">.nosp@m.</span>ecole<span style="display: none;">.nosp@m.</span>.ens<span style="display: none;">.nosp@m.</span>icaen<span style="display: none;">.nosp@m.</span>.fr</a> </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>1.0.1 - 12-10-2017</dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>nothing to do for the moment. </dd></dl>
-<dl class="bug"><dt><b><a class="el" href="bug.html#_bug000001">Bug:</a></b></dt><dd>no known bug for the moment. </dd></dl>
-</div><h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a840291bc02cba5474a4cb46a9b9566fe"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int main </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>The main function of the program Gets the dimensions of the maze Creates the maze Initializes the maze with walls Displays the maze Destroys the maze. </p>
-<dl class="section return"><dt>Returns</dt><dd>0 if the program have been well executed </dd></dl>
-
-</div>
-</div>
-</div><!-- contents -->
+<dl class="section version"><dt>Version</dt><dd>1.0.0 - 12-10-2017</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000009">Todo:</a></b></dt><dd>nothing to do for the moment. </dd></dl>
+<dl class="bug"><dt><b><a class="el" href="bug.html#_bug000006">Bug:</a></b></dt><dd>no known bug for the moment. </dd></dl>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

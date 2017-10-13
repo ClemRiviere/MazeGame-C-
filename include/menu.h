@@ -17,31 +17,25 @@
  * @bug no known bug for the moment.
  */
 
-#ifndef __MAIN_H
-#define __MAIN_H
+#ifndef __MENU_H
+#define __MENU_H
 
 
 /**
- * @file main.h
+ * @file menu.h
  *
- * @brief The main function of the mazeGame program.
+ * @brief All the mazeGame menu fonctions.
  */
 
  #include <stdio.h>
  #include <stdlib.h>
- #include "../include/maze_function.h"
- #include "../include/menu.h"
+ #include <ncurses.h>
+ #include <sys/ioctl.h>
+ #include <locale.h>
 
  /**
-  * @brief The main function of the program
-  * Gets the dimensions of the maze
-  * Creates the maze
-  * Initializes the maze with walls
-  * Displays the maze
-  * Destroys the maze
-  * @return 0 if the program have been well executed
+  * @brief Launch the game menu.
   */
- int main(void);
+ void launchMenu();
 
-
-#endif
+ #endif

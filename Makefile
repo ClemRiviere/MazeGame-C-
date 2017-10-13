@@ -15,6 +15,7 @@ RM = rm
 RMFLAGS = -rf
 CPPFLAGS = -Wall -Wextra
 CCFLAGS = -ansi
+LDFLAGS = -lncursesw
 
 # All directories of files.
 INCLUDE_DIR = ./include
@@ -37,12 +38,13 @@ OBJECTS  := $(SOURCES:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 all: createObjectTree $(APP)
 
 $(APP): $(OBJECTS)
-	$(CC) $(LDFLAGS) $^ -o $(BIN_DIR)/$@
+	$(CC) $^ $(LDFLAGS) -o $(BIN_DIR)/$@
 
 createObjectTree:
 	mkdir -p $(OBJ_DIR)
 
 main.o: maze_function.h
+main.o: menu.h
 
 $(OBJECTS): $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(INCLUDE_DIR)/%.h
 	$(CC) $(CPPFLAGS) $(CCFLAGS) -c -I $(INCLUDE_DIR) -o $@ $<

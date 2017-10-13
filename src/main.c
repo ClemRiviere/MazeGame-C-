@@ -28,13 +28,14 @@
 #include "../include/main.h"
 
 int main(void){
-    Dimensions dim;
+    /*Dimensions dim;
     Maze maze;
     getDimensions(&dim);
     maze = createMaze(dim);
     initMaze(&maze);
     generateMaze(&maze);
     displayMaze(maze);
-    destroyMaze(&maze);
+    destroyMaze(&maze);*/
+    launchMenu();
     return 0;
 }
