@@ -11,7 +11,7 @@
 
 /**
  * @author Clément Rivière <criviere@ecole.ensicaen.fr>
- * @version     1.0.1 - 12-10-2017
+ * @version     1.0.2 - 16-10-2017
  *
  * @todo nothing to do for the moment.
  * @bug no known bug for the moment.
@@ -36,6 +36,8 @@ int main(void){
     generateMaze(&maze);
     displayMaze(maze);
     destroyMaze(&maze);*/
-    launchMenu();
+    Display display;
+    initDisplay(&display);
+    launchMenu(display);
     return 0;
 }

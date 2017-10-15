@@ -11,7 +11,7 @@
 
 /**
  * @author Clément Rivière <criviere@ecole.ensicaen.fr>
- * @version     1.0.1 - 12-10-2017
+ * @version     1.0.2 - 16-10-2017
  *
  * @todo nothing to do for the moment.
  * @bug no known bug for the moment.
@@ -26,11 +26,14 @@
  #include "../include/maze_function.h"
 
 
- void getDimensions(Dimensions *d){
-     printf ("Entrez le nombre de lignes de votre labyrinthe : ");
-     scanf("%d",&d->row);
-     printf ("Entrez le nombre de colonnes de votre labyrinthe : ");
-     scanf("%d",&d->col);
+ void getDimensions(Display display, Dimensions *d){
+     clearDisplay(display);
+     printTitle(display);
+     echo();
+     printMessage(display,"Entrez le nombre de lignes de votre labyrinthe : ");
+     getIntInput(display,&d->row);
+     printMessage(display,"Entrez le nombre de colonnes de votre labyrinthe : ");
+     getIntInput(display,&d->col);
  }
 
 
@@ -100,7 +103,7 @@
  }
 
 
- void displayMaze(Maze maze){
+ void displayMaze(Display display,Maze maze){
      int i,j;
      int cpt = 0;
      for (i=0;i<maze.d.row;i++){

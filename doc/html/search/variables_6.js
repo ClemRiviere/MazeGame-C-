@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['x',['x',['../structPosition.html#aeda152ffeee17ae5be9c02327b2408d8',1,'Position']]]
+  ['secondary_5fwindow',['secondary_window',['../structDisplay.html#aef210bdcd040f133db6f243734d4350b',1,'Display']]]
 ];

@@ -11,7 +11,7 @@
 
 /**
  * @author Clément Rivière <criviere@ecole.ensicaen.fr>
- * @version     1.0.0 - 12-10-2017
+ * @version     1.0.1 - 16-10-2017
  *
  * @todo nothing to do for the moment.
  * @bug no known bug for the moment.
@@ -30,12 +30,20 @@
  #include <stdio.h>
  #include <stdlib.h>
  #include <ncurses.h>
- #include <sys/ioctl.h>
- #include <locale.h>
+
+ #include "../include/maze_function.h"
+ #include "../include/display.h"
 
  /**
   * @brief Launch the game menu.
+  * @param display the ncurses display.
   */
- void launchMenu();
+ void launchMenu(Display display);
+
+ /**
+  * @brief Launch the creation of a new maze.
+  * @param display the ncurses display.
+  */
+ void create(Display display);
 
  #endif

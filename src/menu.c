@@ -11,7 +11,7 @@
 
 /**
  * @author Clément Rivière <criviere@ecole.ensicaen.fr>
- * @version     1.0.0 - 12-10-2017
+ * @version     1.0.1 - 16-10-2017
  *
  * @todo nothing to do for the moment.
  * @bug no known bug for the moment.
@@ -25,35 +25,23 @@
 
 #include "../include/menu.h"
 
- void launchMenu(){
+ void create(Display display){
+   Dimensions dim;
+   Maze maze;
+   getDimensions(display,&dim);
+   finishDisplay(display);
+   printf("ROW : %d | COL : %d\n",dim.row,dim.col);
+   /*maze = createMaze(dim);
+   initMaze(&maze);
+   generateMaze(&maze);
+   displayMaze(display,maze);*/
+ }
+
+ void launchMenu(Display display){
    int ch_keyboard;
    int i;
+   int enter;
    char str_desc[50];
-
-   /* Get the terminal dimensions */
-   struct winsize terminal_size;
-   ioctl(0, TIOCGWINSZ, &terminal_size);
-
-   WINDOW *main_window;
-   WINDOW *secondary_window;
-
-   /* Necessary to print utf-8 chars */
-   setlocale(LC_ALL, "");
-   /* Initialize ncurses */
-   initscr();
-
-   /* Create windows from terminal size */
-   main_window = newwin(terminal_size.ws_row-5,terminal_size.ws_col-2,1,1);
-   box(main_window,0,0);
-   secondary_window = newwin(3,terminal_size.ws_col-2,terminal_size.ws_row-4,1);
-   box(secondary_window,0,0);
-
-   char * ascii_title[6] = {"███╗   ███╗ █████╗ ███████╗███████╗ ██████╗  █████╗ ███╗   ███╗███████╗",
-                            "████╗ ████║██╔══██╗╚══███╔╝██╔════╝██╔════╝ ██╔══██╗████╗ ████║██╔════╝",
-                            "██╔████╔██║███████║  ███╔╝ █████╗  ██║  ███╗███████║██╔████╔██║█████╗  ",
-                            "██║╚██╔╝██║██╔══██║ ███╔╝  ██╔══╝  ██║   ██║██╔══██║██║╚██╔╝██║██╔══╝  ",
-                            "██║ ╚═╝ ██║██║  ██║███████╗███████╗╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗",
-                            "╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝"};
 
    char * list[4][2] = {
                         {"--   Charger   --","Charger un labyrinthe à partir d'un fichier."},
@@ -62,34 +50,28 @@
                         {"--   Quitter   --","Quitter l'application."}
                       };
 
-   for (i=0;i<6;i++){
-     /* Displays the ascii_art */
-     mvwprintw(main_window, i+6, (terminal_size.ws_col-71)/2, "%s", ascii_title[i]);
-     /* Displays the options */
-     if (i<4){
-       /* highlights the first item */
-       if (i==0){
-         wattron(main_window,A_STANDOUT);
-         mvwprintw(secondary_window, 1, 2, "%s", list[i][1]);
-       }
-       /* i * 2 (blank between two rows) + 6 (top margin) + 6 (size of the ascii art) + 10 (blank between ascii and menu)*/
-       mvwprintw(main_window, ((i*2)+6+6+10), (terminal_size.ws_col-17)/2, "%s", list[i][0]);
-       wattroff(main_window,A_STANDOUT);
+   printTitle(display);
+   for (i=0;i<4;i++){
+     if (i==0){
+       wattron(display.main_window,A_STANDOUT);
+       mvwprintw(display.secondary_window, 1, 2, "%s", list[i][1]);
      }
+     mvwprintw(display.main_window, ((i*2)+6+6+10), (display.terminal_size.ws_col-17)/2, "%s", list[i][0]);
+     wattroff(display.main_window,A_STANDOUT);
    }
 
-   wrefresh(main_window); /* update the terminal screen */
-   wrefresh(secondary_window);
+   refreshDisplay(display);
 
    noecho(); /* disable echoing of characters on the screen (user entry)*/
-   keypad(main_window, TRUE ); /* enable keyboard input for the window. */
+   keypad(display.main_window, TRUE ); /* enable keyboard input for the window. */
    curs_set(0); /* hide the default screen cursor. */
 
    i = 0;
+   enter = 0;
 
-   while((ch_keyboard=wgetch(main_window))!='q'){
+   while(enter == 0 && (ch_keyboard=wgetch(display.main_window))!='q'){
      /* When a key is pushed, we delete the highlight */
-     mvwprintw(main_window,((i*2)+6+6+10), (terminal_size.ws_col-17)/2, "%s", list[i][0]);
+     mvwprintw(display.main_window,((i*2)+6+6+10), (display.terminal_size.ws_col-17)/2, "%s", list[i][0]);
      /* If it's key_up or key_down, we are changing the value of selected menus */
      switch(ch_keyboard){
        case KEY_UP:
@@ -100,20 +82,35 @@
           i++;
           i = ( i>3 ) ? 0 : i;
           break;
+       case 10:
+          enter = 1;
+          break;
      }
      /* We highlights the selected menu (same then before if it was another key than up or down) */
-     wattron(main_window, A_STANDOUT);
-     mvwprintw(main_window, ((i*2)+6+6+10), (terminal_size.ws_col-17)/2, "%s", list[i][0]);
-     wattroff(main_window, A_STANDOUT);
+     wattron(display.main_window, A_STANDOUT);
+     mvwprintw(display.main_window, ((i*2)+6+6+10), (display.terminal_size.ws_col-17)/2, "%s", list[i][0]);
+     wattroff(display.main_window, A_STANDOUT);
 
      /* Displays the description in the little window */
      sprintf(str_desc, "%-50s",  list[i][1]);
-     mvwprintw(secondary_window, 1, 2, "%s", str_desc);
-     wrefresh(secondary_window);
+     printMessage(display,str_desc);
    }
 
-   delwin(main_window); /* delete the window */
-   delwin(secondary_window);
-   endwin(); /* ending the display */
-
+   switch (i){
+     case 0:
+        printf("Charger");
+        finishDisplay(display);
+        break;
+     case 1:
+        create(display);
+        break;
+     case 2:
+        printf("Jouer");
+        finishDisplay(display);
+        break;
+     case 3:
+        printf("Quitter");
+        finishDisplay(display);
+        break;
+   }
  }

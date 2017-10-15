@@ -1,4 +1,5 @@
 <map id="include/main.h" name="include/main.h">
-<area shape="rect" id="node4" href="$maze__function_8h.html" title="All the functions needed to interact with the maze for the maze generator program. " alt="" coords="38,80,213,107"/>
-<area shape="rect" id="node7" href="$menu_8h.html" title="All the mazeGame menu fonctions. " alt="" coords="339,80,461,107"/>
+<area shape="rect" id="node4" href="$maze__function_8h.html" title="All the functions needed to interact with the maze for the maze generator program. " alt="" coords="151,155,326,181"/>
+<area shape="rect" id="node8" href="$display_8h.html" title="All the functions needed to display ncurses windows on the screen. " alt="" coords="401,229,532,256"/>
+<area shape="rect" id="node11" href="$menu_8h.html" title="All the mazeGame menu fonctions. " alt="" coords="289,80,412,107"/>
 </map>

@@ -11,7 +11,7 @@
 
 /**
  * @author Clément Rivière <criviere@ecole.ensicaen.fr>
- * @version     1.0.1 - 12-10-2017
+ * @version     1.0.2 - 16-10-2017
  *
  * @todo nothing to do for the moment.
  * @bug no known bug for the moment.
@@ -31,6 +31,9 @@
  #include <stdlib.h>
  #include <time.h>
  #include <stdarg.h>
+ #include <ncurses.h>
+
+ #include "../include/display.h"
 
  /* Define the id of walls to 0. */
  #define WALL 0
@@ -73,7 +76,7 @@
   * @param d a pointer on the dimension struct of the maze.
   * @todo adding controls on entries
   */
- void getDimensions(Dimensions *d);
+ void getDimensions(Display display, Dimensions *d);
 
  /**
   * @brief Allocate memory for the maze row*col int tab.
@@ -102,7 +105,7 @@
   *
   * @param maze the displayed maze
   */
- void displayMaze(Maze maze);
+ void displayMaze(Display display,Maze maze);
 
  /**
   * @brief Generate a perfect maze from an initialized one

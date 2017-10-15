@@ -1,0 +1,7 @@
+- Continuer de séparer menu et tout en fonctions
+- Finir le getDimensions :
+  - Ajouter des contrôles de saisie
+- Faire le displayMaze
+- Faire l'enregistrement et le chargement
+- Supprimer tout les commentaires qui ne servent plus a rien dans les .c
+- Faire un truc pour petit écran (ou redimensionner terminal minimum)
