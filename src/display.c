@@ -111,9 +111,9 @@
  void displayMaze(Display display){
      int i,j;
      int cpt = 0;
-     for (i=0;i<display.maze->d.row;i++){
-         for (j=0;j<display.maze->d.col;j++){
-             if (display.maze->grid[i][j]==WALL){
+     for (i=0;i<display.maze.d.row;i++){
+         for (j=0;j<display.maze.d.col;j++){
+             if (display.maze.grid[i][j]==WALL){
                  printMain(display,i+1,(j+1)*2,"██");
                  /*printf("#");*/
              }
@@ -171,8 +171,4 @@
    delwin(display.main_window); /* delete the window */
    delwin(display.secondary_window);
    endwin(); /* ending the display */
- }
-
- void loadMaze(Display *display,Maze *maze){
-   display->maze = maze;
  }

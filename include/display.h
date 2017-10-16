@@ -43,7 +43,7 @@
    WINDOW *main_window;           /**< The main window */
    WINDOW *secondary_window;      /**< The secondary_window */
    struct winsize terminal_size;  /**< The size of the terminal */
-   Maze *maze;
+   Maze maze;
  } Display;
 
  /**
@@ -134,12 +134,5 @@
   * @param display the display that needs to be ended.
   */
  void finishDisplay(Display display);
-
- /**
-  * @brief Load a maze into the display struct.
-  * @param display the display that needs to be modified.
-  * @param maze the loaded maze.
-  */
- void loadMaze(Display *display,Maze *maze);
 
 #endif

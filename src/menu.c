@@ -30,15 +30,13 @@
    int ch_keyboard;*/
    char nom[25];
    Dimensions dim;
-   Maze maze;
    getDimensions(display,&dim);
-   maze = createMaze(dim);
-   initMaze(&maze);
-   generateMaze(&maze);
-   loadMaze(&display,&maze);
+   display.maze = createMaze(dim);
+   initMaze(&display.maze);
+   generateMaze(&display.maze);
    clearDisplay(display);
    displayMaze(display);
-   printMessage(display,"Entrez un nom pour votre labyrinthe (24): ");
+   printMessage(display,"Entrez un nom pour votre labyrinthe (/24): ");
    getStringInput(display,"%24[^\n]",nom);
    /*while(enter == 0 && (ch_keyboard=wgetch(display.main_window))!='q'){
      switch(ch_keyboard){
