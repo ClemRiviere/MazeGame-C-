@@ -33,8 +33,6 @@
  #include <stdarg.h>
  #include <ncurses.h>
 
- #include "../include/display.h"
-
  /* Define the id of walls to 0. */
  #define WALL 0
 
@@ -71,14 +69,6 @@
  } Maze;
 
  /**
-  * @brief Request the dimensions of the maze.
-  *
-  * @param d a pointer on the dimension struct of the maze.
-  * @todo adding controls on entries
-  */
- void getDimensions(Display display, Dimensions *d);
-
- /**
   * @brief Allocate memory for the maze row*col int tab.
   *
   * @param d the dimensions of the maze.
@@ -99,13 +89,6 @@
   * @param maze the maze tab that needs to bee initialized
   */
  void initMaze(Maze *maze);
-
- /**
-  * @brief Display the maze
-  *
-  * @param maze the displayed maze
-  */
- void displayMaze(Display display,Maze maze);
 
  /**
   * @brief Generate a perfect maze from an initialized one

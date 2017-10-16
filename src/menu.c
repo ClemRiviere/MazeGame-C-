@@ -26,15 +26,39 @@
 #include "../include/menu.h"
 
  void create(Display display){
+   /*int enter = 0;
+   int ch_keyboard;*/
+   char nom[25];
    Dimensions dim;
    Maze maze;
    getDimensions(display,&dim);
-   finishDisplay(display);
-   printf("ROW : %d | COL : %d\n",dim.row,dim.col);
-   /*maze = createMaze(dim);
+   maze = createMaze(dim);
    initMaze(&maze);
    generateMaze(&maze);
-   displayMaze(display,maze);*/
+   loadMaze(&display,&maze);
+   clearDisplay(display);
+   displayMaze(display);
+   printMessage(display,"Entrez un nom pour votre labyrinthe (24): ");
+   getStringInput(display,"%24[^\n]",nom);
+   /*while(enter == 0 && (ch_keyboard=wgetch(display.main_window))!='q'){
+     switch(ch_keyboard){
+       case 10:
+          enter = 1;
+          break;
+     }
+   }*/
+   finishDisplay(display);
+   printf("%s",nom);
+ }
+
+
+ int getPosX(int row,int i){
+   int res;
+   res = ((i*2)+6+6+10);
+   if (row < 40){
+     res = ((i*2)+5);
+   }
+   return res;
  }
 
  void launchMenu(Display display){
@@ -53,11 +77,11 @@
    printTitle(display);
    for (i=0;i<4;i++){
      if (i==0){
-       wattron(display.main_window,A_STANDOUT);
-       mvwprintw(display.secondary_window, 1, 2, "%s", list[i][1]);
+       activateHighlight(display);
+       printMessage(display,list[i][1]);
      }
-     mvwprintw(display.main_window, ((i*2)+6+6+10), (display.terminal_size.ws_col-17)/2, "%s", list[i][0]);
-     wattroff(display.main_window,A_STANDOUT);
+     printMain(display,getPosX(display.terminal_size.ws_row,i),(display.terminal_size.ws_col-17)/2,list[i][0]);
+     stopHighlight(display);
    }
 
    refreshDisplay(display);
@@ -71,7 +95,7 @@
 
    while(enter == 0 && (ch_keyboard=wgetch(display.main_window))!='q'){
      /* When a key is pushed, we delete the highlight */
-     mvwprintw(display.main_window,((i*2)+6+6+10), (display.terminal_size.ws_col-17)/2, "%s", list[i][0]);
+     printMain(display,getPosX(display.terminal_size.ws_row,i),(display.terminal_size.ws_col-17)/2,list[i][0]);
      /* If it's key_up or key_down, we are changing the value of selected menus */
      switch(ch_keyboard){
        case KEY_UP:
@@ -87,9 +111,9 @@
           break;
      }
      /* We highlights the selected menu (same then before if it was another key than up or down) */
-     wattron(display.main_window, A_STANDOUT);
-     mvwprintw(display.main_window, ((i*2)+6+6+10), (display.terminal_size.ws_col-17)/2, "%s", list[i][0]);
-     wattroff(display.main_window, A_STANDOUT);
+     activateHighlight(display);
+     printMain(display,getPosX(display.terminal_size.ws_row,i),(display.terminal_size.ws_col-17)/2,list[i][0]);
+     stopHighlight(display);
 
      /* Displays the description in the little window */
      sprintf(str_desc, "%-50s",  list[i][1]);

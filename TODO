@@ -4,4 +4,5 @@
 - Faire le displayMaze
 - Faire l'enregistrement et le chargement
 - Supprimer tout les commentaires qui ne servent plus a rien dans les .c
-- Faire un truc pour petit écran (ou redimensionner terminal minimum)
+- Faire un truc pour petit écran (ou redimensionner terminal minimum), ou ne pas lancer le programme pour term trop petit
+- Passer des valeurs chiffrés en constantes

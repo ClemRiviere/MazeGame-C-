@@ -45,6 +45,11 @@ createObjectTree:
 
 main.o: maze_function.h
 main.o: menu.h
+main.o: display.h
+
+display.o: maze_function.h
+
+menu.o: display.h
 
 $(OBJECTS): $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(INCLUDE_DIR)/%.h
 	$(CC) $(CPPFLAGS) $(CCFLAGS) -c -I $(INCLUDE_DIR) -o $@ $<
@@ -72,4 +77,3 @@ doxysetup:
 
 doc: doxysetup createObjectTree $(APP)
 	-doxygen $(DOC_DIR)/$(DOXYFILE)
-

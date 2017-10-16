@@ -100,16 +100,12 @@ Include dependency graph for maze_function.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="maze__function_8c__incl.png" border="0" usemap="#src_2maze__function_8c" alt=""/></div>
 <map name="src_2maze__function_8c" id="src_2maze__function_8c">
-<area shape="rect" id="node2" href="maze__function_8h.html" title="All the functions needed to interact with the maze for the maze generator program. " alt="" coords="182,80,357,107"/>
-<area shape="rect" id="node8" href="display_8h.html" title="All the functions needed to display ncurses windows on the screen. " alt="" coords="153,155,284,181"/>
+<area shape="rect" id="node2" href="maze__function_8h.html" title="All the functions needed to interact with the maze for the maze generator program. " alt="" coords="121,80,295,107"/>
 </map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ac7f27e6bef262c3aeac9cafd067ed7f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="maze__function_8c.html#ac7f27e6bef262c3aeac9cafd067ed7f2">getDimensions</a> (<a class="el" href="structDisplay.html">Display</a> display, <a class="el" href="structDimensions.html">Dimensions</a> *d)</td></tr>
-<tr class="memdesc:ac7f27e6bef262c3aeac9cafd067ed7f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Request the dimensions of the maze.  <a href="#ac7f27e6bef262c3aeac9cafd067ed7f2">More...</a><br /></td></tr>
-<tr class="separator:ac7f27e6bef262c3aeac9cafd067ed7f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad909618509d9ac8a660215e68a6dc512"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structMaze.html">Maze</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="maze__function_8c.html#ad909618509d9ac8a660215e68a6dc512">createMaze</a> (<a class="el" href="structDimensions.html">Dimensions</a> d)</td></tr>
 <tr class="memdesc:ad909618509d9ac8a660215e68a6dc512"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocate memory for the maze row*col int tab.  <a href="#ad909618509d9ac8a660215e68a6dc512">More...</a><br /></td></tr>
 <tr class="separator:ad909618509d9ac8a660215e68a6dc512"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -119,9 +115,6 @@ Functions</h2></td></tr>
 <tr class="memitem:a42d287e9a15f79274ea7bdc3068630de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="maze__function_8c.html#a42d287e9a15f79274ea7bdc3068630de">initMaze</a> (<a class="el" href="structMaze.html">Maze</a> *maze)</td></tr>
 <tr class="memdesc:a42d287e9a15f79274ea7bdc3068630de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inititalize the maze : set the WALL and BLANK case.  <a href="#a42d287e9a15f79274ea7bdc3068630de">More...</a><br /></td></tr>
 <tr class="separator:a42d287e9a15f79274ea7bdc3068630de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4a3100cc06c43efe4989d00d9487670"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="maze__function_8c.html#ae4a3100cc06c43efe4989d00d9487670">displayMaze</a> (<a class="el" href="structDisplay.html">Display</a> display, <a class="el" href="structMaze.html">Maze</a> maze)</td></tr>
-<tr class="memdesc:ae4a3100cc06c43efe4989d00d9487670"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structDisplay.html" title="The ncurses display. ">Display</a> the maze.  <a href="#ae4a3100cc06c43efe4989d00d9487670">More...</a><br /></td></tr>
-<tr class="separator:ae4a3100cc06c43efe4989d00d9487670"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:accc3af5d8ff8deed2c228076e92a13b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="maze__function_8c.html#accc3af5d8ff8deed2c228076e92a13b3">generateMaze</a> (<a class="el" href="structMaze.html">Maze</a> *maze)</td></tr>
 <tr class="memdesc:accc3af5d8ff8deed2c228076e92a13b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a perfect maze from an initialized one.  <a href="#accc3af5d8ff8deed2c228076e92a13b3">More...</a><br /></td></tr>
 <tr class="separator:accc3af5d8ff8deed2c228076e92a13b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -231,40 +224,6 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ae4a3100cc06c43efe4989d00d9487670"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void displayMaze </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structDisplay.html">Display</a>&#160;</td>
-          <td class="paramname"><em>display</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structMaze.html">Maze</a>&#160;</td>
-          <td class="paramname"><em>maze</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p><a class="el" href="structDisplay.html" title="The ncurses display. ">Display</a> the maze. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">maze</td><td>the displayed maze </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a class="anchor" id="abaf7ba1d54b57d16e2f4b8864f7c0386"></a>
 <div class="memitem">
 <div class="memproto">
@@ -359,41 +318,6 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>an int at 1 if it's finished, otherwise at 0 </dd></dl>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000009">Todo:</a></b></dt><dd>improve the if conditions </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ac7f27e6bef262c3aeac9cafd067ed7f2"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void getDimensions </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structDisplay.html">Display</a>&#160;</td>
-          <td class="paramname"><em>display</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structDimensions.html">Dimensions</a> *&#160;</td>
-          <td class="paramname"><em>d</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Request the dimensions of the maze. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">d</td><td>a pointer on the dimension struct of the maze. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000008">Todo:</a></b></dt><dd>adding controls on entries </dd></dl>
 
 </div>
 </div>

@@ -100,11 +100,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &lt;sys/ioctl.h&gt;</code><br />
 <code>#include &lt;locale.h&gt;</code><br />
 <code>#include &lt;ncurses.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="maze__function_8h_source.html">../include/maze_function.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for display.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="display_8h__incl.png" border="0" usemap="#include_2display_8h" alt=""/></div>
 <map name="include_2display_8h" id="include_2display_8h">
+<area shape="rect" id="node7" href="maze__function_8h.html" title="All the functions needed to interact with the maze for the maze generator program. " alt="" coords="143,80,318,107"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -113,12 +115,10 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="center"><img src="display_8h__dep__incl.png" border="0" usemap="#include_2display_8hdep" alt=""/></div>
 <map name="include_2display_8hdep" id="include_2display_8hdep">
 <area shape="rect" id="node2" href="display_8c.html" title="The mazeGame display functions. " alt="" coords="5,80,101,107"/>
-<area shape="rect" id="node3" href="maze__function_8h.html" title="All the functions needed to interact with the maze for the maze generator program. " alt="" coords="193,80,356,107"/>
-<area shape="rect" id="node4" href="main_8h.html" title="The main function of the mazeGame program. " alt="" coords="287,229,393,256"/>
-<area shape="rect" id="node6" href="menu_8h.html" title="All the mazeGame menu fonctions. " alt="" coords="393,155,503,181"/>
-<area shape="rect" id="node8" href="maze__function_8c.html" title="The maze functions for the maze generator program. " alt="" coords="177,155,317,181"/>
-<area shape="rect" id="node5" href="main_8c.html" title="The main function of the maze generator program. First version of the program, only create the maze..." alt="" coords="299,304,381,331"/>
-<area shape="rect" id="node7" href="menu_8c.html" title="The mazeGame menu fonctions. " alt="" coords="418,229,505,256"/>
+<area shape="rect" id="node3" href="main_8h.html" title="The main function of the mazeGame program. " alt="" coords="85,155,192,181"/>
+<area shape="rect" id="node5" href="menu_8h.html" title="All the mazeGame menu fonctions. " alt="" coords="177,80,287,107"/>
+<area shape="rect" id="node4" href="main_8c.html" title="The main function of the maze generator program. First version of the program, only create the maze..." alt="" coords="97,229,180,256"/>
+<area shape="rect" id="node6" href="menu_8c.html" title="The mazeGame menu fonctions. " alt="" coords="217,155,303,181"/>
 </map>
 </div>
 </div>
@@ -141,18 +141,39 @@ Functions</h2></td></tr>
 <tr class="memitem:ae2a83472e6237fa10e4f1ec513f624fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="display_8h.html#ae2a83472e6237fa10e4f1ec513f624fd">printTitle</a> (<a class="el" href="structDisplay.html">Display</a> display)</td></tr>
 <tr class="memdesc:ae2a83472e6237fa10e4f1ec513f624fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the ascii title in the main window.  <a href="#ae2a83472e6237fa10e4f1ec513f624fd">More...</a><br /></td></tr>
 <tr class="separator:ae2a83472e6237fa10e4f1ec513f624fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7f27e6bef262c3aeac9cafd067ed7f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="display_8h.html#ac7f27e6bef262c3aeac9cafd067ed7f2">getDimensions</a> (<a class="el" href="structDisplay.html">Display</a> display, <a class="el" href="structDimensions.html">Dimensions</a> *d)</td></tr>
+<tr class="memdesc:ac7f27e6bef262c3aeac9cafd067ed7f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Request the dimensions of the maze.  <a href="#ac7f27e6bef262c3aeac9cafd067ed7f2">More...</a><br /></td></tr>
+<tr class="separator:ac7f27e6bef262c3aeac9cafd067ed7f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a105e77b436819e95f2797ebba0ca9634"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="display_8h.html#a105e77b436819e95f2797ebba0ca9634">displayMaze</a> (<a class="el" href="structDisplay.html">Display</a> display)</td></tr>
+<tr class="memdesc:a105e77b436819e95f2797ebba0ca9634"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structDisplay.html" title="The ncurses display. ">Display</a> the maze.  <a href="#a105e77b436819e95f2797ebba0ca9634">More...</a><br /></td></tr>
+<tr class="separator:a105e77b436819e95f2797ebba0ca9634"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a300ab6daff3e0c5e6370b56b4fefd70f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="display_8h.html#a300ab6daff3e0c5e6370b56b4fefd70f">activateHighlight</a> (<a class="el" href="structDisplay.html">Display</a> display)</td></tr>
+<tr class="memdesc:a300ab6daff3e0c5e6370b56b4fefd70f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Activate the highlighting for the next printed element.  <a href="#a300ab6daff3e0c5e6370b56b4fefd70f">More...</a><br /></td></tr>
+<tr class="separator:a300ab6daff3e0c5e6370b56b4fefd70f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a517674315204f1607b6aad5a3e1b61ec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="display_8h.html#a517674315204f1607b6aad5a3e1b61ec">stopHighlight</a> (<a class="el" href="structDisplay.html">Display</a> display)</td></tr>
+<tr class="memdesc:a517674315204f1607b6aad5a3e1b61ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stoping the highlighting for the next printed element.  <a href="#a517674315204f1607b6aad5a3e1b61ec">More...</a><br /></td></tr>
+<tr class="separator:a517674315204f1607b6aad5a3e1b61ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e974b28dbce434f6afcc26f7ee1aae0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="display_8h.html#a1e974b28dbce434f6afcc26f7ee1aae0">refreshDisplay</a> (<a class="el" href="structDisplay.html">Display</a> display)</td></tr>
 <tr class="memdesc:a1e974b28dbce434f6afcc26f7ee1aae0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Refresh the ncurses display.  <a href="#a1e974b28dbce434f6afcc26f7ee1aae0">More...</a><br /></td></tr>
 <tr class="separator:a1e974b28dbce434f6afcc26f7ee1aae0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6dfeca8902a6f500884893cf1a8e80c6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="display_8h.html#a6dfeca8902a6f500884893cf1a8e80c6">printMain</a> (<a class="el" href="structDisplay.html">Display</a> display, int x, int y, char *text)</td></tr>
+<tr class="memdesc:a6dfeca8902a6f500884893cf1a8e80c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print a text in the main window at the selected position.  <a href="#a6dfeca8902a6f500884893cf1a8e80c6">More...</a><br /></td></tr>
+<tr class="separator:a6dfeca8902a6f500884893cf1a8e80c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a244b2ad1ee7207e6c41e268a15bcc9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="display_8h.html#a9a244b2ad1ee7207e6c41e268a15bcc9">printMessage</a> (<a class="el" href="structDisplay.html">Display</a> display, char *text)</td></tr>
 <tr class="memdesc:a9a244b2ad1ee7207e6c41e268a15bcc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a message in the second window.  <a href="#a9a244b2ad1ee7207e6c41e268a15bcc9">More...</a><br /></td></tr>
 <tr class="separator:a9a244b2ad1ee7207e6c41e268a15bcc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1bc2e9dd491b74e17aa97d6f6da5c3f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="display_8h.html#aa1bc2e9dd491b74e17aa97d6f6da5c3f">getIntInput</a> (<a class="el" href="structDisplay.html">Display</a> display, int *var)</td></tr>
 <tr class="memdesc:aa1bc2e9dd491b74e17aa97d6f6da5c3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get an int input from the display.  <a href="#aa1bc2e9dd491b74e17aa97d6f6da5c3f">More...</a><br /></td></tr>
 <tr class="separator:aa1bc2e9dd491b74e17aa97d6f6da5c3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac12a78ef9b27b0dc3ea9a2e2755a0c90"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="display_8h.html#ac12a78ef9b27b0dc3ea9a2e2755a0c90">getStringInput</a> (<a class="el" href="structDisplay.html">Display</a> display, char *pattern, char *var)</td></tr>
+<tr class="memdesc:ac12a78ef9b27b0dc3ea9a2e2755a0c90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a string input from the display.  <a href="#ac12a78ef9b27b0dc3ea9a2e2755a0c90">More...</a><br /></td></tr>
+<tr class="separator:ac12a78ef9b27b0dc3ea9a2e2755a0c90"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f97365d04df71b4438e38b51bb95dde"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="display_8h.html#a2f97365d04df71b4438e38b51bb95dde">finishDisplay</a> (<a class="el" href="structDisplay.html">Display</a> display)</td></tr>
 <tr class="memdesc:a2f97365d04df71b4438e38b51bb95dde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleting windows and ending the display.  <a href="#a2f97365d04df71b4438e38b51bb95dde">More...</a><br /></td></tr>
 <tr class="separator:a2f97365d04df71b4438e38b51bb95dde"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9dbdca5c3bd4917fb2bd2007aae56fb6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="display_8h.html#a9dbdca5c3bd4917fb2bd2007aae56fb6">loadMaze</a> (<a class="el" href="structDisplay.html">Display</a> *display, <a class="el" href="structMaze.html">Maze</a> *maze)</td></tr>
+<tr class="memdesc:a9dbdca5c3bd4917fb2bd2007aae56fb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load a maze into the display struct.  <a href="#a9dbdca5c3bd4917fb2bd2007aae56fb6">More...</a><br /></td></tr>
+<tr class="separator:a9dbdca5c3bd4917fb2bd2007aae56fb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>All the functions needed to display ncurses windows on the screen. </p>
@@ -161,6 +182,30 @@ Functions</h2></td></tr>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>nothing to do for the moment. </dd></dl>
 <dl class="bug"><dt><b><a class="el" href="bug.html#_bug000005">Bug:</a></b></dt><dd>no known bug for the moment. </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a300ab6daff3e0c5e6370b56b4fefd70f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void activateHighlight </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structDisplay.html">Display</a>&#160;</td>
+          <td class="paramname"><em>display</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Activate the highlighting for the next printed element. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">display</td><td>the display that needs to be modified. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="ad0de53b8cc3ac73f56203c8325dbe831"></a>
 <div class="memitem">
 <div class="memproto">
@@ -179,6 +224,30 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">display</td><td>the display that needs to be cleared. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a105e77b436819e95f2797ebba0ca9634"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void displayMaze </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structDisplay.html">Display</a>&#160;</td>
+          <td class="paramname"><em>display</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="structDisplay.html" title="The ncurses display. ">Display</a> the maze. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">display</td><td>the displayed display struct </td></tr>
   </table>
   </dd>
 </dl>
@@ -206,6 +275,42 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a class="anchor" id="ac7f27e6bef262c3aeac9cafd067ed7f2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void getDimensions </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structDisplay.html">Display</a>&#160;</td>
+          <td class="paramname"><em>display</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structDimensions.html">Dimensions</a> *&#160;</td>
+          <td class="paramname"><em>d</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Request the dimensions of the maze. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">display</td><td>the display in which we are displaying indications </td></tr>
+    <tr><td class="paramname">d</td><td>a pointer on the dimension struct of the maze. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>adding controls on entries </dd></dl>
 
 </div>
 </div>
@@ -244,6 +349,48 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ac12a78ef9b27b0dc3ea9a2e2755a0c90"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void getStringInput </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structDisplay.html">Display</a>&#160;</td>
+          <td class="paramname"><em>display</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>pattern</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>var</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get a string input from the display. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">display</td><td>the display in which the question is answered. </td></tr>
+    <tr><td class="paramname">pattern</td><td>the pattern of the answer </td></tr>
+    <tr><td class="paramname">var</td><td>a pointer of the target variable. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a8516965329ade4dde84a91a388603460"></a>
 <div class="memitem">
 <div class="memproto">
@@ -262,6 +409,90 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">display</td><td>the display that needs to be initialized. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a9dbdca5c3bd4917fb2bd2007aae56fb6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void loadMaze </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structDisplay.html">Display</a> *&#160;</td>
+          <td class="paramname"><em>display</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structMaze.html">Maze</a> *&#160;</td>
+          <td class="paramname"><em>maze</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Load a maze into the display struct. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">display</td><td>the display that needs to be modified. </td></tr>
+    <tr><td class="paramname">maze</td><td>the loaded maze. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a6dfeca8902a6f500884893cf1a8e80c6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void printMain </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structDisplay.html">Display</a>&#160;</td>
+          <td class="paramname"><em>display</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>text</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Print a text in the main window at the selected position. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">display</td><td>the display that needs to be printed </td></tr>
+    <tr><td class="paramname">x</td><td>the x position of the text </td></tr>
+    <tr><td class="paramname">y</td><td>the y position of the text </td></tr>
+    <tr><td class="paramname">text</td><td>the text the printed text. </td></tr>
   </table>
   </dd>
 </dl>
@@ -345,6 +576,30 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">display</td><td>the display that needs to be refreshed </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a517674315204f1607b6aad5a3e1b61ec"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stopHighlight </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structDisplay.html">Display</a>&#160;</td>
+          <td class="paramname"><em>display</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stoping the highlighting for the next printed element. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">display</td><td>the display that needs to be modified. </td></tr>
   </table>
   </dd>
 </dl>

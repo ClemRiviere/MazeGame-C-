@@ -31,19 +31,25 @@
  #include <stdlib.h>
  #include <ncurses.h>
 
- #include "../include/maze_function.h"
  #include "../include/display.h"
-
- /**
-  * @brief Launch the game menu.
-  * @param display the ncurses display.
-  */
- void launchMenu(Display display);
 
  /**
   * @brief Launch the creation of a new maze.
   * @param display the ncurses display.
   */
  void create(Display display);
+
+ /**
+  * @brief Get the x position of the next printed menu option
+  * @param row the row number of the terminal
+  * @param i the id of the menu option
+  */
+ int getPosX(int row,int i);
+
+ /**
+  * @brief Launch the game menu.
+  * @param display the ncurses display.
+  */
+ void launchMenu(Display display);
 
  #endif

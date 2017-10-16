@@ -47,23 +47,109 @@
  }
 
  void printTitle(Display display){
-   int i;
-   char * ascii_title[6] = {"███╗   ███╗ █████╗ ███████╗███████╗ ██████╗  █████╗ ███╗   ███╗███████╗",
-                            "████╗ ████║██╔══██╗╚══███╔╝██╔════╝██╔════╝ ██╔══██╗████╗ ████║██╔════╝",
-                            "██╔████╔██║███████║  ███╔╝ █████╗  ██║  ███╗███████║██╔████╔██║█████╗  ",
-                            "██║╚██╔╝██║██╔══██║ ███╔╝  ██╔══╝  ██║   ██║██╔══██║██║╚██╔╝██║██╔══╝  ",
-                            "██║ ╚═╝ ██║██║  ██║███████╗███████╗╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗",
-                            "╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝"};
-   for (i=0;i<6;i++){
-     /* Displays the ascii_art */
-     mvwprintw(display.main_window, i+6, (display.terminal_size.ws_col-71)/2, "%s", ascii_title[i]);
+   if (display.terminal_size.ws_row >= 40){
+     int i;
+     char * ascii_title[6] = {"███╗   ███╗ █████╗ ███████╗███████╗ ██████╗  █████╗ ███╗   ███╗███████╗",
+                              "████╗ ████║██╔══██╗╚══███╔╝██╔════╝██╔════╝ ██╔══██╗████╗ ████║██╔════╝",
+                              "██╔████╔██║███████║  ███╔╝ █████╗  ██║  ███╗███████║██╔████╔██║█████╗  ",
+                              "██║╚██╔╝██║██╔══██║ ███╔╝  ██╔══╝  ██║   ██║██╔══██║██║╚██╔╝██║██╔══╝  ",
+                              "██║ ╚═╝ ██║██║  ██║███████╗███████╗╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗",
+                              "╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝"};
+     for (i=0;i<6;i++){
+       /* Displays the ascii_art */
+       printMain(display,i+6,(display.terminal_size.ws_col-71)/2,ascii_title[i]);
+     }
+     refreshDisplay(display);
    }
-   refreshDisplay(display);
+ }
+
+ void getDimensions(Display display, Dimensions *d){
+     int ch_keyboard;
+     int error = 0;
+     int enter = 0;
+     clearDisplay(display);
+     printTitle(display);
+     echo();
+     /* ROW */
+     do{
+       if (error == 1){
+         enter = 0;
+         printMessage(display,"Incorrect ! (Entrée pour recommencer)");
+         while(enter == 0 && (ch_keyboard=wgetch(display.secondary_window))!='q'){
+           switch(ch_keyboard){
+             case 10:
+                enter = 1;
+                break;
+           }
+         }
+       }
+       printMessage(display,"Entrez le nombre de lignes de votre labyrinthe : ");
+       getIntInput(display,&d->row);
+       error = 1;
+     }while(d->row%2 != 1 || d->row < 0 || d->row > display.terminal_size.ws_row - 7);
+
+     /* COL */
+     error = 0;
+     do{
+       if (error == 1){
+         enter = 0;
+         printMessage(display,"Incorrect ! (Entrée pour recommencer)");
+         while(enter == 0 && (ch_keyboard=wgetch(display.secondary_window))!='q'){
+           switch(ch_keyboard){
+             case 10:
+                enter = 1;
+                break;
+           }
+         }
+       }
+       printMessage(display,"Entrez le nombre de colonnes de votre labyrinthe : ");
+       getIntInput(display,&d->col);
+       error = 1;
+     }while(d->col%2 != 1 || d->col < 0 || d->col > (display.terminal_size.ws_col - 4)/2);
+ }
+
+ void displayMaze(Display display){
+     int i,j;
+     int cpt = 0;
+     for (i=0;i<display.maze->d.row;i++){
+         for (j=0;j<display.maze->d.col;j++){
+             if (display.maze->grid[i][j]==WALL){
+                 printMain(display,i+1,(j+1)*2,"██");
+                 /*printf("#");*/
+             }
+             else {
+                 cpt += 1;
+                 printMain(display,i+1,(j+1)*2,"  ");
+                 /*printf(" ");*/
+             }
+         }
+         /*printf("\n");*/
+     }
+     /* VERIF PRINTS
+     for (i=0;i<maze.n_walls;i++){
+       printf("[X : %d | Y : %d]\n",maze.walls[i].x,maze.walls[i].y);
+     }
+     printf("N_WALLS : %d\n",maze.n_walls);
+     printf("%d\n",cpt);
+     printf("%d\n",(maze.d.row/2)*(maze.d.col/2));*/
+ }
+
+ void activateHighlight(Display display){
+   wattron(display.main_window,A_STANDOUT);
+ }
+
+ void stopHighlight(Display display){
+   wattroff(display.main_window,A_STANDOUT);
  }
 
  void refreshDisplay(Display display){
    wrefresh(display.main_window); /* update the terminal screen */
    wrefresh(display.secondary_window);
+ }
+
+ void printMain(Display display, int x, int y, char *text){
+   mvwprintw(display.main_window, x, y, "%s", text);
+   refreshDisplay(display);
  }
 
  void printMessage(Display display, char *text){
@@ -77,8 +163,16 @@
    wscanw(display.secondary_window,"%d",var);
  }
 
+ void getStringInput(Display display, char *pattern,char *var){
+   wscanw(display.secondary_window,pattern,var);
+ }
+
  void finishDisplay(Display display){
    delwin(display.main_window); /* delete the window */
    delwin(display.secondary_window);
    endwin(); /* ending the display */
+ }
+
+ void loadMaze(Display *display,Maze *maze){
+   display->maze = maze;
  }

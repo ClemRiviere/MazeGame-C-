@@ -25,18 +25,6 @@
 
  #include "../include/maze_function.h"
 
-
- void getDimensions(Display display, Dimensions *d){
-     clearDisplay(display);
-     printTitle(display);
-     echo();
-     printMessage(display,"Entrez le nombre de lignes de votre labyrinthe : ");
-     getIntInput(display,&d->row);
-     printMessage(display,"Entrez le nombre de colonnes de votre labyrinthe : ");
-     getIntInput(display,&d->col);
- }
-
-
  Maze createMaze(Dimensions d){
      int i;
      Maze maze;
@@ -100,31 +88,6 @@
              }
          }
      }
- }
-
-
- void displayMaze(Display display,Maze maze){
-     int i,j;
-     int cpt = 0;
-     for (i=0;i<maze.d.row;i++){
-         for (j=0;j<maze.d.col;j++){
-             if (maze.grid[i][j]==WALL){
-                 printf("#");
-             }
-             else {
-                 cpt += 1;
-                 printf(" ");
-             }
-         }
-         printf("\n");
-     }
-     /* VERIF PRINTS
-     for (i=0;i<maze.n_walls;i++){
-       printf("[X : %d | Y : %d]\n",maze.walls[i].x,maze.walls[i].y);
-     }
-     printf("N_WALLS : %d\n",maze.n_walls);
-     printf("%d\n",cpt);
-     printf("%d\n",(maze.d.row/2)*(maze.d.col/2));*/
  }
 
 void generateMaze(Maze *maze){

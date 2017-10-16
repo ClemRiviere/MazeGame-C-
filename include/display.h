@@ -33,6 +33,7 @@
  #include <locale.h>
  #include <ncurses.h>
 
+ #include "../include/maze_function.h"
  /**
   * @brief The ncurses display
   *
@@ -42,6 +43,7 @@
    WINDOW *main_window;           /**< The main window */
    WINDOW *secondary_window;      /**< The secondary_window */
    struct winsize terminal_size;  /**< The size of the terminal */
+   Maze *maze;
  } Display;
 
  /**
@@ -63,10 +65,47 @@
  void printTitle(Display display);
 
  /**
+  * @brief Request the dimensions of the maze.
+  *
+  * @param display the display in which we are displaying indications
+  * @param d a pointer on the dimension struct of the maze.
+  * @todo adding controls on entries
+  */
+ void getDimensions(Display display, Dimensions *d);
+
+ /**
+  * @brief Display the maze
+  *
+  * @param display the displayed display struct
+  */
+ void displayMaze(Display display);
+
+ /**
+  * @brief Activate the highlighting for the next printed element
+  * @param display the display that needs to be modified.
+  */
+ void activateHighlight(Display display);
+
+ /**
+  * @brief Stoping the highlighting for the next printed element
+  * @param display the display that needs to be modified.
+  */
+ void stopHighlight(Display display);
+
+ /**
   * @brief Refresh the ncurses display
   * @param display the display that needs to be refreshed
   */
  void refreshDisplay(Display display);
+
+ /**
+  * @brief Print a text in the main window at the selected position
+  * @param display the display that needs to be printed
+  * @param x the x position of the text
+  * @param y the y position of the text
+  * @param text the text the printed text.
+  */
+ void printMain(Display display, int x, int y, char *text);
 
  /**
   * @brief Prints a message in the second window
@@ -83,9 +122,24 @@
  void getIntInput(Display display, int *var);
 
  /**
+  * @brief Get a string input from the display
+  * @param display the display in which the question is answered.
+  * @param pattern the pattern of the answer
+  * @param var a pointer of the target variable.
+  */
+ void getStringInput(Display display,char *pattern, char *var);
+
+ /**
   * @brief Deleting windows and ending the display.
   * @param display the display that needs to be ended.
   */
  void finishDisplay(Display display);
+
+ /**
+  * @brief Load a maze into the display struct.
+  * @param display the display that needs to be modified.
+  * @param maze the loaded maze.
+  */
+ void loadMaze(Display *display,Maze *maze);
 
 #endif

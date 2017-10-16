@@ -1,12 +1,5 @@
 var searchData=
 [
-  ['main',['main',['../main_8c.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main(void):&#160;main.c'],['../main_8h.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main(void):&#160;main.c']]],
-  ['main_2ec',['main.c',['../main_8c.html',1,'']]],
-  ['main_2eh',['main.h',['../main_8h.html',1,'']]],
-  ['main_5fwindow',['main_window',['../structDisplay.html#ab64577da33a97aab793bcfe12ce1153f',1,'Display']]],
-  ['maze',['Maze',['../structMaze.html',1,'']]],
-  ['maze_5ffunction_2ec',['maze_function.c',['../maze__function_8c.html',1,'']]],
-  ['maze_5ffunction_2eh',['maze_function.h',['../maze__function_8h.html',1,'']]],
-  ['menu_2ec',['menu.c',['../menu_8c.html',1,'']]],
-  ['menu_2eh',['menu.h',['../menu_8h.html',1,'']]]
+  ['launchmenu',['launchMenu',['../menu_8c.html#a7d126b4002ee6f652e7782739e7dd548',1,'launchMenu(Display display):&#160;menu.c'],['../menu_8h.html#a7d126b4002ee6f652e7782739e7dd548',1,'launchMenu(Display display):&#160;menu.c']]],
+  ['loadmaze',['loadMaze',['../display_8c.html#a9dbdca5c3bd4917fb2bd2007aae56fb6',1,'loadMaze(Display *display, Maze *maze):&#160;display.c'],['../display_8h.html#a9dbdca5c3bd4917fb2bd2007aae56fb6',1,'loadMaze(Display *display, Maze *maze):&#160;display.c']]]
 ];

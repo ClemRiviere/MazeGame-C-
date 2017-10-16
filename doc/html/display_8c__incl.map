@@ -1,3 +1,4 @@
 <map id="src/display.c" name="src/display.c">
-<area shape="rect" id="node2" href="$display_8h.html" title="All the functions needed to display ncurses windows on the screen. " alt="" coords="155,80,285,107"/>
+<area shape="rect" id="node2" href="$display_8h.html" title="All the functions needed to display ncurses windows on the screen. " alt="" coords="228,80,359,107"/>
+<area shape="rect" id="node8" href="$maze__function_8h.html" title="All the functions needed to interact with the maze for the maze generator program. " alt="" coords="143,155,318,181"/>
 </map>
