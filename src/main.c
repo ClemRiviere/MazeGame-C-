@@ -36,6 +36,7 @@ int main(void){
     generateMaze(&maze);
     displayMaze(maze);
     destroyMaze(&maze);*/
+
     Display display;
     initDisplay(&display);
     launchMenu(display);

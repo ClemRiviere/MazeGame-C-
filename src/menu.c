@@ -26,9 +26,10 @@
 #include "../include/menu.h"
 
  void create(Display display){
-   /*int enter = 0;
-   int ch_keyboard;*/
-   char nom[25];
+   int enter;
+   int escape;
+   int ch_keyboard;
+   char name[25];
    Dimensions dim;
    getDimensions(display,&dim);
    display.maze = createMaze(dim);
@@ -36,17 +37,112 @@
    generateMaze(&display.maze);
    clearDisplay(display);
    displayMaze(display);
-   printMessage(display,"Entrez un nom pour votre labyrinthe (/24): ");
-   getStringInput(display,"%24[^\n]",nom);
-   /*while(enter == 0 && (ch_keyboard=wgetch(display.main_window))!='q'){
+
+   do{
+     enter = 1;
+     printMessage(display,"Entrez un nom pour votre labyrinthe (/24): ");
+     echo();
+     getStringInput(display,"%24[^\n]",name);
+     noecho();
+     display.maze.name = name;
+
+     /* Checking if the maze already exists */
+     if (exist(display.maze)==1){
+       enter = 0;
+       escape = 0;
+       printMessage(display,"Ce labyrinthe existe déjà, ENTREE pour écraser / ECHAP pour annuler");
+       /* Waiting for the key */
+       while(enter == 0 && escape == 0 && (ch_keyboard=wgetch(display.main_window))!='q'){
+         switch(ch_keyboard){
+           case 10:
+              enter = 1;
+              break;
+           case 27:
+              escape = 1;
+              break;
+         }
+       }
+     }
+
+     if (enter == 1){
+       /* Checking for save issues */
+       if (saveMaze(display.maze)!=0){
+         enter = 0;
+       }
+     }
+   }while(enter == 0);
+   display.init = 1;
+   launchMenu(display);
+ }
+
+ void load(Display display){
+   int i,enter,ch_keyboard;
+   int cpt = 0;
+   char message[100];
+   char path[32]; /* 25 + 8 (./saves/) */
+   char **list;
+
+   DIR * rep = opendir("./saves");
+   if (rep != NULL){
+      struct dirent *ent;
+      while ((ent = readdir(rep)) != NULL){
+          cpt += 1;
+      }
+      closedir(rep);
+   }
+   list = (char **)malloc(sizeof(char*)*cpt);
+
+   cpt = 0;
+   rep = opendir("./saves");
+   if (rep != NULL){
+      struct dirent *ent;
+      while ((ent = readdir(rep)) != NULL){
+          /*list[cpt] = (char *)malloc(sizeof(char)*strlen(ent->d_name));*/
+          if (strcmp(ent->d_name,".")!=0 && strcmp(ent->d_name,"..")!=0){
+            list[cpt] = (char*)malloc(sizeof(char)*strlen(ent->d_name));
+            strcpy(list[cpt],ent->d_name);
+            cpt += 1;
+          }
+      }
+      closedir(rep);
+   }
+
+   i = 0;
+   enter = 0;
+
+   clearDisplay(display);
+   sprintf(message,"ENTREE pour charger %s | LEFT / RIGHT pour sélectionner.",list[i]);
+   printMessage(display,message);
+   sprintf(path,"./saves/%s",list[i]);
+   display.maze = readMaze(path);
+   displayMaze(display);
+
+   while(enter == 0 && (ch_keyboard=wgetch(display.main_window))!='q'){
      switch(ch_keyboard){
+       case KEY_LEFT:
+          i--;
+          i = ( i<0 ) ? cpt-1 : i;
+          break;
+       case KEY_RIGHT:
+          i++;
+          i = ( i>(cpt-1)) ? 0 : i;
+          break;
        case 10:
           enter = 1;
           break;
      }
-   }*/
-   finishDisplay(display);
-   printf("%s",nom);
+     clearDisplay(display);
+     sprintf(message,"ENTREE pour charger %s | LEFT / RIGHT pour sélectionner.",list[i]);
+     printMessage(display,message);
+     sprintf(path,"./saves/%s",list[i]);
+     display.maze = readMaze(path);
+     displayMaze(display);
+   }
+   if (enter == 1){
+     display.init = 1;
+   }
+
+   launchMenu(display);
  }
 
 
@@ -72,6 +168,7 @@
                         {"--   Quitter   --","Quitter l'application."}
                       };
 
+   clearDisplay(display);
    printTitle(display);
    for (i=0;i<4;i++){
      if (i==0){
@@ -99,10 +196,12 @@
        case KEY_UP:
           i--;
           i = ( i<0 ) ? 3 : i;
+          i = (i==2 && display.init==0) ? 1 : i;
           break;
        case KEY_DOWN:
           i++;
           i = ( i>3 ) ? 0 : i;
+          i = (i==2 && display.init==0) ? 3 : i;
           break;
        case 10:
           enter = 1;
@@ -120,8 +219,7 @@
 
    switch (i){
      case 0:
-        printf("Charger");
-        finishDisplay(display);
+        load(display);
         break;
      case 1:
         create(display);

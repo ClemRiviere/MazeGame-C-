@@ -36,6 +36,7 @@
    box(display->main_window,0,0);
    display->secondary_window = newwin(3,display->terminal_size.ws_col-2,display->terminal_size.ws_row-4,1);
    box(display->secondary_window,0,0);
+   display->init = 0;
  }
 
  void clearDisplay(Display display){

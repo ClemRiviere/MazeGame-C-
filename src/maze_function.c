@@ -90,6 +90,51 @@
      }
  }
 
+int exist(Maze maze){
+    char *title = (char *)malloc((strlen(maze.name)+10)*sizeof(char));
+    sprintf(title,"saves/%s.cfg",maze.name);
+    FILE *file = fopen(title,"r");
+    if (file==NULL){
+      return 0;
+    }
+    fclose(file);
+    return 1;
+}
+
+int saveMaze(Maze maze){
+    int i;
+    char *title = (char *)malloc((strlen(maze.name)+10)*sizeof(char));
+    sprintf(title,"saves/%s.cfg",maze.name);
+    FILE *file = fopen(title,"w+");
+    if (file==NULL){
+      printf("Error opening file!\n");
+      return -1;
+    }
+    fwrite(&maze.d,sizeof(Dimensions),1,file);
+    for (i=0; i<maze.d.row; i++)
+      fwrite(maze.grid[i], sizeof(maze.grid[i][0]), maze.d.col, file);
+    fclose(file);
+    return 0;
+}
+
+Maze readMaze(char *name){
+    int i;
+    Maze maze;
+    Dimensions d;
+    FILE *file = fopen(name,"r");
+    if (file==NULL){
+      printf("Error opening file!\n");
+    }
+    fread(&d,sizeof(Dimensions),1,file);
+    maze = createMaze(d);
+    maze.name = name;
+    for (i=0; i<maze.d.row; i++)
+      fread(maze.grid[i], sizeof(int), maze.d.col, file);
+    fclose(file);
+    /* Not need to init walls ... because that's juste for the generation */
+    return maze;
+}
+
 void generateMaze(Maze *maze){
     int res;
     int nb_broken = 0;

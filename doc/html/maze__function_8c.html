@@ -100,7 +100,7 @@ Include dependency graph for maze_function.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="maze__function_8c__incl.png" border="0" usemap="#src_2maze__function_8c" alt=""/></div>
 <map name="src_2maze__function_8c" id="src_2maze__function_8c">
-<area shape="rect" id="node2" href="maze__function_8h.html" title="All the functions needed to interact with the maze for the maze generator program. " alt="" coords="121,80,295,107"/>
+<area shape="rect" id="node2" href="maze__function_8h.html" title="All the functions needed to interact with the maze for the maze generator program. " alt="" coords="165,80,339,107"/>
 </map>
 </div>
 </div><table class="memberdecls">
@@ -115,6 +115,15 @@ Functions</h2></td></tr>
 <tr class="memitem:a42d287e9a15f79274ea7bdc3068630de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="maze__function_8c.html#a42d287e9a15f79274ea7bdc3068630de">initMaze</a> (<a class="el" href="structMaze.html">Maze</a> *maze)</td></tr>
 <tr class="memdesc:a42d287e9a15f79274ea7bdc3068630de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inititalize the maze : set the WALL and BLANK case.  <a href="#a42d287e9a15f79274ea7bdc3068630de">More...</a><br /></td></tr>
 <tr class="separator:a42d287e9a15f79274ea7bdc3068630de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94a0757d0c2bd4e8c8855f88e4d4b7a2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="maze__function_8c.html#a94a0757d0c2bd4e8c8855f88e4d4b7a2">exist</a> (<a class="el" href="structMaze.html">Maze</a> maze)</td></tr>
+<tr class="memdesc:a94a0757d0c2bd4e8c8855f88e4d4b7a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a maze is not already saved to this name.  <a href="#a94a0757d0c2bd4e8c8855f88e4d4b7a2">More...</a><br /></td></tr>
+<tr class="separator:a94a0757d0c2bd4e8c8855f88e4d4b7a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af97570f50a4b841b55410f28afa9587a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="maze__function_8c.html#af97570f50a4b841b55410f28afa9587a">saveMaze</a> (<a class="el" href="structMaze.html">Maze</a> maze)</td></tr>
+<tr class="memdesc:af97570f50a4b841b55410f28afa9587a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Save a maze into a file.  <a href="#af97570f50a4b841b55410f28afa9587a">More...</a><br /></td></tr>
+<tr class="separator:af97570f50a4b841b55410f28afa9587a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e836a0dab1cd0df56d8247a547826f5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structMaze.html">Maze</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="maze__function_8c.html#a5e836a0dab1cd0df56d8247a547826f5">readMaze</a> (char *name)</td></tr>
+<tr class="memdesc:a5e836a0dab1cd0df56d8247a547826f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read a maze from a file.  <a href="#a5e836a0dab1cd0df56d8247a547826f5">More...</a><br /></td></tr>
+<tr class="separator:a5e836a0dab1cd0df56d8247a547826f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:accc3af5d8ff8deed2c228076e92a13b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="maze__function_8c.html#accc3af5d8ff8deed2c228076e92a13b3">generateMaze</a> (<a class="el" href="structMaze.html">Maze</a> *maze)</td></tr>
 <tr class="memdesc:accc3af5d8ff8deed2c228076e92a13b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a perfect maze from an initialized one.  <a href="#accc3af5d8ff8deed2c228076e92a13b3">More...</a><br /></td></tr>
 <tr class="separator:accc3af5d8ff8deed2c228076e92a13b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -221,6 +230,31 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a class="anchor" id="a94a0757d0c2bd4e8c8855f88e4d4b7a2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int exist </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structMaze.html">Maze</a>&#160;</td>
+          <td class="paramname"><em>maze</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check if a maze is not already saved to this name. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">maze</td><td>the maze needs to be checked </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 if the maze exists, 0 if not. </dd></dl>
 
 </div>
 </div>
@@ -338,7 +372,7 @@ Functions</h2></td></tr>
 <p>Inititalize the maze : set the WALL and BLANK case. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">maze</td><td>the maze tab that needs to bee initialized </td></tr>
+    <tr><td class="paramname">maze</td><td>the maze tab that needs to be initialized </td></tr>
   </table>
   </dd>
 </dl>
@@ -379,6 +413,56 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 if the generation is not finished yet. </dd></dl>
 <p>CONTROLS PRINTFS printf("RANDOM : %d",random); printf("X : %d | Y : %d\n",wall_pos.x,wall_pos.y); </p>
+
+</div>
+</div>
+<a class="anchor" id="a5e836a0dab1cd0df56d8247a547826f5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structMaze.html">Maze</a> readMaze </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Read a maze from a file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>the file name. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the readed maze. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af97570f50a4b841b55410f28afa9587a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int saveMaze </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structMaze.html">Maze</a>&#160;</td>
+          <td class="paramname"><em>maze</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Save a maze into a file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">maze</td><td>the maze tab that needs to be saved </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 if the save have been completed successfully. </dd></dl>
 
 </div>
 </div>

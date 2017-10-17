@@ -44,6 +44,7 @@
    WINDOW *secondary_window;      /**< The secondary_window */
    struct winsize terminal_size;  /**< The size of the terminal */
    Maze maze;
+   int init;
  } Display;
 
  /**

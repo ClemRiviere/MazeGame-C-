@@ -97,14 +97,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;ncurses.h&gt;</code><br />
+<code>#include &lt;dirent.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="display_8h_source.html">../include/display.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for menu.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="menu_8h__incl.png" border="0" usemap="#include_2menu_8h" alt=""/></div>
 <map name="include_2menu_8h" id="include_2menu_8h">
-<area shape="rect" id="node5" href="display_8h.html" title="All the functions needed to display ncurses windows on the screen. " alt="" coords="175,80,305,107"/>
-<area shape="rect" id="node8" href="maze__function_8h.html" title="All the functions needed to interact with the maze for the maze generator program. " alt="" coords="153,155,327,181"/>
+<area shape="rect" id="node6" href="display_8h.html" title="All the functions needed to display ncurses windows on the screen. " alt="" coords="295,80,425,107"/>
+<area shape="rect" id="node9" href="maze__function_8h.html" title="All the functions needed to interact with the maze for the maze generator program. " alt="" coords="273,155,447,181"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -125,6 +126,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a6285ca5006a028ad167d8d561debe13e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8h.html#a6285ca5006a028ad167d8d561debe13e">create</a> (<a class="el" href="structDisplay.html">Display</a> display)</td></tr>
 <tr class="memdesc:a6285ca5006a028ad167d8d561debe13e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Launch the creation of a new maze.  <a href="#a6285ca5006a028ad167d8d561debe13e">More...</a><br /></td></tr>
 <tr class="separator:a6285ca5006a028ad167d8d561debe13e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15b4cc497e13753c717a2f5f7b99e27a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8h.html#a15b4cc497e13753c717a2f5f7b99e27a">load</a> (<a class="el" href="structDisplay.html">Display</a> display)</td></tr>
+<tr class="memdesc:a15b4cc497e13753c717a2f5f7b99e27a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load a maze.  <a href="#a15b4cc497e13753c717a2f5f7b99e27a">More...</a><br /></td></tr>
+<tr class="separator:a15b4cc497e13753c717a2f5f7b99e27a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afbb94d5e576f44ac764c71c383493550"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8h.html#afbb94d5e576f44ac764c71c383493550">getPosX</a> (int row, int i)</td></tr>
 <tr class="memdesc:afbb94d5e576f44ac764c71c383493550"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the x position of the next printed menu option.  <a href="#afbb94d5e576f44ac764c71c383493550">More...</a><br /></td></tr>
 <tr class="separator:afbb94d5e576f44ac764c71c383493550"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -213,6 +217,30 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Launch the game menu. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">display</td><td>the ncurses display. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a15b4cc497e13753c717a2f5f7b99e27a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void load </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structDisplay.html">Display</a>&#160;</td>
+          <td class="paramname"><em>display</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Load a maze. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">display</td><td>the ncurses display. </td></tr>

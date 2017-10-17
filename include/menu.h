@@ -30,6 +30,7 @@
  #include <stdio.h>
  #include <stdlib.h>
  #include <ncurses.h>
+ #include <dirent.h>
 
  #include "../include/display.h"
 
@@ -38,6 +39,12 @@
   * @param display the ncurses display.
   */
  void create(Display display);
+
+ /**
+  * @brief Load a maze.
+  * @param display the ncurses display.
+  */
+ void load(Display display);
 
  /**
   * @brief Get the x position of the next printed menu option

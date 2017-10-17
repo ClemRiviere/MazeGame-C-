@@ -32,6 +32,7 @@
  #include <time.h>
  #include <stdarg.h>
  #include <ncurses.h>
+ #include <string.h>
 
  /* Define the id of walls to 0. */
  #define WALL 0
@@ -62,10 +63,11 @@
   * The grid and the dimensions of the maze.
   */
  typedef struct{
-     int ** grid;       /**< The 2D int tab that corresponds to the maze grid */
+     int **grid;        /**< The 2D int tab that corresponds to the maze grid */
      Dimensions d;      /**< The dimensions of the maze */
-     Position * walls;  /**< The walls in the maze */
+     Position *walls;   /**< The walls in the maze */
      int n_walls;       /**< The number of center walls (without the contour) */
+     char *name;        /**< The name of the maze */
  } Maze;
 
  /**
@@ -86,9 +88,33 @@
  /**
   * @brief Inititalize the maze : set the WALL and BLANK case
   *
-  * @param maze the maze tab that needs to bee initialized
+  * @param maze the maze tab that needs to be initialized
   */
  void initMaze(Maze *maze);
+
+ /**
+  * @brief Check if a maze is not already saved to this name
+  *
+  * @param maze the maze needs to be checked
+  * @return 1 if the maze exists, 0 if not.
+  */
+ int exist(Maze maze);
+
+ /**
+  * @brief Save a maze into a file
+  *
+  * @param maze the maze tab that needs to be saved
+  * @return 0 if the save have been completed successfully.
+  */
+ int saveMaze(Maze maze);
+
+ /**
+  * @brief Read a maze from a file.
+  *
+  * @param name the file name.
+  * @return the readed maze.
+  */
+ Maze readMaze(char *name);
 
  /**
   * @brief Generate a perfect maze from an initialized one
