@@ -64,6 +64,26 @@
    }
  }
 
+ void printLoadedMaze(Display display){
+   char *message;
+   if (display.init == 1){
+     message = (char *)malloc(sizeof(char)*(strlen(display.maze.name)+7));
+     sprintf(message,"%s CHARGÉ",display.maze.name);
+   }
+   else {
+     message = (char *)malloc(sizeof(char)*23);
+     sprintf(message,"AUCUN LABYRINTHE CHARGÉ");
+   }
+   if (display.terminal_size.ws_row >= 40){
+     printMain(display,12,(display.terminal_size.ws_col-strlen(message))/2,message);
+   }
+   else {
+     printMain(display,2,(display.terminal_size.ws_col-strlen(message))/2,message);
+   }
+   refreshDisplay(display);
+   /*free(message);*/
+ }
+
  void getDimensions(Display display, Dimensions *d){
      int ch_keyboard;
      int error = 0;
@@ -169,6 +189,7 @@
  }
 
  void finishDisplay(Display display){
+   destroyMaze(&display.maze);
    delwin(display.main_window); /* delete the window */
    delwin(display.secondary_window);
    endwin(); /* ending the display */

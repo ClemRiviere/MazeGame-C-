@@ -65,6 +65,13 @@
   */
  void printTitle(Display display);
 
+
+ /**
+  * @brief Prints the current loaded maze
+  * @param display the display that needs to be updated.
+  */
+ void printLoadedMaze(Display display);
+
  /**
   * @brief Request the dimensions of the maze.
   *

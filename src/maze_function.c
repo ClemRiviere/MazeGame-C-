@@ -92,19 +92,20 @@
 
 int exist(Maze maze){
     char *title = (char *)malloc((strlen(maze.name)+10)*sizeof(char));
-    sprintf(title,"saves/%s.cfg",maze.name);
+    sprintf(title,"saves/%s",maze.name);
     FILE *file = fopen(title,"r");
     if (file==NULL){
       return 0;
     }
     fclose(file);
+    /*free(title);*/
     return 1;
 }
 
 int saveMaze(Maze maze){
     int i;
     char *title = (char *)malloc((strlen(maze.name)+10)*sizeof(char));
-    sprintf(title,"saves/%s.cfg",maze.name);
+    sprintf(title,"saves/%s",maze.name);
     FILE *file = fopen(title,"w+");
     if (file==NULL){
       printf("Error opening file!\n");
@@ -114,24 +115,41 @@ int saveMaze(Maze maze){
     for (i=0; i<maze.d.row; i++)
       fwrite(maze.grid[i], sizeof(maze.grid[i][0]), maze.d.col, file);
     fclose(file);
+    /*free(title);*/
     return 0;
 }
 
-Maze readMaze(char *name){
+Maze readMaze(char *path_name){
     int i;
+    char *token;
+    char *maze_name = (char *)malloc(sizeof(char)*2);
+
     Maze maze;
     Dimensions d;
-    FILE *file = fopen(name,"r");
+    FILE *file = fopen(path_name,"r");
     if (file==NULL){
       printf("Error opening file!\n");
     }
     fread(&d,sizeof(Dimensions),1,file);
     maze = createMaze(d);
-    maze.name = name;
+
+    /* get the first token */
+    token = strtok(path_name, "/");
+    /* walk through other tokens */
+    while( token != NULL ) {
+
+      maze_name = (char *)realloc(maze_name,sizeof(char)*strlen(token));
+      strcpy(maze_name,token);
+
+      token = strtok(NULL, "/");
+    }
+
+    maze.name = maze_name;
     for (i=0; i<maze.d.row; i++)
       fread(maze.grid[i], sizeof(int), maze.d.col, file);
     fclose(file);
     /* Not need to init walls ... because that's juste for the generation */
+    /*free(maze_name);*/
     return maze;
 }
 

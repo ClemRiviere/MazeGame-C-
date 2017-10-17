@@ -29,7 +29,7 @@
    int enter;
    int escape;
    int ch_keyboard;
-   char name[25];
+   char name[30];
    Dimensions dim;
    getDimensions(display,&dim);
    display.maze = createMaze(dim);
@@ -44,6 +44,7 @@
      echo();
      getStringInput(display,"%24[^\n]",name);
      noecho();
+     strcat(name,".cfg");
      display.maze.name = name;
 
      /* Checking if the maze already exists */
@@ -114,6 +115,9 @@
    sprintf(message,"ENTREE pour charger %s | LEFT / RIGHT pour sélectionner.",list[i]);
    printMessage(display,message);
    sprintf(path,"./saves/%s",list[i]);
+   if (display.init == 1){
+     destroyMaze(&display.maze);
+   }
    display.maze = readMaze(path);
    displayMaze(display);
 
@@ -135,22 +139,25 @@
      sprintf(message,"ENTREE pour charger %s | LEFT / RIGHT pour sélectionner.",list[i]);
      printMessage(display,message);
      sprintf(path,"./saves/%s",list[i]);
+     destroyMaze(&display.maze);
      display.maze = readMaze(path);
      displayMaze(display);
    }
    if (enter == 1){
      display.init = 1;
    }
-
+   /*for (i=0;i<cpt-1;i++){
+     free(list[i]);
+   }
+   free(list);*/
    launchMenu(display);
  }
-
 
  int getPosX(int row,int i){
    int res;
    res = ((i*2)+6+6+10);
    if (row < 40){
-     res = ((i*2)+5);
+     res = ((i*2)+6);
    }
    return res;
  }
@@ -170,6 +177,7 @@
 
    clearDisplay(display);
    printTitle(display);
+   printLoadedMaze(display);
    for (i=0;i<4;i++){
      if (i==0){
        activateHighlight(display);
