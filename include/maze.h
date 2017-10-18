@@ -22,7 +22,7 @@
 
 
 /**
- * @file maze_function.h
+ * @file maze.h
  *
  * @brief All the functions needed to interact with the maze for the maze generator program.
  */
@@ -33,6 +33,8 @@
  #include <stdarg.h>
  #include <ncurses.h>
  #include <string.h>
+
+ #include "../include/const.h"
 
  /* Define the id of walls to 0. */
  #define WALL 0

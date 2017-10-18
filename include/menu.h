@@ -33,18 +33,8 @@
  #include <dirent.h>
 
  #include "../include/display.h"
-
- /**
-  * @brief Launch the creation of a new maze.
-  * @param display the ncurses display.
-  */
- void create(Display display);
-
- /**
-  * @brief Load a maze.
-  * @param display the ncurses display.
-  */
- void load(Display display);
+ #include "../include/const.h"
+ #include "../include/menuProcess.h"
 
  /**
   * @brief Get the x position of the next printed menu option
@@ -52,6 +42,29 @@
   * @param i the id of the menu option
   */
  int getPosX(int row,int i);
+
+ /**
+  * @brief Initialize the game menu.
+  * @param display the ncurses display.
+  * @param list the option list with their descriptions
+  */
+ void initMenu(Display display,char * list[4][2]);
+
+ /**
+  * @brief Waiting for a menu selection.
+  * @param display the ncurses display.
+  * @param list the option list with their descriptions
+  *
+  * @return an int corresponding to the selected option
+  */
+ int selectMenu(Display display,char * list[4][2]);
+
+ /**
+  * @brief Processing the selected menu option.
+  * @param display the ncurses display.
+  * @param select the selected option.
+  */
+ void interactMenu(Display display,int select);
 
  /**
   * @brief Launch the game menu.

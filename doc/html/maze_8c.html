@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>mazeGame: include/maze_function.h File Reference</title>
+<title>mazeGame: src/maze.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -81,109 +81,72 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">maze_function.h File Reference</div>  </div>
+<div class="title">maze.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>All the functions needed to interact with the maze for the maze generator program.  
+<p>The maze functions for the maze generator program.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
-<code>#include &lt;stdlib.h&gt;</code><br />
-<code>#include &lt;time.h&gt;</code><br />
-<code>#include &lt;stdarg.h&gt;</code><br />
-<code>#include &lt;ncurses.h&gt;</code><br />
-<code>#include &lt;string.h&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="maze_8h_source.html">../include/maze.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for maze_function.h:</div>
+Include dependency graph for maze.c:</div>
 <div class="dyncontent">
-<div class="center"><img src="maze__function_8h__incl.png" border="0" usemap="#include_2maze__function_8h" alt=""/></div>
-</div>
-</div><div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dyncontent">
-<div class="center"><img src="maze__function_8h__dep__incl.png" border="0" usemap="#include_2maze__function_8hdep" alt=""/></div>
-<map name="include_2maze__function_8hdep" id="include_2maze__function_8hdep">
-<area shape="rect" id="node2" href="display_8h.html" title="All the functions needed to display ncurses windows on the screen. " alt="" coords="65,80,183,107"/>
-<area shape="rect" id="node4" href="main_8h.html" title="The main function of the mazeGame program. " alt="" coords="5,229,112,256"/>
-<area shape="rect" id="node8" href="maze__function_8c.html" title="The maze functions for the maze generator program. " alt="" coords="207,80,347,107"/>
-<area shape="rect" id="node3" href="display_8c.html" title="The mazeGame display functions. " alt="" coords="96,155,192,181"/>
-<area shape="rect" id="node6" href="menu_8h.html" title="All the mazeGame menu fonctions. " alt="" coords="217,155,327,181"/>
-<area shape="rect" id="node5" href="main_8c.html" title="The main function of the maze generator program. First version of the program, only create the maze..." alt="" coords="17,304,100,331"/>
-<area shape="rect" id="node7" href="menu_8c.html" title="The mazeGame menu fonctions. " alt="" coords="229,229,315,256"/>
+<div class="center"><img src="maze_8c__incl.png" border="0" usemap="#src_2maze_8c" alt=""/></div>
+<map name="src_2maze_8c" id="src_2maze_8c">
+<area shape="rect" id="node2" href="maze_8h.html" title="All the functions needed to interact with the maze for the maze generator program. " alt="" coords="235,80,357,107"/>
+<area shape="rect" id="node9" href="const_8h_source.html" title="../include/const.h" alt="" coords="548,155,671,181"/>
 </map>
 </div>
-</div>
-<p><a href="maze__function_8h_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structDimensions.html">Dimensions</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structDimensions.html" title="Dimensions of a 2D tab. ">Dimensions</a> of a 2D tab.  <a href="structDimensions.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structPosition.html">Position</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structPosition.html" title="Position of a element in a maze. ">Position</a> of a element in a maze.  <a href="structPosition.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMaze.html">Maze</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The maze structure.  <a href="structMaze.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:ac749b87dd5d843e4add3eb8e8a130f62"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac749b87dd5d843e4add3eb8e8a130f62"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>WALL</b>&#160;&#160;&#160;0</td></tr>
-<tr class="separator:ac749b87dd5d843e4add3eb8e8a130f62"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ad909618509d9ac8a660215e68a6dc512"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structMaze.html">Maze</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="maze__function_8h.html#ad909618509d9ac8a660215e68a6dc512">createMaze</a> (<a class="el" href="structDimensions.html">Dimensions</a> d)</td></tr>
+<tr class="memitem:ad909618509d9ac8a660215e68a6dc512"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structMaze.html">Maze</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="maze_8c.html#ad909618509d9ac8a660215e68a6dc512">createMaze</a> (<a class="el" href="structDimensions.html">Dimensions</a> d)</td></tr>
 <tr class="memdesc:ad909618509d9ac8a660215e68a6dc512"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocate memory for the maze row*col int tab.  <a href="#ad909618509d9ac8a660215e68a6dc512">More...</a><br /></td></tr>
 <tr class="separator:ad909618509d9ac8a660215e68a6dc512"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ab82b36194ba217d6a403781bae09f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="maze__function_8h.html#a7ab82b36194ba217d6a403781bae09f1">destroyMaze</a> (<a class="el" href="structMaze.html">Maze</a> *maze)</td></tr>
+<tr class="memitem:a7ab82b36194ba217d6a403781bae09f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="maze_8c.html#a7ab82b36194ba217d6a403781bae09f1">destroyMaze</a> (<a class="el" href="structMaze.html">Maze</a> *maze)</td></tr>
 <tr class="memdesc:a7ab82b36194ba217d6a403781bae09f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Free the maze allocated memory.  <a href="#a7ab82b36194ba217d6a403781bae09f1">More...</a><br /></td></tr>
 <tr class="separator:a7ab82b36194ba217d6a403781bae09f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a42d287e9a15f79274ea7bdc3068630de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="maze__function_8h.html#a42d287e9a15f79274ea7bdc3068630de">initMaze</a> (<a class="el" href="structMaze.html">Maze</a> *maze)</td></tr>
+<tr class="memitem:a42d287e9a15f79274ea7bdc3068630de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="maze_8c.html#a42d287e9a15f79274ea7bdc3068630de">initMaze</a> (<a class="el" href="structMaze.html">Maze</a> *maze)</td></tr>
 <tr class="memdesc:a42d287e9a15f79274ea7bdc3068630de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inititalize the maze : set the WALL and BLANK case.  <a href="#a42d287e9a15f79274ea7bdc3068630de">More...</a><br /></td></tr>
 <tr class="separator:a42d287e9a15f79274ea7bdc3068630de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94a0757d0c2bd4e8c8855f88e4d4b7a2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="maze__function_8h.html#a94a0757d0c2bd4e8c8855f88e4d4b7a2">exist</a> (<a class="el" href="structMaze.html">Maze</a> maze)</td></tr>
+<tr class="memitem:a94a0757d0c2bd4e8c8855f88e4d4b7a2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="maze_8c.html#a94a0757d0c2bd4e8c8855f88e4d4b7a2">exist</a> (<a class="el" href="structMaze.html">Maze</a> maze)</td></tr>
 <tr class="memdesc:a94a0757d0c2bd4e8c8855f88e4d4b7a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a maze is not already saved to this name.  <a href="#a94a0757d0c2bd4e8c8855f88e4d4b7a2">More...</a><br /></td></tr>
 <tr class="separator:a94a0757d0c2bd4e8c8855f88e4d4b7a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af97570f50a4b841b55410f28afa9587a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="maze__function_8h.html#af97570f50a4b841b55410f28afa9587a">saveMaze</a> (<a class="el" href="structMaze.html">Maze</a> maze)</td></tr>
+<tr class="memitem:af97570f50a4b841b55410f28afa9587a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="maze_8c.html#af97570f50a4b841b55410f28afa9587a">saveMaze</a> (<a class="el" href="structMaze.html">Maze</a> maze)</td></tr>
 <tr class="memdesc:af97570f50a4b841b55410f28afa9587a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Save a maze into a file.  <a href="#af97570f50a4b841b55410f28afa9587a">More...</a><br /></td></tr>
 <tr class="separator:af97570f50a4b841b55410f28afa9587a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e836a0dab1cd0df56d8247a547826f5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structMaze.html">Maze</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="maze__function_8h.html#a5e836a0dab1cd0df56d8247a547826f5">readMaze</a> (char *name)</td></tr>
-<tr class="memdesc:a5e836a0dab1cd0df56d8247a547826f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read a maze from a file.  <a href="#a5e836a0dab1cd0df56d8247a547826f5">More...</a><br /></td></tr>
-<tr class="separator:a5e836a0dab1cd0df56d8247a547826f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:accc3af5d8ff8deed2c228076e92a13b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="maze__function_8h.html#accc3af5d8ff8deed2c228076e92a13b3">generateMaze</a> (<a class="el" href="structMaze.html">Maze</a> *maze)</td></tr>
+<tr class="memitem:a61fe14bcf63d3e474d477463649d0a62"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structMaze.html">Maze</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="maze_8c.html#a61fe14bcf63d3e474d477463649d0a62">readMaze</a> (char *path_name)</td></tr>
+<tr class="memdesc:a61fe14bcf63d3e474d477463649d0a62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read a maze from a file.  <a href="#a61fe14bcf63d3e474d477463649d0a62">More...</a><br /></td></tr>
+<tr class="separator:a61fe14bcf63d3e474d477463649d0a62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accc3af5d8ff8deed2c228076e92a13b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="maze_8c.html#accc3af5d8ff8deed2c228076e92a13b3">generateMaze</a> (<a class="el" href="structMaze.html">Maze</a> *maze)</td></tr>
 <tr class="memdesc:accc3af5d8ff8deed2c228076e92a13b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a perfect maze from an initialized one.  <a href="#accc3af5d8ff8deed2c228076e92a13b3">More...</a><br /></td></tr>
 <tr class="separator:accc3af5d8ff8deed2c228076e92a13b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a439a6cd6b5ad5dc8322e81f2328118bd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="maze__function_8h.html#a439a6cd6b5ad5dc8322e81f2328118bd">processMazeGeneration</a> (<a class="el" href="structMaze.html">Maze</a> *maze, int *nb_broken)</td></tr>
+<tr class="memitem:a439a6cd6b5ad5dc8322e81f2328118bd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="maze_8c.html#a439a6cd6b5ad5dc8322e81f2328118bd">processMazeGeneration</a> (<a class="el" href="structMaze.html">Maze</a> *maze, int *nb_broken)</td></tr>
 <tr class="memdesc:a439a6cd6b5ad5dc8322e81f2328118bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">The process of one generation step.  <a href="#a439a6cd6b5ad5dc8322e81f2328118bd">More...</a><br /></td></tr>
 <tr class="separator:a439a6cd6b5ad5dc8322e81f2328118bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b892f88d3594e87a32bb7dcf14f8f4b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="maze__function_8h.html#a7b892f88d3594e87a32bb7dcf14f8f4b">generation_end</a> (<a class="el" href="structMaze.html">Maze</a> maze, int nb_broken)</td></tr>
+<tr class="memitem:a7b892f88d3594e87a32bb7dcf14f8f4b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="maze_8c.html#a7b892f88d3594e87a32bb7dcf14f8f4b">generation_end</a> (<a class="el" href="structMaze.html">Maze</a> maze, int nb_broken)</td></tr>
 <tr class="memdesc:a7b892f88d3594e87a32bb7dcf14f8f4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test if the generation is finished.  <a href="#a7b892f88d3594e87a32bb7dcf14f8f4b">More...</a><br /></td></tr>
 <tr class="separator:a7b892f88d3594e87a32bb7dcf14f8f4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e08aabd0aa0a5fc8d6c9ed5d040288c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="maze__function_8h.html#a8e08aabd0aa0a5fc8d6c9ed5d040288c">delete_wall</a> (<a class="el" href="structMaze.html">Maze</a> *maze, int pos)</td></tr>
+<tr class="memitem:a8e08aabd0aa0a5fc8d6c9ed5d040288c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="maze_8c.html#a8e08aabd0aa0a5fc8d6c9ed5d040288c">delete_wall</a> (<a class="el" href="structMaze.html">Maze</a> *maze, int pos)</td></tr>
 <tr class="memdesc:a8e08aabd0aa0a5fc8d6c9ed5d040288c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete a wall that have been broken from the maze walls tab.  <a href="#a8e08aabd0aa0a5fc8d6c9ed5d040288c">More...</a><br /></td></tr>
 <tr class="separator:a8e08aabd0aa0a5fc8d6c9ed5d040288c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abaf7ba1d54b57d16e2f4b8864f7c0386"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="maze__function_8h.html#abaf7ba1d54b57d16e2f4b8864f7c0386">fill_id</a> (<a class="el" href="structMaze.html">Maze</a> *maze, <a class="el" href="structPosition.html">Position</a> pos)</td></tr>
+<tr class="memitem:abaf7ba1d54b57d16e2f4b8864f7c0386"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="maze_8c.html#abaf7ba1d54b57d16e2f4b8864f7c0386">fill_id</a> (<a class="el" href="structMaze.html">Maze</a> *maze, <a class="el" href="structPosition.html">Position</a> pos)</td></tr>
 <tr class="memdesc:abaf7ba1d54b57d16e2f4b8864f7c0386"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill id of adjacent cells.  <a href="#abaf7ba1d54b57d16e2f4b8864f7c0386">More...</a><br /></td></tr>
 <tr class="separator:abaf7ba1d54b57d16e2f4b8864f7c0386"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>All the functions needed to interact with the maze for the maze generator program. </p>
+<div class="textblock"><p>The maze functions for the maze generator program. </p>
 <dl class="section author"><dt>Author</dt><dd>Clément Rivière <a href="#" onclick="location.href='mai'+'lto:'+'cri'+'vi'+'ere'+'@e'+'col'+'e.'+'ens'+'ic'+'aen'+'.f'+'r'; return false;">crivi<span style="display: none;">.nosp@m.</span>ere@<span style="display: none;">.nosp@m.</span>ecole<span style="display: none;">.nosp@m.</span>.ens<span style="display: none;">.nosp@m.</span>icaen<span style="display: none;">.nosp@m.</span>.fr</a> </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>1.0.2 - 16-10-2017</dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000008">Todo:</a></b></dt><dd>nothing to do for the moment. </dd></dl>
-<dl class="bug"><dt><b><a class="el" href="bug.html#_bug000007">Bug:</a></b></dt><dd>no known bug for the moment. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>nothing to do for the moment. </dd></dl>
+<dl class="bug"><dt><b><a class="el" href="bug.html#_bug000004">Bug:</a></b></dt><dd>no known bug for the moment. </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a class="anchor" id="ad909618509d9ac8a660215e68a6dc512"></a>
 <div class="memitem">
@@ -328,7 +291,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000010">Todo:</a></b></dt><dd>improve the if conditions </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000014">Todo:</a></b></dt><dd>improve the if conditions </dd></dl>
 
 </div>
 </div>
@@ -389,7 +352,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>an int at 1 if it's finished, otherwise at 0 </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000009">Todo:</a></b></dt><dd>improve the if conditions </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000013">Todo:</a></b></dt><dd>improve the if conditions </dd></dl>
 
 </div>
 </div>
@@ -454,7 +417,7 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a5e836a0dab1cd0df56d8247a547826f5"></a>
+<a class="anchor" id="a61fe14bcf63d3e474d477463649d0a62"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">

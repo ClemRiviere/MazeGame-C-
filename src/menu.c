@@ -25,156 +25,19 @@
 
 #include "../include/menu.h"
 
- void create(Display display){
-   int enter;
-   int escape;
-   int ch_keyboard;
-   char name[30];
-   Dimensions dim;
-   getDimensions(display,&dim);
-   display.maze = createMaze(dim);
-   initMaze(&display.maze);
-   generateMaze(&display.maze);
-   clearDisplay(display);
-   displayMaze(display);
-
-   do{
-     enter = 1;
-     printMessage(display,"Entrez un nom pour votre labyrinthe (/24): ");
-     echo();
-     getStringInput(display,"%24[^\n]",name);
-     noecho();
-     strcat(name,".cfg");
-     display.maze.name = name;
-
-     /* Checking if the maze already exists */
-     if (exist(display.maze)==1){
-       enter = 0;
-       escape = 0;
-       printMessage(display,"Ce labyrinthe existe déjà, ENTREE pour écraser / ECHAP pour annuler");
-       /* Waiting for the key */
-       while(enter == 0 && escape == 0 && (ch_keyboard=wgetch(display.main_window))!='q'){
-         switch(ch_keyboard){
-           case 10:
-              enter = 1;
-              break;
-           case 27:
-              escape = 1;
-              break;
-         }
-       }
-     }
-
-     if (enter == 1){
-       /* Checking for save issues */
-       if (saveMaze(display.maze)!=0){
-         enter = 0;
-       }
-     }
-   }while(enter == 0);
-   display.init = 1;
-   launchMenu(display);
- }
-
- void load(Display display){
-   int i,enter,ch_keyboard;
-   int cpt = 0;
-   char message[100];
-   char path[32]; /* 25 + 8 (./saves/) */
-   char **list;
-
-   DIR * rep = opendir("./saves");
-   if (rep != NULL){
-      struct dirent *ent;
-      while ((ent = readdir(rep)) != NULL){
-          cpt += 1;
-      }
-      closedir(rep);
-   }
-   list = (char **)malloc(sizeof(char*)*cpt);
-
-   cpt = 0;
-   rep = opendir("./saves");
-   if (rep != NULL){
-      struct dirent *ent;
-      while ((ent = readdir(rep)) != NULL){
-          /*list[cpt] = (char *)malloc(sizeof(char)*strlen(ent->d_name));*/
-          if (strcmp(ent->d_name,".")!=0 && strcmp(ent->d_name,"..")!=0){
-            list[cpt] = (char*)malloc(sizeof(char)*strlen(ent->d_name));
-            strcpy(list[cpt],ent->d_name);
-            cpt += 1;
-          }
-      }
-      closedir(rep);
-   }
-
-   i = 0;
-   enter = 0;
-
-   clearDisplay(display);
-   sprintf(message,"ENTREE pour charger %s | LEFT / RIGHT pour sélectionner.",list[i]);
-   printMessage(display,message);
-   sprintf(path,"./saves/%s",list[i]);
-   if (display.init == 1){
-     destroyMaze(&display.maze);
-   }
-   display.maze = readMaze(path);
-   displayMaze(display);
-
-   while(enter == 0 && (ch_keyboard=wgetch(display.main_window))!='q'){
-     switch(ch_keyboard){
-       case KEY_LEFT:
-          i--;
-          i = ( i<0 ) ? cpt-1 : i;
-          break;
-       case KEY_RIGHT:
-          i++;
-          i = ( i>(cpt-1)) ? 0 : i;
-          break;
-       case 10:
-          enter = 1;
-          break;
-     }
-     clearDisplay(display);
-     sprintf(message,"ENTREE pour charger %s | LEFT / RIGHT pour sélectionner.",list[i]);
-     printMessage(display,message);
-     sprintf(path,"./saves/%s",list[i]);
-     destroyMaze(&display.maze);
-     display.maze = readMaze(path);
-     displayMaze(display);
-   }
-   if (enter == 1){
-     display.init = 1;
-   }
-   /*for (i=0;i<cpt-1;i++){
-     free(list[i]);
-   }
-   free(list);*/
-   launchMenu(display);
- }
-
  int getPosX(int row,int i){
    int res;
-   res = ((i*2)+6+6+10);
-   if (row < 40){
-     res = ((i*2)+6);
+   res = ((i*MENU_OPTIONS_MARGIN)+TITLE_HEIGHT+TITLE_MARGIN_TOP+TITLE_MARGIN_BOT);
+   /* If there is no title, we push the text up */
+   if (row < MIN_SIZE_TITLE){
+     res = ((i*MENU_OPTIONS_MARGIN)+TITLE_MARGIN_TOP);
    }
    return res;
  }
 
- void launchMenu(Display display){
-   int ch_keyboard;
+ void initMenu(Display display, char * list[4][2]){
    int i;
-   int enter;
-   char str_desc[50];
-
-   char * list[4][2] = {
-                        {"--   Charger   --","Charger un labyrinthe à partir d'un fichier."},
-                        {"--    Créer    --","Créer un labyrinthe avec vos propres dimensions."},
-                        {"--    Jouer    --","Jouer sur le labyrinthe chargé."},
-                        {"--   Quitter   --","Quitter l'application."}
-                      };
-
+   /* Print the title and the message of the current loaded maze */
    clearDisplay(display);
    printTitle(display);
    printLoadedMaze(display);
@@ -192,9 +55,13 @@
    noecho(); /* disable echoing of characters on the screen (user entry)*/
    keypad(display.main_window, TRUE ); /* enable keyboard input for the window. */
    curs_set(0); /* hide the default screen cursor. */
+ }
 
-   i = 0;
-   enter = 0;
+ int selectMenu(Display display,char * list[4][2]){
+   int ch_keyboard;
+   int i = 0;
+   int enter = 0;
+   char str_desc[50];
 
    while(enter == 0 && (ch_keyboard=wgetch(display.main_window))!='q'){
      /* When a key is pushed, we delete the highlight */
@@ -224,21 +91,58 @@
      sprintf(str_desc, "%-50s",  list[i][1]);
      printMessage(display,str_desc);
    }
+   if (enter==1){
+     return i;
+   }
+   return -1;
+ }
 
-   switch (i){
-     case 0:
-        load(display);
-        break;
-     case 1:
-        create(display);
-        break;
-     case 2:
-        printf("Jouer");
-        finishDisplay(display);
-        break;
-     case 3:
-        printf("Quitter");
-        finishDisplay(display);
-        break;
+void interactMenu(Display display,int select){
+  int relaunchMenu = 1;
+
+  switch (select){
+    case 0:
+       if (loadProcess(&display)!=0)
+          relaunchMenu = 0;
+       break;
+    case 1:
+       if (createProcess(&display)!=0)
+          relaunchMenu = 0;
+       break;
+    case 2:
+       launchGame(display);
+       relaunchMenu = 0;
+       break;
+    case 3:
+       relaunchMenu = 0;
+       break;
+  }
+  if (relaunchMenu==1)
+    launchMenu(display);
+  else
+    finishDisplay(display);
+}
+
+void launchMenu(Display display){
+   int selected;
+
+   /* The options with their descriptions */
+   char * list[4][2] = {
+                        {"--   Charger   --","Charger un labyrinthe à partir d'un fichier."},
+                        {"--    Créer    --","Créer un labyrinthe avec vos propres dimensions."},
+                        {"--    Jouer    --","Jouer sur le labyrinthe chargé."},
+                        {"--   Quitter   --","Quitter l'application."}
+                      };
+
+   initMenu(display,list);
+
+   selected = selectMenu(display,list);
+
+   /* The exit key have been pressed */
+   if (selected == -1){
+     finishDisplay(display);
+   }
+   else {
+     interactMenu(display, selected);
    }
  }

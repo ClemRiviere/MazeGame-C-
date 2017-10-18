@@ -30,8 +30,9 @@
  #include <stdio.h>
  #include <stdlib.h>
  #include "../include/display.h"
- #include "../include/maze_function.h"
+ #include "../include/maze.h"
  #include "../include/menu.h"
+ #include "../include/const.h"
 
  /**
   * @brief The main function of the program

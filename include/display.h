@@ -33,7 +33,8 @@
  #include <locale.h>
  #include <ncurses.h>
 
- #include "../include/maze_function.h"
+ #include "../include/maze.h"
+ #include "../include/const.h"
  /**
   * @brief The ncurses display
   *

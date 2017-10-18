@@ -1,5 +1,8 @@
 <map id="include/main.h" name="include/main.h">
-<area shape="rect" id="node4" href="$display_8h.html" title="All the functions needed to display ncurses windows on the screen. " alt="" coords="177,155,308,181"/>
-<area shape="rect" id="node8" href="$maze__function_8h.html" title="All the functions needed to interact with the maze for the maze generator program. " alt="" coords="383,229,558,256"/>
-<area shape="rect" id="node12" href="$menu_8h.html" title="All the mazeGame menu fonctions. " alt="" coords="284,80,407,107"/>
+<area shape="rect" id="node4" href="$display_8h.html" title="All the functions needed to display ncurses windows on the screen. " alt="" coords="631,304,761,331"/>
+<area shape="rect" id="node8" href="$maze_8h.html" title="All the functions needed to interact with the maze for the maze generator program. " alt="" coords="879,379,1001,405"/>
+<area shape="rect" id="node12" href="$const_8h_source.html" title="../include/const.h" alt="" coords="1053,453,1176,480"/>
+<area shape="rect" id="node13" href="$menu_8h.html" title="All the mazeGame menu fonctions. " alt="" coords="475,80,597,107"/>
+<area shape="rect" id="node15" href="$menuProcess_8h.html" title="All the mazeGame menu functions processes. " alt="" coords="389,155,560,181"/>
+<area shape="rect" id="node16" href="$game_8h.html" title="The mazeGame game functions. " alt="" coords="387,229,509,256"/>
 </map>

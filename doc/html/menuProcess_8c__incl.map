@@ -1,0 +1,7 @@
+<map id="src/menuProcess.c" name="src/menuProcess.c">
+<area shape="rect" id="node2" href="$menuProcess_8h.html" title="All the mazeGame menu functions processes. " alt="" coords="391,80,562,107"/>
+<area shape="rect" id="node7" href="$display_8h.html" title="All the functions needed to display ncurses windows on the screen. " alt="" coords="447,229,578,256"/>
+<area shape="rect" id="node10" href="$maze_8h.html" title="All the functions needed to interact with the maze for the maze generator program. " alt="" coords="169,304,291,331"/>
+<area shape="rect" id="node14" href="$const_8h_source.html" title="../include/const.h" alt="" coords="566,379,689,405"/>
+<area shape="rect" id="node15" href="$game_8h.html" title="The mazeGame game functions. " alt="" coords="585,155,707,181"/>
+</map>

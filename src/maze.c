@@ -18,12 +18,12 @@
  */
 
 /**
- * @file maze_function.c
+ * @file maze.c
  *
  * @brief The maze functions for the maze generator program.
  */
 
- #include "../include/maze_function.h"
+ #include "../include/maze.h"
 
  Maze createMaze(Dimensions d){
      int i;
@@ -98,7 +98,6 @@ int exist(Maze maze){
       return 0;
     }
     fclose(file);
-    /*free(title);*/
     return 1;
 }
 

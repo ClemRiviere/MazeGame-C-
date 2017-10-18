@@ -32,33 +32,40 @@
    /* Initialize ncurses */
    initscr();
 
+   /* Create windows and boxes around */
    display->main_window = newwin(display->terminal_size.ws_row-5,display->terminal_size.ws_col-2,1,1);
    box(display->main_window,0,0);
    display->secondary_window = newwin(3,display->terminal_size.ws_col-2,display->terminal_size.ws_row-4,1);
    box(display->secondary_window,0,0);
+
+   /* Set the display to not initialized (there is no maze loaded) */
    display->init = 0;
  }
 
  void clearDisplay(Display display){
+   /* Complete clear of windows */
    wclear(display.main_window);
    wclear(display.secondary_window);
+
+   /* Redraw boxes and refresh */
    box(display.main_window,0,0);
    box(display.secondary_window,0,0);
    refreshDisplay(display);
  }
 
  void printTitle(Display display){
-   if (display.terminal_size.ws_row >= 40){
+   /* We need a minimum terminal size to print the title. */
+   if (display.terminal_size.ws_row >= MIN_SIZE_TITLE){
      int i;
-     char * ascii_title[6] = {"███╗   ███╗ █████╗ ███████╗███████╗ ██████╗  █████╗ ███╗   ███╗███████╗",
-                              "████╗ ████║██╔══██╗╚══███╔╝██╔════╝██╔════╝ ██╔══██╗████╗ ████║██╔════╝",
-                              "██╔████╔██║███████║  ███╔╝ █████╗  ██║  ███╗███████║██╔████╔██║█████╗  ",
-                              "██║╚██╔╝██║██╔══██║ ███╔╝  ██╔══╝  ██║   ██║██╔══██║██║╚██╔╝██║██╔══╝  ",
-                              "██║ ╚═╝ ██║██║  ██║███████╗███████╗╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗",
-                              "╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝"};
-     for (i=0;i<6;i++){
+     char * ascii_title[TITLE_HEIGHT] = {"███╗   ███╗ █████╗ ███████╗███████╗ ██████╗  █████╗ ███╗   ███╗███████╗",
+                                         "████╗ ████║██╔══██╗╚══███╔╝██╔════╝██╔════╝ ██╔══██╗████╗ ████║██╔════╝",
+                                         "██╔████╔██║███████║  ███╔╝ █████╗  ██║  ███╗███████║██╔████╔██║█████╗  ",
+                                         "██║╚██╔╝██║██╔══██║ ███╔╝  ██╔══╝  ██║   ██║██╔══██║██║╚██╔╝██║██╔══╝  ",
+                                         "██║ ╚═╝ ██║██║  ██║███████╗███████╗╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗",
+                                         "╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝"};
+     for (i=0;i<TITLE_HEIGHT;i++){
        /* Displays the ascii_art */
-       printMain(display,i+6,(display.terminal_size.ws_col-71)/2,ascii_title[i]);
+       printMain(display,i+TITLE_MARGIN_TOP,(display.terminal_size.ws_col-TITLE_WIDTH)/2,ascii_title[i]);
      }
      refreshDisplay(display);
    }
@@ -66,6 +73,7 @@
 
  void printLoadedMaze(Display display){
    char *message;
+
    if (display.init == 1){
      message = (char *)malloc(sizeof(char)*(strlen(display.maze.name)+7));
      sprintf(message,"%s CHARGÉ",display.maze.name);
@@ -74,14 +82,16 @@
      message = (char *)malloc(sizeof(char)*23);
      sprintf(message,"AUCUN LABYRINTHE CHARGÉ");
    }
-   if (display.terminal_size.ws_row >= 40){
-     printMain(display,12,(display.terminal_size.ws_col-strlen(message))/2,message);
+
+   /* If there are enough rows, we print the text under the title */
+   if (display.terminal_size.ws_row >= MIN_SIZE_TITLE){
+     printMain(display,TITLE_HEIGHT+9,(display.terminal_size.ws_col-strlen(message))/2,message);
    }
+   /* Else at the top of the window */
    else {
-     printMain(display,2,(display.terminal_size.ws_col-strlen(message))/2,message);
+     printMain(display,4,(display.terminal_size.ws_col-strlen(message))/2,message);
    }
    refreshDisplay(display);
-   /*free(message);*/
  }
 
  void getDimensions(Display display, Dimensions *d){
@@ -135,24 +145,20 @@
      for (i=0;i<display.maze.d.row;i++){
          for (j=0;j<display.maze.d.col;j++){
              if (display.maze.grid[i][j]==WALL){
-                 printMain(display,i+1,(j+1)*2,"██");
-                 /*printf("#");*/
+                 printMain(display,
+                          ((display.terminal_size.ws_row-7)/2)-(display.maze.d.row/2)+i+1,
+                          ((display.terminal_size.ws_col-4)/2)-(display.maze.d.col)+((j+1)*2),
+                          "██");
              }
              else {
                  cpt += 1;
-                 printMain(display,i+1,(j+1)*2,"  ");
-                 /*printf(" ");*/
+                 printMain(display,
+                          ((display.terminal_size.ws_row-7)/2)-(display.maze.d.row/2)+i+1,
+                          ((display.terminal_size.ws_col-4)/2)-(display.maze.d.col)+((j+1)*2),
+                          "  ");
              }
          }
-         /*printf("\n");*/
      }
-     /* VERIF PRINTS
-     for (i=0;i<maze.n_walls;i++){
-       printf("[X : %d | Y : %d]\n",maze.walls[i].x,maze.walls[i].y);
-     }
-     printf("N_WALLS : %d\n",maze.n_walls);
-     printf("%d\n",cpt);
-     printf("%d\n",(maze.d.row/2)*(maze.d.col/2));*/
  }
 
  void activateHighlight(Display display){
@@ -189,7 +195,9 @@
  }
 
  void finishDisplay(Display display){
-   destroyMaze(&display.maze);
+   if (display.init == 1){
+     destroyMaze(&display.maze);
+   }
    delwin(display.main_window); /* delete the window */
    delwin(display.secondary_window);
    endwin(); /* ending the display */

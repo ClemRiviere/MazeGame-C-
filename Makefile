@@ -43,15 +43,23 @@ $(APP): $(OBJECTS)
 createObjectTree:
 	mkdir -p $(OBJ_DIR)
 
-main.o: maze_function.h
-main.o: menu.h
-main.o: display.h
 
-display.o: maze_function.h
+$(OBJ_DIR)/main.o: $(INCLUDE_DIR)/display.h
+$(OBJ_DIR)/main.o: $(INCLUDE_DIR)/maze.h
+$(OBJ_DIR)/main.o: $(INCLUDE_DIR)/menu.h
 
-menu.o: display.h
+$(OBJ_DIR)/display.o: $(INCLUDE_DIR)/maze.h
 
-$(OBJECTS): $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(INCLUDE_DIR)/%.h
+$(OBJ_DIR)/menu.o: $(INCLUDE_DIR)/display.h
+$(OBJ_DIR)/menu.o: $(INCLUDE_DIR)/menuProcess.h
+
+$(OBJ_DIR)/menuProcess.o: $(INCLUDE_DIR)/display.h
+$(OBJ_DIR)/menuProcess.o: $(INCLUDE_DIR)/maze.h
+$(OBJ_DIR)/menuProcess.o: $(INCLUDE_DIR)/game.h
+
+$(OBJ_DIR)/game.o: $(INCLUDE_DIR)/display.h
+
+$(OBJECTS): $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(INCLUDE_DIR)/%.h $(INCLUDE_DIR)/const.h
 	$(CC) $(CPPFLAGS) $(CCFLAGS) -c -I $(INCLUDE_DIR) -o $@ $<
 
 clean:

@@ -99,13 +99,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &lt;ncurses.h&gt;</code><br />
 <code>#include &lt;dirent.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="display_8h_source.html">../include/display.h</a>&quot;</code><br />
+<code>#include &quot;../include/const.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="menuProcess_8h_source.html">../include/menuProcess.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for menu.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="menu_8h__incl.png" border="0" usemap="#include_2menu_8h" alt=""/></div>
 <map name="include_2menu_8h" id="include_2menu_8h">
-<area shape="rect" id="node6" href="display_8h.html" title="All the functions needed to display ncurses windows on the screen. " alt="" coords="295,80,425,107"/>
-<area shape="rect" id="node9" href="maze__function_8h.html" title="All the functions needed to interact with the maze for the maze generator program. " alt="" coords="273,155,447,181"/>
+<area shape="rect" id="node6" href="display_8h.html" title="All the functions needed to display ncurses windows on the screen. " alt="" coords="489,229,620,256"/>
+<area shape="rect" id="node13" href="const_8h_source.html" title="../include/const.h" alt="" coords="896,379,1019,405"/>
+<area shape="rect" id="node14" href="menuProcess_8h.html" title="All the mazeGame menu functions processes. " alt="" coords="412,80,583,107"/>
+<area shape="rect" id="node9" href="maze_8h.html" title="All the functions needed to interact with the maze for the maze generator program. " alt="" coords="747,304,869,331"/>
+<area shape="rect" id="node15" href="game_8h.html" title="The mazeGame game functions. " alt="" coords="359,155,481,181"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -123,15 +128,18 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a6285ca5006a028ad167d8d561debe13e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8h.html#a6285ca5006a028ad167d8d561debe13e">create</a> (<a class="el" href="structDisplay.html">Display</a> display)</td></tr>
-<tr class="memdesc:a6285ca5006a028ad167d8d561debe13e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Launch the creation of a new maze.  <a href="#a6285ca5006a028ad167d8d561debe13e">More...</a><br /></td></tr>
-<tr class="separator:a6285ca5006a028ad167d8d561debe13e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15b4cc497e13753c717a2f5f7b99e27a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8h.html#a15b4cc497e13753c717a2f5f7b99e27a">load</a> (<a class="el" href="structDisplay.html">Display</a> display)</td></tr>
-<tr class="memdesc:a15b4cc497e13753c717a2f5f7b99e27a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load a maze.  <a href="#a15b4cc497e13753c717a2f5f7b99e27a">More...</a><br /></td></tr>
-<tr class="separator:a15b4cc497e13753c717a2f5f7b99e27a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afbb94d5e576f44ac764c71c383493550"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8h.html#afbb94d5e576f44ac764c71c383493550">getPosX</a> (int row, int i)</td></tr>
 <tr class="memdesc:afbb94d5e576f44ac764c71c383493550"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the x position of the next printed menu option.  <a href="#afbb94d5e576f44ac764c71c383493550">More...</a><br /></td></tr>
 <tr class="separator:afbb94d5e576f44ac764c71c383493550"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a013b90f272ecbeb3e2e3b8419b3533"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8h.html#a9a013b90f272ecbeb3e2e3b8419b3533">initMenu</a> (<a class="el" href="structDisplay.html">Display</a> display, char *list[4][2])</td></tr>
+<tr class="memdesc:a9a013b90f272ecbeb3e2e3b8419b3533"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the game menu.  <a href="#a9a013b90f272ecbeb3e2e3b8419b3533">More...</a><br /></td></tr>
+<tr class="separator:a9a013b90f272ecbeb3e2e3b8419b3533"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98ea68a4180b4d72a1ac372344fe0775"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8h.html#a98ea68a4180b4d72a1ac372344fe0775">selectMenu</a> (<a class="el" href="structDisplay.html">Display</a> display, char *list[4][2])</td></tr>
+<tr class="memdesc:a98ea68a4180b4d72a1ac372344fe0775"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waiting for a menu selection.  <a href="#a98ea68a4180b4d72a1ac372344fe0775">More...</a><br /></td></tr>
+<tr class="separator:a98ea68a4180b4d72a1ac372344fe0775"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a397c938f8195ed5e87193c508bad94c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8h.html#a397c938f8195ed5e87193c508bad94c2">interactMenu</a> (<a class="el" href="structDisplay.html">Display</a> display, int select)</td></tr>
+<tr class="memdesc:a397c938f8195ed5e87193c508bad94c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processing the selected menu option.  <a href="#a397c938f8195ed5e87193c508bad94c2">More...</a><br /></td></tr>
+<tr class="separator:a397c938f8195ed5e87193c508bad94c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d126b4002ee6f652e7782739e7dd548"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8h.html#a7d126b4002ee6f652e7782739e7dd548">launchMenu</a> (<a class="el" href="structDisplay.html">Display</a> display)</td></tr>
 <tr class="memdesc:a7d126b4002ee6f652e7782739e7dd548"><td class="mdescLeft">&#160;</td><td class="mdescRight">Launch the game menu.  <a href="#a7d126b4002ee6f652e7782739e7dd548">More...</a><br /></td></tr>
 <tr class="separator:a7d126b4002ee6f652e7782739e7dd548"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -140,33 +148,9 @@ Functions</h2></td></tr>
 <div class="textblock"><p>All the mazeGame menu fonctions. </p>
 <dl class="section author"><dt>Author</dt><dd>Clément Rivière <a href="#" onclick="location.href='mai'+'lto:'+'cri'+'vi'+'ere'+'@e'+'col'+'e.'+'ens'+'ic'+'aen'+'.f'+'r'; return false;">crivi<span style="display: none;">.nosp@m.</span>ere@<span style="display: none;">.nosp@m.</span>ecole<span style="display: none;">.nosp@m.</span>.ens<span style="display: none;">.nosp@m.</span>icaen<span style="display: none;">.nosp@m.</span>.fr</a> </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>1.0.1 - 16-10-2017</dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000011">Todo:</a></b></dt><dd>nothing to do for the moment. </dd></dl>
-<dl class="bug"><dt><b><a class="el" href="bug.html#_bug000008">Bug:</a></b></dt><dd>no known bug for the moment. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000015">Todo:</a></b></dt><dd>nothing to do for the moment. </dd></dl>
+<dl class="bug"><dt><b><a class="el" href="bug.html#_bug000012">Bug:</a></b></dt><dd>no known bug for the moment. </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a6285ca5006a028ad167d8d561debe13e"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void create </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structDisplay.html">Display</a>&#160;</td>
-          <td class="paramname"><em>display</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Launch the creation of a new maze. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">display</td><td>the ncurses display. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a class="anchor" id="afbb94d5e576f44ac764c71c383493550"></a>
 <div class="memitem">
 <div class="memproto">
@@ -202,6 +186,76 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a9a013b90f272ecbeb3e2e3b8419b3533"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void initMenu </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structDisplay.html">Display</a>&#160;</td>
+          <td class="paramname"><em>display</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>list</em>[4][2]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialize the game menu. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">display</td><td>the ncurses display. </td></tr>
+    <tr><td class="paramname">list</td><td>the option list with their descriptions </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a397c938f8195ed5e87193c508bad94c2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void interactMenu </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structDisplay.html">Display</a>&#160;</td>
+          <td class="paramname"><em>display</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>select</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Processing the selected menu option. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">display</td><td>the ncurses display. </td></tr>
+    <tr><td class="paramname">select</td><td>the selected option. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a7d126b4002ee6f652e7782739e7dd548"></a>
 <div class="memitem">
 <div class="memproto">
@@ -226,27 +280,39 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a15b4cc497e13753c717a2f5f7b99e27a"></a>
+<a class="anchor" id="a98ea68a4180b4d72a1ac372344fe0775"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void load </td>
+          <td class="memname">int selectMenu </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structDisplay.html">Display</a>&#160;</td>
-          <td class="paramname"><em>display</em></td><td>)</td>
+          <td class="paramname"><em>display</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>list</em>[4][2]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Load a maze. </p>
+<p>Waiting for a menu selection. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">display</td><td>the ncurses display. </td></tr>
+    <tr><td class="paramname">list</td><td>the option list with their descriptions</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>an int corresponding to the selected option </dd></dl>
 
 </div>
 </div>
