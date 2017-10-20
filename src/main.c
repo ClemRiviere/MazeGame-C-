@@ -11,7 +11,7 @@
 
 /**
  * @author Clément Rivière <criviere@ecole.ensicaen.fr>
- * @version     1.0.1 - 12-10-2017
+ * @version     1.0.2 - 16-10-2017
  *
  * @todo nothing to do for the moment.
  * @bug no known bug for the moment.
@@ -21,20 +21,24 @@
  * @file main.c
  *
  * @brief The main function of the maze generator program.
- * First version of the program, only create the maze, initialize the walls, and display.
+ * First version of the program, only create the maze, initialize the walls, and interface.
  * There is no generation of maze for the moment, it's just a tab.
  */
 
 #include "../include/main.h"
 
 int main(void){
-    Dimensions dim;
+    /*Dimensions dim;
     Maze maze;
     getDimensions(&dim);
     maze = createMaze(dim);
     initMaze(&maze);
     generateMaze(&maze);
     displayMaze(maze);
-    destroyMaze(&maze);
+    destroyMaze(&maze);*/
+
+    Interface interface;
+    initInterface(&interface);
+    launchMenu(interface);
     return 0;
 }

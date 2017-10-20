@@ -11,7 +11,7 @@
 
 /**
  * @author Clément Rivière <criviere@ecole.ensicaen.fr>
- * @version     1.0.0 - 12-10-2017
+ * @version     1.0.1 - 16-10-2017
  *
  * @todo nothing to do for the moment.
  * @bug no known bug for the moment.
@@ -29,7 +29,10 @@
 
  #include <stdio.h>
  #include <stdlib.h>
- #include "../include/maze_function.h"
+ #include "../include/interface.h"
+ #include "../include/maze.h"
+ #include "../include/menu.h"
+ #include "../include/const.h"
 
  /**
   * @brief The main function of the program
