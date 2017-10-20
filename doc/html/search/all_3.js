@@ -4,8 +4,9 @@ var searchData=
   ['delete_5fwall',['delete_wall',['../maze_8c.html#a8e08aabd0aa0a5fc8d6c9ed5d040288c',1,'delete_wall(Maze *maze, int pos):&#160;maze.c'],['../maze_8h.html#a8e08aabd0aa0a5fc8d6c9ed5d040288c',1,'delete_wall(Maze *maze, int pos):&#160;maze.c']]],
   ['destroymaze',['destroyMaze',['../maze_8c.html#a7ab82b36194ba217d6a403781bae09f1',1,'destroyMaze(Maze *maze):&#160;maze.c'],['../maze_8h.html#a7ab82b36194ba217d6a403781bae09f1',1,'destroyMaze(Maze *maze):&#160;maze.c']]],
   ['dimensions',['Dimensions',['../structDimensions.html',1,'']]],
-  ['display',['Display',['../structDisplay.html',1,'']]],
-  ['display_2ec',['display.c',['../display_8c.html',1,'']]],
-  ['display_2eh',['display.h',['../display_8h.html',1,'']]],
-  ['displaymaze',['displayMaze',['../display_8c.html#a105e77b436819e95f2797ebba0ca9634',1,'displayMaze(Display display):&#160;display.c'],['../display_8h.html#a105e77b436819e95f2797ebba0ca9634',1,'displayMaze(Display display):&#160;display.c']]]
+  ['dimensions_2eh',['dimensions.h',['../dimensions_8h.html',1,'']]],
+  ['directions',['Directions',['../directions_8h.html#a04f362029ec2a624fbcb7a30b20ff5f5',1,'directions.h']]],
+  ['directions_2eh',['directions.h',['../directions_8h.html',1,'']]],
+  ['displaymaze',['displayMaze',['../interface_8c.html#ae0db2dfb99e12f348b09cadc37224ab1',1,'displayMaze(Interface interface):&#160;interface.c'],['../interface_8h.html#ae0db2dfb99e12f348b09cadc37224ab1',1,'displayMaze(Interface interface):&#160;interface.c']]],
+  ['displayplayer',['displayPlayer',['../interface_8c.html#a8c8a207b934dbe5038aac329ee61be47',1,'displayPlayer(Interface interface, Player player):&#160;interface.c'],['../interface_8h.html#a8c8a207b934dbe5038aac329ee61be47',1,'displayPlayer(Interface interface, Player player):&#160;interface.c']]]
 ];

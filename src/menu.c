@@ -35,61 +35,61 @@
    return res;
  }
 
- void initMenu(Display display, char * list[4][2]){
+ void initMenu(Interface interface, char * list[4][2]){
    int i;
    /* Print the title and the message of the current loaded maze */
-   clearDisplay(display);
-   printTitle(display);
-   printLoadedMaze(display);
+   clearInterface(interface);
+   printTitle(interface);
+   printLoadedMaze(interface);
    for (i=0;i<4;i++){
      if (i==0){
-       activateHighlight(display);
-       printMessage(display,list[i][1]);
+       activateHighlight(interface);
+       printMessage(interface,list[i][1]);
      }
-     printMain(display,getPosX(display.terminal_size.ws_row,i),(display.terminal_size.ws_col-17)/2,list[i][0]);
-     stopHighlight(display);
+     printMain(interface,getPosX(interface.terminal_size.ws_row,i),(interface.terminal_size.ws_col-17)/2,list[i][0]);
+     stopHighlight(interface);
    }
 
-   refreshDisplay(display);
+   refreshInterface(interface);
 
    noecho(); /* disable echoing of characters on the screen (user entry)*/
-   keypad(display.main_window, TRUE ); /* enable keyboard input for the window. */
+   keypad(interface.main_window, TRUE ); /* enable keyboard input for the window. */
    curs_set(0); /* hide the default screen cursor. */
  }
 
- int selectMenu(Display display,char * list[4][2]){
+ int selectMenu(Interface interface,char * list[4][2]){
    int ch_keyboard;
    int i = 0;
    int enter = 0;
    char str_desc[50];
 
-   while(enter == 0 && (ch_keyboard=wgetch(display.main_window))!='q'){
+   while(enter == 0 && (ch_keyboard=wgetch(interface.main_window))!='q'){
      /* When a key is pushed, we delete the highlight */
-     printMain(display,getPosX(display.terminal_size.ws_row,i),(display.terminal_size.ws_col-17)/2,list[i][0]);
+     printMain(interface,getPosX(interface.terminal_size.ws_row,i),(interface.terminal_size.ws_col-17)/2,list[i][0]);
      /* If it's key_up or key_down, we are changing the value of selected menus */
      switch(ch_keyboard){
        case KEY_UP:
           i--;
           i = ( i<0 ) ? 3 : i;
-          i = (i==2 && display.init==0) ? 1 : i;
+          i = (i==2 && interface.init==0) ? 1 : i;
           break;
        case KEY_DOWN:
           i++;
           i = ( i>3 ) ? 0 : i;
-          i = (i==2 && display.init==0) ? 3 : i;
+          i = (i==2 && interface.init==0) ? 3 : i;
           break;
        case 10:
           enter = 1;
           break;
      }
      /* We highlights the selected menu (same then before if it was another key than up or down) */
-     activateHighlight(display);
-     printMain(display,getPosX(display.terminal_size.ws_row,i),(display.terminal_size.ws_col-17)/2,list[i][0]);
-     stopHighlight(display);
+     activateHighlight(interface);
+     printMain(interface,getPosX(interface.terminal_size.ws_row,i),(interface.terminal_size.ws_col-17)/2,list[i][0]);
+     stopHighlight(interface);
 
-     /* Displays the description in the little window */
+     /* Interfaces the description in the little window */
      sprintf(str_desc, "%-50s",  list[i][1]);
-     printMessage(display,str_desc);
+     printMessage(interface,str_desc);
    }
    if (enter==1){
      return i;
@@ -97,33 +97,31 @@
    return -1;
  }
 
-void interactMenu(Display display,int select){
-  int relaunchMenu = 1;
+void interactMenu(Interface interface,int select){
+  int relaunchMenu = 0;
 
   switch (select){
     case 0:
-       if (loadProcess(&display)!=0)
-          relaunchMenu = 0;
+       relaunchMenu = loadProcess(&interface);
        break;
     case 1:
-       if (createProcess(&display)!=0)
-          relaunchMenu = 0;
+       createProcess(&interface);
+       relaunchMenu = 1;
        break;
     case 2:
-       launchGame(display);
-       relaunchMenu = 0;
+       relaunchMenu = launchGame(interface);
        break;
     case 3:
        relaunchMenu = 0;
        break;
   }
   if (relaunchMenu==1)
-    launchMenu(display);
+    launchMenu(interface);
   else
-    finishDisplay(display);
+    finishInterface(interface);
 }
 
-void launchMenu(Display display){
+void launchMenu(Interface interface){
    int selected;
 
    /* The options with their descriptions */
@@ -134,15 +132,15 @@ void launchMenu(Display display){
                         {"--   Quitter   --","Quitter l'application."}
                       };
 
-   initMenu(display,list);
+   initMenu(interface,list);
 
-   selected = selectMenu(display,list);
+   selected = selectMenu(interface,list);
 
    /* The exit key have been pressed */
    if (selected == -1){
-     finishDisplay(display);
+     finishInterface(interface);
    }
    else {
-     interactMenu(display, selected);
+     interactMenu(interface, selected);
    }
  }

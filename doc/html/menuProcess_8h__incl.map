@@ -1,6 +1,10 @@
 <map id="include/menuProcess.h" name="include/menuProcess.h">
-<area shape="rect" id="node6" href="$display_8h.html" title="All the functions needed to display ncurses windows on the screen. " alt="" coords="447,155,578,181"/>
-<area shape="rect" id="node9" href="$maze_8h.html" title="All the functions needed to interact with the maze for the maze generator program. " alt="" coords="169,229,291,256"/>
-<area shape="rect" id="node13" href="$const_8h_source.html" title="../include/const.h" alt="" coords="566,304,689,331"/>
-<area shape="rect" id="node14" href="$game_8h.html" title="The mazeGame game functions. " alt="" coords="585,80,707,107"/>
+<area shape="rect" id="node6" href="$interface_8h.html" title="All the functions needed to interface ncurses windows on the screen. " alt="" coords="1043,155,1183,181"/>
+<area shape="rect" id="node9" href="$maze_8h.html" title="All the functions needed to interact with the maze for the maze generator program. " alt="" coords="829,229,952,256"/>
+<area shape="rect" id="node13" href="$const_8h_source.html" title="../include/const.h" alt="" coords="1331,304,1453,331"/>
+<area shape="rect" id="node18" href="$game_8h.html" title="The mazeGame game functions. " alt="" coords="928,80,1051,107"/>
+<area shape="rect" id="node16" href="$player_8h.html" title="The mazeGame player. " alt="" coords="351,229,476,256"/>
+<area shape="rect" id="node14" href="$position_8h.html" title="The maze Position struct. " alt="" coords="558,304,693,331"/>
+<area shape="rect" id="node15" href="$dimensions_8h.html" title="The maze Dimensions struct. " alt="" coords="894,304,1050,331"/>
+<area shape="rect" id="node17" href="$directions_8h.html" title="Playable directions. " alt="" coords="144,304,291,331"/>
 </map>

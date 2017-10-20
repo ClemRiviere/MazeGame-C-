@@ -32,38 +32,38 @@
  #include <ncurses.h>
  #include <dirent.h>
 
- #include "../include/display.h"
+ #include "../include/interface.h"
  #include "../include/const.h"
  #include "../include/maze.h"
  #include "../include/game.h"
 
  /**
   * @brief Launch the creation of a new maze.
-  * @param display the ncurses display.
+  * @param interface the ncurses interface.
   *
   * @return 0 if the creation have been well executed.
   */
- int createProcess(Display *display);
+ int createProcess(Interface *interface);
 
  /**
   * @brief Get the new maze name from user.
-  * @param display the ncurses display.
+  * @param interface the ncurses interface.
   */
- void getMazeName(Display *display);
+ void getMazeName(Interface *interface);
 
  /**
   * @brief Ask if the user wants to overwrite a maze called the same name.
-  * @param display the ncurses display.
+  * @param interface the ncurses interface.
   */
- int getOverwrite(Display *display);
+ int getOverwrite(Interface *interface);
 
  /**
   * @brief Load a maze.
-  * @param display the ncurses display.
+  * @param interface the ncurses interface.
   *
   * @return 0 if the loading have been well executed.
   */
- int loadProcess(Display *display);
+ int loadProcess(Interface *interface);
 
  /**
   * @brief Get the number of saved maze.
@@ -80,12 +80,12 @@
 
  /**
   * @brief Waiting for the user to choose a maze to load.
-  * @param display the ncurses display.
+  * @param interface the ncurses interface.
   * @param list the list of save files.
   * @param nSaves the number of save files.
   *
   * @return 1 if a maze have been selected, 0 if the program have been exited.
   */
- int selectMaze(Display *display, char **list, int nSaves);
+ int selectMaze(Interface *interface, char **list, int nSaves);
 
  #endif

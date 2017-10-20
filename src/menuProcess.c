@@ -25,28 +25,28 @@
 
 #include "../include/menuProcess.h"
 
-int createProcess(Display *display){
+int createProcess(Interface *interface){
   Dimensions dim;
 
-  getDimensions(*display,&dim);
-  display->maze = createMaze(dim);
-  initMaze(&display->maze);
-  generateMaze(&display->maze);
-  clearDisplay(*display);
-  displayMaze(*display);
-  getMazeName(display);
-  display->init = 1;
+  getDimensions(*interface,&dim);
+  interface->maze = createMaze(dim);
+  initMaze(&interface->maze);
+  generateMaze(&interface->maze);
+  clearInterface(*interface);
+  displayMaze(*interface);
+  getMazeName(interface);
+  interface->init = 1;
   return 0;
 }
 
-int getOverwrite(Display *display){
+int getOverwrite(Interface *interface){
   int enter = 0;
   int escape = 0;
   int ch_keyboard;
 
-  printMessage(*display,"Ce labyrinthe existe déjà, ENTREE pour écraser / ECHAP pour annuler");
+  printMessage(*interface,"Ce labyrinthe existe déjà, ENTREE pour écraser / ECHAP pour annuler");
   /* Waiting for the key */
-  while(enter == 0 && escape == 0 && (ch_keyboard=wgetch(display->main_window))!='q'){
+  while(enter == 0 && escape == 0 && (ch_keyboard=wgetch(interface->main_window))!='q'){
     switch(ch_keyboard){
       case 10:
          enter = 1;
@@ -59,48 +59,48 @@ int getOverwrite(Display *display){
   return enter;
 }
 
-void getMazeName(Display *display){
+void getMazeName(Interface *interface){
   char name[30];
   int enter = 0;
 
   do{
     enter = 1;
-    printMessage(*display,"Entrez un nom pour votre labyrinthe (/24): ");
+    printMessage(*interface,"Entrez un nom pour votre labyrinthe (/24): ");
     echo();
-    getStringInput(*display,"%24[^\n]",name);
+    getStringInput(*interface,"%24[^\n]",name);
     noecho();
     strcat(name,".cfg");
-    display->maze.name = (char *)malloc(sizeof(char)*strlen(name));
-    strcpy(display->maze.name,name);
+    interface->maze.name = (char *)malloc(sizeof(char)*strlen(name));
+    strcpy(interface->maze.name,name);
 
     /* Checking if the maze already exists */
-    if (exist(display->maze)==1){
-      enter = getOverwrite(display);
+    if (exist(interface->maze)==1){
+      enter = getOverwrite(interface);
     }
 
     if (enter == 1){
       /* Checking for save issues */
-      if (saveMaze(display->maze)!=0){
+      if (saveMaze(interface->maze)!=0){
         enter = 0;
       }
     }
   }while(enter == 0);
 }
 
-int loadProcess(Display *display){
+int loadProcess(Interface *interface){
   char **list;
 
   int nSaves = getSavesNumber();
   list = (char **)malloc(sizeof(char*)*nSaves);
   fillSaveList(list);
-  int enter = selectMaze(display,list,nSaves);
+  int enter = selectMaze(interface,list,nSaves);
 
   if (enter == 1){
-    display->init = 1;
-    return 0;
+    interface->init = 1;
+    return 1;
   }
-  display->init = 0;
-  return -1;
+  interface->init = 0;
+  return 0;
 }
 
 int getSavesNumber(){
@@ -134,7 +134,7 @@ void fillSaveList(char **list){
   }
 }
 
-int selectMaze(Display *display, char **list, int nSaves){
+int selectMaze(Interface *interface, char **list, int nSaves){
   char path[32]; /* 25 + 8 (./saves/) */
   char message[100];
   int ch_keyboard;
@@ -142,18 +142,18 @@ int selectMaze(Display *display, char **list, int nSaves){
   int enter = 0;
 
   /* Initialize with the first maze */
-  clearDisplay(*display);
+  clearInterface(*interface);
   sprintf(message,"ENTREE pour charger %s | LEFT / RIGHT pour sélectionner.",list[i]);
-  printMessage(*display,message);
+  printMessage(*interface,message);
   sprintf(path,"./saves/%s",list[i]);
-  if (display->init == 1){
-    destroyMaze(&display->maze);
+  if (interface->init == 1){
+    destroyMaze(&interface->maze);
   }
-  display->maze = readMaze(path);
-  displayMaze(*display);
+  interface->maze = readMaze(path);
+  displayMaze(*interface);
 
   /* Get the keyboard entries while it's not the exit key or enter */
-  while(enter == 0 && (ch_keyboard=wgetch(display->main_window))!='q'){
+  while(enter == 0 && (ch_keyboard=wgetch(interface->main_window))!='q'){
     switch(ch_keyboard){
       case KEY_LEFT:
          i--;
@@ -167,13 +167,13 @@ int selectMaze(Display *display, char **list, int nSaves){
          enter = 1;
          break;
     }
-    clearDisplay(*display);
+    clearInterface(*interface);
     sprintf(message,"ENTREE pour charger %s | LEFT / RIGHT pour sélectionner.",list[i]);
-    printMessage(*display,message);
+    printMessage(*interface,message);
     sprintf(path,"./saves/%s",list[i]);
-    destroyMaze(&display->maze);
-    display->maze = readMaze(path);
-    displayMaze(*display);
+    destroyMaze(&interface->maze);
+    interface->maze = readMaze(path);
+    displayMaze(*interface);
   }
   return enter;
 }

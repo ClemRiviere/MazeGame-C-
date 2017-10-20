@@ -32,7 +32,7 @@
  #include <ncurses.h>
  #include <dirent.h>
 
- #include "../include/display.h"
+ #include "../include/interface.h"
  #include "../include/const.h"
  #include "../include/menuProcess.h"
 
@@ -45,31 +45,31 @@
 
  /**
   * @brief Initialize the game menu.
-  * @param display the ncurses display.
+  * @param interface the ncurses interface.
   * @param list the option list with their descriptions
   */
- void initMenu(Display display,char * list[4][2]);
+ void initMenu(Interface interface,char * list[4][2]);
 
  /**
   * @brief Waiting for a menu selection.
-  * @param display the ncurses display.
+  * @param interface the ncurses interface.
   * @param list the option list with their descriptions
   *
   * @return an int corresponding to the selected option
   */
- int selectMenu(Display display,char * list[4][2]);
+ int selectMenu(Interface interface,char * list[4][2]);
 
  /**
   * @brief Processing the selected menu option.
-  * @param display the ncurses display.
+  * @param interface the ncurses interface.
   * @param select the selected option.
   */
- void interactMenu(Display display,int select);
+ void interactMenu(Interface interface,int select);
 
  /**
   * @brief Launch the game menu.
-  * @param display the ncurses display.
+  * @param interface the ncurses interface.
   */
- void launchMenu(Display display);
+ void launchMenu(Interface interface);
 
  #endif

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['display_2ec',['display.c',['../display_8c.html',1,'']]],
-  ['display_2eh',['display.h',['../display_8h.html',1,'']]]
+  ['dimensions_2eh',['dimensions.h',['../dimensions_8h.html',1,'']]],
+  ['directions_2eh',['directions.h',['../directions_8h.html',1,'']]]
 ];

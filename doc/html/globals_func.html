@@ -69,6 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="globals.html"><span>All</span></a></li>
       <li class="current"><a href="globals_func.html"><span>Functions</span></a></li>
+      <li><a href="globals_enum.html"><span>Enumerations</span></a></li>
     </ul>
   </div>
   <div id="navrow4" class="tabs3">
@@ -84,7 +85,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="#index_m"><span>m</span></a></li>
       <li><a href="#index_p"><span>p</span></a></li>
       <li><a href="#index_r"><span>r</span></a></li>
-      <li class="current"><a href="#index_s"><span>s</span></a></li>
+      <li><a href="#index_s"><span>s</span></a></li>
+      <li class="current"><a href="#index_w"><span>w</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -107,24 +109,32 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <h3><a class="anchor" id="index_a"></a>- a -</h3><ul>
 <li>activateHighlight()
-: <a class="el" href="display_8c.html#a300ab6daff3e0c5e6370b56b4fefd70f">display.c</a>
-, <a class="el" href="display_8h.html#a300ab6daff3e0c5e6370b56b4fefd70f">display.h</a>
+: <a class="el" href="interface_8c.html#adc1d65a5fecc70e248592912ceeeef95">interface.c</a>
+, <a class="el" href="interface_8h.html#adc1d65a5fecc70e248592912ceeeef95">interface.h</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_c"></a>- c -</h3><ul>
-<li>clearDisplay()
-: <a class="el" href="display_8c.html#ad0de53b8cc3ac73f56203c8325dbe831">display.c</a>
-, <a class="el" href="display_8h.html#ad0de53b8cc3ac73f56203c8325dbe831">display.h</a>
+<li>checkDir()
+: <a class="el" href="game_8c.html#abf76ba6e0c277fd31e9df31892eca6cf">game.c</a>
+, <a class="el" href="game_8h.html#abf76ba6e0c277fd31e9df31892eca6cf">game.h</a>
+</li>
+<li>clearInterface()
+: <a class="el" href="interface_8h.html#a1ff6ed1f81cec0dee5836b17a7f36f9b">interface.h</a>
+, <a class="el" href="interface_8c.html#a1ff6ed1f81cec0dee5836b17a7f36f9b">interface.c</a>
+</li>
+<li>clearPlayer()
+: <a class="el" href="interface_8c.html#ad83f26903b733d4a7e00ff1cd4e966c0">interface.c</a>
+, <a class="el" href="interface_8h.html#ad83f26903b733d4a7e00ff1cd4e966c0">interface.h</a>
 </li>
 <li>createMaze()
 : <a class="el" href="maze_8c.html#ad909618509d9ac8a660215e68a6dc512">maze.c</a>
 , <a class="el" href="maze_8h.html#ad909618509d9ac8a660215e68a6dc512">maze.h</a>
 </li>
 <li>createProcess()
-: <a class="el" href="menuProcess_8c.html#a6f158fa99bedcb5c1784588320a86a48">menuProcess.c</a>
-, <a class="el" href="menuProcess_8h.html#a6f158fa99bedcb5c1784588320a86a48">menuProcess.h</a>
+: <a class="el" href="menuProcess_8h.html#a1f419dd5596592e857b62fe6d55e2bdc">menuProcess.h</a>
+, <a class="el" href="menuProcess_8c.html#a1f419dd5596592e857b62fe6d55e2bdc">menuProcess.c</a>
 </li>
 </ul>
 
@@ -135,12 +145,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 , <a class="el" href="maze_8h.html#a8e08aabd0aa0a5fc8d6c9ed5d040288c">maze.h</a>
 </li>
 <li>destroyMaze()
-: <a class="el" href="maze_8c.html#a7ab82b36194ba217d6a403781bae09f1">maze.c</a>
-, <a class="el" href="maze_8h.html#a7ab82b36194ba217d6a403781bae09f1">maze.h</a>
+: <a class="el" href="maze_8h.html#a7ab82b36194ba217d6a403781bae09f1">maze.h</a>
+, <a class="el" href="maze_8c.html#a7ab82b36194ba217d6a403781bae09f1">maze.c</a>
 </li>
 <li>displayMaze()
-: <a class="el" href="display_8c.html#a105e77b436819e95f2797ebba0ca9634">display.c</a>
-, <a class="el" href="display_8h.html#a105e77b436819e95f2797ebba0ca9634">display.h</a>
+: <a class="el" href="interface_8c.html#ae0db2dfb99e12f348b09cadc37224ab1">interface.c</a>
+, <a class="el" href="interface_8h.html#ae0db2dfb99e12f348b09cadc37224ab1">interface.h</a>
+</li>
+<li>displayPlayer()
+: <a class="el" href="interface_8h.html#a8c8a207b934dbe5038aac329ee61be47">interface.h</a>
+, <a class="el" href="interface_8c.html#a8c8a207b934dbe5038aac329ee61be47">interface.c</a>
 </li>
 </ul>
 
@@ -159,40 +173,48 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 , <a class="el" href="maze_8h.html#abaf7ba1d54b57d16e2f4b8864f7c0386">maze.h</a>
 </li>
 <li>fillSaveList()
-: <a class="el" href="menuProcess_8c.html#a2b9956649c82924e887f43cc51de2e24">menuProcess.c</a>
-, <a class="el" href="menuProcess_8h.html#a2b9956649c82924e887f43cc51de2e24">menuProcess.h</a>
+: <a class="el" href="menuProcess_8h.html#a2b9956649c82924e887f43cc51de2e24">menuProcess.h</a>
+, <a class="el" href="menuProcess_8c.html#a2b9956649c82924e887f43cc51de2e24">menuProcess.c</a>
 </li>
-<li>finishDisplay()
-: <a class="el" href="display_8c.html#a2f97365d04df71b4438e38b51bb95dde">display.c</a>
-, <a class="el" href="display_8h.html#a2f97365d04df71b4438e38b51bb95dde">display.h</a>
+<li>finishInterface()
+: <a class="el" href="interface_8h.html#a0fc32a3306b192c3822958a8cdb7151a">interface.h</a>
+, <a class="el" href="interface_8c.html#a0fc32a3306b192c3822958a8cdb7151a">interface.c</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_g"></a>- g -</h3><ul>
+<li>gameFinish()
+: <a class="el" href="game_8c.html#ac5b94152ed3f96582bb98db9f0384542">game.c</a>
+, <a class="el" href="game_8h.html#ac5b94152ed3f96582bb98db9f0384542">game.h</a>
+</li>
+<li>gameProcess()
+: <a class="el" href="game_8h.html#acef89b4a29d870514ca944c7249e50ab">game.h</a>
+, <a class="el" href="game_8c.html#acef89b4a29d870514ca944c7249e50ab">game.c</a>
+</li>
 <li>generateMaze()
 : <a class="el" href="maze_8c.html#accc3af5d8ff8deed2c228076e92a13b3">maze.c</a>
 , <a class="el" href="maze_8h.html#accc3af5d8ff8deed2c228076e92a13b3">maze.h</a>
 </li>
 <li>generation_end()
-: <a class="el" href="maze_8c.html#a7b892f88d3594e87a32bb7dcf14f8f4b">maze.c</a>
-, <a class="el" href="maze_8h.html#a7b892f88d3594e87a32bb7dcf14f8f4b">maze.h</a>
+: <a class="el" href="maze_8h.html#a7b892f88d3594e87a32bb7dcf14f8f4b">maze.h</a>
+, <a class="el" href="maze_8c.html#a7b892f88d3594e87a32bb7dcf14f8f4b">maze.c</a>
 </li>
 <li>getDimensions()
-: <a class="el" href="display_8c.html#ac7f27e6bef262c3aeac9cafd067ed7f2">display.c</a>
-, <a class="el" href="display_8h.html#ac7f27e6bef262c3aeac9cafd067ed7f2">display.h</a>
+: <a class="el" href="interface_8c.html#a3b9a3b30204874e2fc8578cf6a4cc307">interface.c</a>
+, <a class="el" href="interface_8h.html#a3b9a3b30204874e2fc8578cf6a4cc307">interface.h</a>
 </li>
 <li>getIntInput()
-: <a class="el" href="display_8c.html#aa1bc2e9dd491b74e17aa97d6f6da5c3f">display.c</a>
-, <a class="el" href="display_8h.html#aa1bc2e9dd491b74e17aa97d6f6da5c3f">display.h</a>
+: <a class="el" href="interface_8c.html#a7f1d036eebe66362cf110bd3fb940c48">interface.c</a>
+, <a class="el" href="interface_8h.html#a7f1d036eebe66362cf110bd3fb940c48">interface.h</a>
 </li>
 <li>getMazeName()
-: <a class="el" href="menuProcess_8c.html#a1c0e7fd5345375611a9ea2ae93801524">menuProcess.c</a>
-, <a class="el" href="menuProcess_8h.html#a1c0e7fd5345375611a9ea2ae93801524">menuProcess.h</a>
+: <a class="el" href="menuProcess_8c.html#a2711004e1dc0f48493e7d7405a19012b">menuProcess.c</a>
+, <a class="el" href="menuProcess_8h.html#a2711004e1dc0f48493e7d7405a19012b">menuProcess.h</a>
 </li>
 <li>getOverwrite()
-: <a class="el" href="menuProcess_8c.html#ac728df3aa4466cd15dacfa63195c0a6c">menuProcess.c</a>
-, <a class="el" href="menuProcess_8h.html#ac728df3aa4466cd15dacfa63195c0a6c">menuProcess.h</a>
+: <a class="el" href="menuProcess_8h.html#a5ad42593cc717c42df162f4c8c8a098c">menuProcess.h</a>
+, <a class="el" href="menuProcess_8c.html#a5ad42593cc717c42df162f4c8c8a098c">menuProcess.c</a>
 </li>
 <li>getPosX()
 : <a class="el" href="menu_8c.html#afbb94d5e576f44ac764c71c383493550">menu.c</a>
@@ -203,48 +225,52 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 , <a class="el" href="menuProcess_8h.html#a4b242def9fa7c00371a53c1fb4fb34dc">menuProcess.h</a>
 </li>
 <li>getStringInput()
-: <a class="el" href="display_8c.html#ac12a78ef9b27b0dc3ea9a2e2755a0c90">display.c</a>
-, <a class="el" href="display_8h.html#ac12a78ef9b27b0dc3ea9a2e2755a0c90">display.h</a>
+: <a class="el" href="interface_8h.html#a2b5d05243617d2834eb054db3f854607">interface.h</a>
+, <a class="el" href="interface_8c.html#a2b5d05243617d2834eb054db3f854607">interface.c</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_i"></a>- i -</h3><ul>
-<li>initDisplay()
-: <a class="el" href="display_8c.html#a8516965329ade4dde84a91a388603460">display.c</a>
-, <a class="el" href="display_8h.html#a8516965329ade4dde84a91a388603460">display.h</a>
-</li>
 <li>initGame()
-: <a class="el" href="game_8c.html#a5f08ad91f4e12ce7d73487e7ed6d4363">game.c</a>
-, <a class="el" href="game_8h.html#a5f08ad91f4e12ce7d73487e7ed6d4363">game.h</a>
+: <a class="el" href="game_8c.html#a62168b36461e44844c6f245b5d71e5a2">game.c</a>
+, <a class="el" href="game_8h.html#a62168b36461e44844c6f245b5d71e5a2">game.h</a>
+</li>
+<li>initInterface()
+: <a class="el" href="interface_8h.html#aff89a7790183b32a940fc1285b0273aa">interface.h</a>
+, <a class="el" href="interface_8c.html#aff89a7790183b32a940fc1285b0273aa">interface.c</a>
 </li>
 <li>initMaze()
 : <a class="el" href="maze_8c.html#a42d287e9a15f79274ea7bdc3068630de">maze.c</a>
 , <a class="el" href="maze_8h.html#a42d287e9a15f79274ea7bdc3068630de">maze.h</a>
 </li>
 <li>initMenu()
-: <a class="el" href="menu_8c.html#a9a013b90f272ecbeb3e2e3b8419b3533">menu.c</a>
-, <a class="el" href="menu_8h.html#a9a013b90f272ecbeb3e2e3b8419b3533">menu.h</a>
+: <a class="el" href="menu_8h.html#a56d1df54a4f26d9438e35a6ead4368a8">menu.h</a>
+, <a class="el" href="menu_8c.html#a56d1df54a4f26d9438e35a6ead4368a8">menu.c</a>
+</li>
+<li>initPlayer()
+: <a class="el" href="player_8h.html#a5124117a881fd8f067de85b129afdbd6">player.h</a>
+, <a class="el" href="player_8c.html#a5124117a881fd8f067de85b129afdbd6">player.c</a>
 </li>
 <li>interactMenu()
-: <a class="el" href="menu_8c.html#a397c938f8195ed5e87193c508bad94c2">menu.c</a>
-, <a class="el" href="menu_8h.html#a397c938f8195ed5e87193c508bad94c2">menu.h</a>
+: <a class="el" href="menu_8c.html#a59f2635a5cb6dea8fa0b11eb5e4aa67c">menu.c</a>
+, <a class="el" href="menu_8h.html#a59f2635a5cb6dea8fa0b11eb5e4aa67c">menu.h</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_l"></a>- l -</h3><ul>
 <li>launchGame()
-: <a class="el" href="game_8c.html#a8badb3b828579d2e57533f8698ad2071">game.c</a>
-, <a class="el" href="game_8h.html#a8badb3b828579d2e57533f8698ad2071">game.h</a>
+: <a class="el" href="game_8c.html#a754b4854b4a8366a99cc5b052fcb5bde">game.c</a>
+, <a class="el" href="game_8h.html#a754b4854b4a8366a99cc5b052fcb5bde">game.h</a>
 </li>
 <li>launchMenu()
-: <a class="el" href="menu_8c.html#a7d126b4002ee6f652e7782739e7dd548">menu.c</a>
-, <a class="el" href="menu_8h.html#a7d126b4002ee6f652e7782739e7dd548">menu.h</a>
+: <a class="el" href="menu_8h.html#a232c68964944f529f05ffd5bd490a7e7">menu.h</a>
+, <a class="el" href="menu_8c.html#a232c68964944f529f05ffd5bd490a7e7">menu.c</a>
 </li>
 <li>loadProcess()
-: <a class="el" href="menuProcess_8c.html#ab2e80eff917f22c1512d1d10165fa449">menuProcess.c</a>
-, <a class="el" href="menuProcess_8h.html#ab2e80eff917f22c1512d1d10165fa449">menuProcess.h</a>
+: <a class="el" href="menuProcess_8h.html#a4e4d52da9571adf7c3d485b23499e678">menuProcess.h</a>
+, <a class="el" href="menuProcess_8c.html#a4e4d52da9571adf7c3d485b23499e678">menuProcess.c</a>
 </li>
 </ul>
 
@@ -254,29 +280,33 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main.c</a>
 , <a class="el" href="main_8h.html#a840291bc02cba5474a4cb46a9b9566fe">main.h</a>
 </li>
+<li>moovePlayer()
+: <a class="el" href="player_8c.html#a635cdf2cd22e954af3d151ebd2149f9c">player.c</a>
+, <a class="el" href="player_8h.html#a635cdf2cd22e954af3d151ebd2149f9c">player.h</a>
+</li>
 </ul>
 
 
 <h3><a class="anchor" id="index_p"></a>- p -</h3><ul>
 <li>printLoadedMaze()
-: <a class="el" href="display_8c.html#ad81169b2e5a3d8f93659018f818a76ef">display.c</a>
-, <a class="el" href="display_8h.html#ad81169b2e5a3d8f93659018f818a76ef">display.h</a>
+: <a class="el" href="interface_8c.html#a88550f54ddea6a04f924469d038eccb2">interface.c</a>
+, <a class="el" href="interface_8h.html#a88550f54ddea6a04f924469d038eccb2">interface.h</a>
 </li>
 <li>printMain()
-: <a class="el" href="display_8c.html#a6dfeca8902a6f500884893cf1a8e80c6">display.c</a>
-, <a class="el" href="display_8h.html#a6dfeca8902a6f500884893cf1a8e80c6">display.h</a>
+: <a class="el" href="interface_8h.html#a4cf14168a76ebc1cb0404bc6eef2aa67">interface.h</a>
+, <a class="el" href="interface_8c.html#a4cf14168a76ebc1cb0404bc6eef2aa67">interface.c</a>
 </li>
 <li>printMessage()
-: <a class="el" href="display_8c.html#a9a244b2ad1ee7207e6c41e268a15bcc9">display.c</a>
-, <a class="el" href="display_8h.html#a9a244b2ad1ee7207e6c41e268a15bcc9">display.h</a>
+: <a class="el" href="interface_8c.html#a21458c10ccbba2cc983c0773ce135c8f">interface.c</a>
+, <a class="el" href="interface_8h.html#a21458c10ccbba2cc983c0773ce135c8f">interface.h</a>
 </li>
 <li>printTitle()
-: <a class="el" href="display_8c.html#ae2a83472e6237fa10e4f1ec513f624fd">display.c</a>
-, <a class="el" href="display_8h.html#ae2a83472e6237fa10e4f1ec513f624fd">display.h</a>
+: <a class="el" href="interface_8c.html#a3e980b6c0b1b43b669157d9b61f497e5">interface.c</a>
+, <a class="el" href="interface_8h.html#a3e980b6c0b1b43b669157d9b61f497e5">interface.h</a>
 </li>
 <li>processMazeGeneration()
-: <a class="el" href="maze_8c.html#a439a6cd6b5ad5dc8322e81f2328118bd">maze.c</a>
-, <a class="el" href="maze_8h.html#a439a6cd6b5ad5dc8322e81f2328118bd">maze.h</a>
+: <a class="el" href="maze_8h.html#a439a6cd6b5ad5dc8322e81f2328118bd">maze.h</a>
+, <a class="el" href="maze_8c.html#a439a6cd6b5ad5dc8322e81f2328118bd">maze.c</a>
 </li>
 </ul>
 
@@ -286,9 +316,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="maze_8c.html#a61fe14bcf63d3e474d477463649d0a62">maze.c</a>
 , <a class="el" href="maze_8h.html#a5e836a0dab1cd0df56d8247a547826f5">maze.h</a>
 </li>
-<li>refreshDisplay()
-: <a class="el" href="display_8c.html#a1e974b28dbce434f6afcc26f7ee1aae0">display.c</a>
-, <a class="el" href="display_8h.html#a1e974b28dbce434f6afcc26f7ee1aae0">display.h</a>
+<li>refreshInterface()
+: <a class="el" href="interface_8c.html#ae453b3687bee138a073a923d2aa71a4e">interface.c</a>
+, <a class="el" href="interface_8h.html#ae453b3687bee138a073a923d2aa71a4e">interface.h</a>
 </li>
 </ul>
 
@@ -299,16 +329,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 , <a class="el" href="maze_8h.html#af97570f50a4b841b55410f28afa9587a">maze.h</a>
 </li>
 <li>selectMaze()
-: <a class="el" href="menuProcess_8c.html#a34e0d83c8542f4ed82e529d0f16f3a3b">menuProcess.c</a>
-, <a class="el" href="menuProcess_8h.html#a34e0d83c8542f4ed82e529d0f16f3a3b">menuProcess.h</a>
+: <a class="el" href="menuProcess_8h.html#a0728cded06e064cb4bc1e03e08660b14">menuProcess.h</a>
+, <a class="el" href="menuProcess_8c.html#a0728cded06e064cb4bc1e03e08660b14">menuProcess.c</a>
 </li>
 <li>selectMenu()
-: <a class="el" href="menu_8c.html#a98ea68a4180b4d72a1ac372344fe0775">menu.c</a>
-, <a class="el" href="menu_8h.html#a98ea68a4180b4d72a1ac372344fe0775">menu.h</a>
+: <a class="el" href="menu_8c.html#a0f79c7a6fb028b306303a2cf7c5dad4f">menu.c</a>
+, <a class="el" href="menu_8h.html#a0f79c7a6fb028b306303a2cf7c5dad4f">menu.h</a>
 </li>
 <li>stopHighlight()
-: <a class="el" href="display_8c.html#a517674315204f1607b6aad5a3e1b61ec">display.c</a>
-, <a class="el" href="display_8h.html#a517674315204f1607b6aad5a3e1b61ec">display.h</a>
+: <a class="el" href="interface_8h.html#a9e67b5674cc627b7461ddcdd337ea395">interface.h</a>
+, <a class="el" href="interface_8c.html#a9e67b5674cc627b7461ddcdd337ea395">interface.c</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_w"></a>- w -</h3><ul>
+<li>waiterInterface()
+: <a class="el" href="interface_8c.html#a36990e0c839827ff23a90edc95deb33a">interface.c</a>
+, <a class="el" href="interface_8h.html#a36990e0c839827ff23a90edc95deb33a">interface.h</a>
 </li>
 </ul>
 </div><!-- contents -->

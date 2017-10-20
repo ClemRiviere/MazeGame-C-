@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['main_5fwindow',['main_window',['../structDisplay.html#ab64577da33a97aab793bcfe12ce1153f',1,'Display']]]
+  ['main_5fwindow',['main_window',['../structInterface.html#a4b29225a6f95b7124ee6a5b3afd5cfc2',1,'Interface']]]
 ];

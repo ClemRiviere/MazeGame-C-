@@ -35,29 +35,8 @@
  #include <string.h>
 
  #include "../include/const.h"
-
- /* Define the id of walls to 0. */
- #define WALL 0
-
- /**
-  * @brief Dimensions of a 2D tab.
-  *
-  * The rows and cols of a 2 dimensions tab.
-  */
- typedef struct{
-     int row;    /**< Rows number */
-     int col;    /**< Cols number */
- } Dimensions;
-
- /**
-  * @brief Position of a element in a maze.
-  *
-  * The coords of any element of the maze
-  */
- typedef struct{
-     int x;    /**< The X position : the row */
-     int y;    /**< The Y position : the col */
- } Position;
+ #include "../include/position.h"
+ #include "../include/dimensions.h"
 
  /**
   * @brief The maze structure.
@@ -137,7 +116,7 @@
  /**
   * @brief Test if the generation is finished
   *
-  * @param maze the displayed maze
+  * @param maze the generated maze
   * @param nb_broken the number of broken walls
   * @return an int at 1 if it's finished, otherwise at 0
   * @todo improve the if conditions

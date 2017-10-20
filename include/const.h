@@ -32,5 +32,7 @@
 /* The space between 2 menu options */
 #define MENU_OPTIONS_MARGIN 2
 
+/* Define the id of walls to 0. */
+#define WALL 0
 
 #endif

@@ -29,7 +29,7 @@
 
  #include <stdio.h>
  #include <stdlib.h>
- #include "../include/display.h"
+ #include "../include/interface.h"
  #include "../include/maze.h"
  #include "../include/menu.h"
  #include "../include/const.h"

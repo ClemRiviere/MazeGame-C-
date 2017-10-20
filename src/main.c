@@ -21,7 +21,7 @@
  * @file main.c
  *
  * @brief The main function of the maze generator program.
- * First version of the program, only create the maze, initialize the walls, and display.
+ * First version of the program, only create the maze, initialize the walls, and interface.
  * There is no generation of maze for the moment, it's just a tab.
  */
 
@@ -37,8 +37,8 @@ int main(void){
     displayMaze(maze);
     destroyMaze(&maze);*/
 
-    Display display;
-    initDisplay(&display);
-    launchMenu(display);
+    Interface interface;
+    initInterface(&interface);
+    launchMenu(interface);
     return 0;
 }

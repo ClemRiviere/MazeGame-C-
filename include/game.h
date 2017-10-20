@@ -30,20 +30,44 @@
  #include <stdio.h>
  #include <stdlib.h>
 
- #include "../include/display.h"
+ #include "../include/interface.h"
+ #include "../include/directions.h"
 
- void waiter(Display display);
+ /**
+  * @brief Checking if the player can go in a defined direction.
+  * @param interface the ncurses interface containing the maze.
+  * @param player the game player.
+  * @param dir the selected direction.
+  */
+ int checkDir(Interface interface,Player player,Directions dir);
+
+ /**
+  * @brief Check if the game is finish.
+  * @param interface the ncurses interface containing the loaded maze.
+  * @param player the game player.
+  */
+ int gameFinish(Interface interface,Player player);
+
+ /**
+  * @brief Process the game (mooves of the player ...).
+  * @param interface the ncurses interface containing the loaded maze.
+  * @param player the game player.
+  * @return an int to specify if the player wants to get back to menu or exit the game.
+  */
+ int gameProcess(Interface interface, Player *player);
 
  /**
   * @brief Init the game process.
-  * @param display the ncurses display containing the loaded maze.
+  * @param interface the ncurses interface containing the loaded maze.
+  * @param player the game player.
   */
- void initGame(Display display);
+ void initGame(Interface interface,Player *player);
 
  /**
-  * @brief Launch the game from a loaded display.
-  * @param display the ncurses display containing the loaded maze.
+  * @brief Launch the game from a loaded interface.
+  * @param interface the ncurses interface containing the loaded maze.
+  * @return an int to specify if the player wants to get back to menu or exit the game.
   */
- void launchGame(Display display);
+ int launchGame(Interface interface);
 
 #endif
