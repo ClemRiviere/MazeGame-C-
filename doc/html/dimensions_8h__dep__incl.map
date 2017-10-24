@@ -1,14 +1,16 @@
 <map id="include/dimensions.h" name="include/dimensions.h">
-<area shape="rect" id="node2" href="$maze_8h.html" title="All the functions needed to interact with the maze for the maze generator program. " alt="" coords="329,80,439,107"/>
-<area shape="rect" id="node3" href="$interface_8h.html" title="All the functions needed to interface ncurses windows on the screen. " alt="" coords="227,155,355,181"/>
-<area shape="rect" id="node6" href="$menuProcess_8h.html" title="All the mazeGame menu functions processes. " alt="" coords="214,304,373,331"/>
-<area shape="rect" id="node8" href="$main_8h.html" title="The main function of the mazeGame program. " alt="" coords="5,453,112,480"/>
-<area shape="rect" id="node13" href="$maze_8c.html" title="The maze functions for the maze generator program. " alt="" coords="515,155,602,181"/>
-<area shape="rect" id="node4" href="$game_8h.html" title="The mazeGame game functions. " alt="" coords="97,229,207,256"/>
-<area shape="rect" id="node7" href="$menu_8h.html" title="All the mazeGame menu fonctions. " alt="" coords="313,379,423,405"/>
-<area shape="rect" id="node12" href="$interface_8c.html" title="The mazeGame interface functions. " alt="" coords="283,229,389,256"/>
-<area shape="rect" id="node5" href="$game_8c.html" title="The mazeGame game functions. " alt="" coords="103,304,190,331"/>
-<area shape="rect" id="node11" href="$menuProcess_8c.html" title="The mazeGame menu functions processes. " alt="" coords="154,379,289,405"/>
-<area shape="rect" id="node10" href="$menu_8c.html" title="The mazeGame menu fonctions. " alt="" coords="325,453,411,480"/>
-<area shape="rect" id="node9" href="$main_8c.html" title="The main function of the maze generator program. First version of the program, only create the maze..." alt="" coords="17,528,100,555"/>
+<area shape="rect" id="node2" href="$maze_8h.html" title="All the functions needed to interact with the maze for the maze generator program. " alt="" coords="319,80,430,107"/>
+<area shape="rect" id="node3" href="$interface_8h.html" title="All the functions needed to interface ncurses windows on the screen. " alt="" coords="189,229,317,256"/>
+<area shape="rect" id="node6" href="$menuProcess_8h.html" title="All the mazeGame menu functions processes. " alt="" coords="214,379,373,405"/>
+<area shape="rect" id="node8" href="$main_8h.html" title="The main function of the mazeGame program. " alt="" coords="5,528,112,555"/>
+<area shape="rect" id="node13" href="$player_8h.html" title="The mazeGame player. " alt="" coords="318,155,431,181"/>
+<area shape="rect" id="node15" href="$maze_8c.html" title="The maze functions for the maze generator program. " alt="" coords="515,155,602,181"/>
+<area shape="rect" id="node4" href="$game_8h.html" title="The mazeGame game functions. " alt="" coords="97,304,207,331"/>
+<area shape="rect" id="node7" href="$menu_8h.html" title="All the mazeGame menu fonctions. " alt="" coords="313,453,423,480"/>
+<area shape="rect" id="node12" href="$interface_8c.html" title="The mazeGame interface functions. " alt="" coords="283,304,389,331"/>
+<area shape="rect" id="node5" href="$game_8c.html" title="The mazeGame game functions. " alt="" coords="103,379,190,405"/>
+<area shape="rect" id="node11" href="$menuProcess_8c.html" title="The mazeGame menu functions processes. " alt="" coords="154,453,289,480"/>
+<area shape="rect" id="node10" href="$menu_8c.html" title="The mazeGame menu fonctions. " alt="" coords="325,528,411,555"/>
+<area shape="rect" id="node9" href="$main_8c.html" title="The main function of the maze generator program. First version of the program, only create the maze..." alt="" coords="17,603,100,629"/>
+<area shape="rect" id="node14" href="$player_8c.html" title="The mazeGame player functions. " alt="" coords="341,229,432,256"/>
 </map>

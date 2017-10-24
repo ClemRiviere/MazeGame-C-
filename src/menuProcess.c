@@ -69,7 +69,6 @@ void getMazeName(Interface *interface){
     echo();
     getStringInput(*interface,"%24[^\n]",name);
     noecho();
-    strcat(name,".cfg");
     interface->maze.name = (char *)malloc(sizeof(char)*strlen(name));
     strcpy(interface->maze.name,name);
 
@@ -91,8 +90,21 @@ int loadProcess(Interface *interface){
   char **list;
 
   int nSaves = getSavesNumber();
-  list = (char **)malloc(sizeof(char*)*nSaves);
-  fillSaveList(list);
+  if (nSaves>0){
+    list = (char **)malloc(sizeof(char*)*nSaves);
+    fillSaveList(list);
+    checkList(list, &nSaves, interface->terminal_size);
+  }
+  if (nSaves<1){
+    if (waiterInterface(*interface,"AUCUN LABYRINTHE TROUVE, ENTREE POUR RETOURNER AU MENU","AUNCUN LABYRINTHE TROUVE")==1){
+      interface->init = 0;
+      return 1;
+    }
+    return 0;
+  }
+
+  interface->init = 0;
+
   int enter = selectMaze(interface,list,nSaves);
 
   if (enter == 1){
@@ -100,6 +112,7 @@ int loadProcess(Interface *interface){
     return 1;
   }
   interface->init = 0;
+
   return 0;
 }
 
@@ -118,6 +131,7 @@ int getSavesNumber(){
 
 void fillSaveList(char **list){
   int cpt = 0;
+  char *token;
 
   DIR * rep = opendir("./saves");
   if (rep != NULL){
@@ -127,11 +141,51 @@ void fillSaveList(char **list){
          if (strcmp(ent->d_name,".")!=0 && strcmp(ent->d_name,"..")!=0){
            list[cpt] = (char*)malloc(sizeof(char)*strlen(ent->d_name));
            strcpy(list[cpt],ent->d_name);
+
+           /* delete .cfg */
+           token = strtok(list[cpt], ".");
+           list[cpt] = (char *)realloc(list[cpt],sizeof(char)*strlen(token));
+           strcpy(list[cpt],token);
            cpt += 1;
          }
      }
      closedir(rep);
   }
+}
+
+int validDimensions(Maze maze, struct winsize term_size){
+  if (maze.d.col>(term_size.ws_col-4)/2 || maze.d.row>term_size.ws_row-7){
+    return 0;
+  }
+  return 1;
+}
+
+void checkList(char **list, int *nSaves, struct winsize term_size){
+  int i,j;
+  int cptValid=0;
+  int cptInvalid=0;
+  char path[32];
+  Maze maze;
+
+  i=0;
+  while (i<*nSaves-cptInvalid){
+    j=0;
+    sprintf(path,"./saves/%s.cfg",list[i]);
+    maze = readMaze(path);
+    if (validDimensions(maze,term_size)==0){
+      cptInvalid++;
+      for (j=i;j<*nSaves-1;j++){
+        list[j] = (char *)realloc(list[j],sizeof(char)*strlen(list[j+1]));
+        strcpy(list[j],list[j+1]);
+      }
+    }
+    else {
+      cptValid++;
+      i++;
+    }
+  }
+  *nSaves = cptValid;
+  list = (char **)realloc(list,sizeof(char*)*cptValid);
 }
 
 int selectMaze(Interface *interface, char **list, int nSaves){
@@ -145,7 +199,7 @@ int selectMaze(Interface *interface, char **list, int nSaves){
   clearInterface(*interface);
   sprintf(message,"ENTREE pour charger %s | LEFT / RIGHT pour sélectionner.",list[i]);
   printMessage(*interface,message);
-  sprintf(path,"./saves/%s",list[i]);
+  sprintf(path,"./saves/%s.cfg",list[i]);
   if (interface->init == 1){
     destroyMaze(&interface->maze);
   }
@@ -170,7 +224,7 @@ int selectMaze(Interface *interface, char **list, int nSaves){
     clearInterface(*interface);
     sprintf(message,"ENTREE pour charger %s | LEFT / RIGHT pour sélectionner.",list[i]);
     printMessage(*interface,message);
-    sprintf(path,"./saves/%s",list[i]);
+    sprintf(path,"./saves/%s.cfg",list[i]);
     destroyMaze(&interface->maze);
     interface->maze = readMaze(path);
     displayMaze(*interface);

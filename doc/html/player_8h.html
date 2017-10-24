@@ -100,13 +100,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="position_8h_source.html">../include/position.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="directions_8h_source.html">../include/directions.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="maze_8h_source.html">../include/maze.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for player.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="player_8h__incl.png" border="0" usemap="#include_2player_8h" alt=""/></div>
 <map name="include_2player_8h" id="include_2player_8h">
-<area shape="rect" id="node5" href="position_8h.html" title="The maze Position struct. " alt="" coords="195,80,329,107"/>
-<area shape="rect" id="node6" href="directions_8h.html" title="Playable directions. " alt="" coords="23,80,170,107"/>
+<area shape="rect" id="node5" href="position_8h.html" title="The maze Position struct. " alt="" coords="199,155,334,181"/>
+<area shape="rect" id="node6" href="directions_8h.html" title="Playable directions. " alt="" coords="28,155,174,181"/>
+<area shape="rect" id="node7" href="maze_8h.html" title="All the functions needed to interact with the maze for the maze generator program. " alt="" coords="602,80,725,107"/>
+<area shape="rect" id="node11" href="const_8h_source.html" title="../include/const.h" alt="" coords="921,155,1044,181"/>
+<area shape="rect" id="node12" href="dimensions_8h.html" title="The maze Dimensions struct. " alt="" coords="410,155,566,181"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -133,16 +137,17 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structPlayer.html">Player</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A mazeGame player.  <a href="structPlayer.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a5124117a881fd8f067de85b129afdbd6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="player_8h.html#a5124117a881fd8f067de85b129afdbd6">initPlayer</a> (<a class="el" href="structPlayer.html">Player</a> *player)</td></tr>
-<tr class="memdesc:a5124117a881fd8f067de85b129afdbd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the player.  <a href="#a5124117a881fd8f067de85b129afdbd6">More...</a><br /></td></tr>
-<tr class="separator:a5124117a881fd8f067de85b129afdbd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a635cdf2cd22e954af3d151ebd2149f9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="player_8h.html#a635cdf2cd22e954af3d151ebd2149f9c">moovePlayer</a> (<a class="el" href="structPlayer.html">Player</a> *player, <a class="el" href="directions_8h.html#a04f362029ec2a624fbcb7a30b20ff5f5">Directions</a> dir)</td></tr>
-<tr class="memdesc:a635cdf2cd22e954af3d151ebd2149f9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the player.  <a href="#a635cdf2cd22e954af3d151ebd2149f9c">More...</a><br /></td></tr>
-<tr class="separator:a635cdf2cd22e954af3d151ebd2149f9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a046a2a141f46aad3c21f0d2976cd0f1d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="player_8h.html#a046a2a141f46aad3c21f0d2976cd0f1d">initPlayer</a> (<a class="el" href="structPlayer.html">Player</a> *player, <a class="el" href="structMaze.html">Maze</a> maze)</td></tr>
+<tr class="memdesc:a046a2a141f46aad3c21f0d2976cd0f1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the player.  <a href="#a046a2a141f46aad3c21f0d2976cd0f1d">More...</a><br /></td></tr>
+<tr class="separator:a046a2a141f46aad3c21f0d2976cd0f1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a0207d0bd98e345051d6540ab6403ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="player_8h.html#a7a0207d0bd98e345051d6540ab6403ee">moovePlayer</a> (<a class="el" href="structPlayer.html">Player</a> *player, <a class="el" href="structMaze.html">Maze</a> *maze, <a class="el" href="directions_8h.html#a04f362029ec2a624fbcb7a30b20ff5f5">Directions</a> dir)</td></tr>
+<tr class="memdesc:a7a0207d0bd98e345051d6540ab6403ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the player.  <a href="#a7a0207d0bd98e345051d6540ab6403ee">More...</a><br /></td></tr>
+<tr class="separator:a7a0207d0bd98e345051d6540ab6403ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The mazeGame player. </p>
@@ -151,7 +156,7 @@ Functions</h2></td></tr>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000020">Todo:</a></b></dt><dd>nothing to do for the moment. </dd></dl>
 <dl class="bug"><dt><b><a class="el" href="bug.html#_bug000017">Bug:</a></b></dt><dd>no known bug for the moment. </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a5124117a881fd8f067de85b129afdbd6"></a>
+<a class="anchor" id="a046a2a141f46aad3c21f0d2976cd0f1d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -159,8 +164,18 @@ Functions</h2></td></tr>
           <td class="memname">void initPlayer </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structPlayer.html">Player</a> *&#160;</td>
-          <td class="paramname"><em>player</em></td><td>)</td>
+          <td class="paramname"><em>player</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="structMaze.html">Maze</a>&#160;</td>
+          <td class="paramname"><em>maze</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -169,13 +184,14 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">player</td><td>the player that needs to be initialized. </td></tr>
+    <tr><td class="paramname">maze</td><td>the maze. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a class="anchor" id="a635cdf2cd22e954af3d151ebd2149f9c"></a>
+<a class="anchor" id="a7a0207d0bd98e345051d6540ab6403ee"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -184,6 +200,12 @@ Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structPlayer.html">Player</a> *&#160;</td>
           <td class="paramname"><em>player</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structMaze.html">Maze</a> *&#160;</td>
+          <td class="paramname"><em>maze</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -202,6 +224,7 @@ Functions</h2></td></tr>
 <p>Initialize the player. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">maze</td><td>the maze. </td></tr>
     <tr><td class="paramname">player</td><td>the player that needs to be mooved. </td></tr>
     <tr><td class="paramname">dir</td><td>the direction where to moove. </td></tr>
   </table>

@@ -64,6 +64,15 @@
  void initGame(Interface interface,Player *player);
 
  /**
+  * @brief Fills the score file with player score if its needed.
+  * @param maze the played maze.
+  * @param player the game player.
+  *
+  * @return the position of the player in the scoreBoard, -1 if not a best score.
+  */
+ int fillScore(Maze maze, Player player);
+
+ /**
   * @brief Launch the game from a loaded interface.
   * @param interface the ncurses interface containing the loaded maze.
   * @return an int to specify if the player wants to get back to menu or exit the game.

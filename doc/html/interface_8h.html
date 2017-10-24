@@ -100,6 +100,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &lt;sys/ioctl.h&gt;</code><br />
 <code>#include &lt;locale.h&gt;</code><br />
 <code>#include &lt;ncurses.h&gt;</code><br />
+<code>#include &lt;math.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="maze_8h_source.html">../include/maze.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="player_8h_source.html">../include/player.h</a>&quot;</code><br />
 <code>#include &quot;../include/const.h&quot;</code><br />
@@ -108,12 +109,12 @@ Include dependency graph for interface.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="interface_8h__incl.png" border="0" usemap="#include_2interface_8h" alt=""/></div>
 <map name="include_2interface_8h" id="include_2interface_8h">
-<area shape="rect" id="node7" href="maze_8h.html" title="All the functions needed to interact with the maze for the maze generator program. " alt="" coords="727,80,849,107"/>
-<area shape="rect" id="node11" href="const_8h_source.html" title="../include/const.h" alt="" coords="1072,155,1195,181"/>
-<area shape="rect" id="node14" href="player_8h.html" title="The mazeGame player. " alt="" coords="213,80,339,107"/>
-<area shape="rect" id="node12" href="position_8h.html" title="The maze Position struct. " alt="" coords="261,155,395,181"/>
-<area shape="rect" id="node13" href="dimensions_8h.html" title="The maze Dimensions struct. " alt="" coords="561,155,717,181"/>
-<area shape="rect" id="node15" href="directions_8h.html" title="Playable directions. " alt="" coords="39,155,185,181"/>
+<area shape="rect" id="node8" href="maze_8h.html" title="All the functions needed to interact with the maze for the maze generator program. " alt="" coords="695,155,817,181"/>
+<area shape="rect" id="node12" href="const_8h_source.html" title="../include/const.h" alt="" coords="1073,229,1196,256"/>
+<area shape="rect" id="node15" href="player_8h.html" title="The mazeGame player. " alt="" coords="305,80,431,107"/>
+<area shape="rect" id="node13" href="position_8h.html" title="The maze Position struct. " alt="" coords="301,229,435,256"/>
+<area shape="rect" id="node14" href="dimensions_8h.html" title="The maze Dimensions struct. " alt="" coords="562,229,718,256"/>
+<area shape="rect" id="node16" href="directions_8h.html" title="Playable directions. " alt="" coords="40,229,187,256"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -167,6 +168,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a8c8a207b934dbe5038aac329ee61be47"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#a8c8a207b934dbe5038aac329ee61be47">displayPlayer</a> (<a class="el" href="structInterface.html">Interface</a> interface, <a class="el" href="structPlayer.html">Player</a> player)</td></tr>
 <tr class="memdesc:a8c8a207b934dbe5038aac329ee61be47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display the player.  <a href="#a8c8a207b934dbe5038aac329ee61be47">More...</a><br /></td></tr>
 <tr class="separator:a8c8a207b934dbe5038aac329ee61be47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37ac4078042aa215b870f05151c8d1bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#a37ac4078042aa215b870f05151c8d1bf">printScore</a> (<a class="el" href="structInterface.html">Interface</a> interface, <a class="el" href="structPlayer.html">Player</a> player)</td></tr>
+<tr class="memdesc:a37ac4078042aa215b870f05151c8d1bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the player score.  <a href="#a37ac4078042aa215b870f05151c8d1bf">More...</a><br /></td></tr>
+<tr class="separator:a37ac4078042aa215b870f05151c8d1bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc1d65a5fecc70e248592912ceeeef95"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#adc1d65a5fecc70e248592912ceeeef95">activateHighlight</a> (<a class="el" href="structInterface.html">Interface</a> interface)</td></tr>
 <tr class="memdesc:adc1d65a5fecc70e248592912ceeeef95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Activate the highlighting for the next printed element.  <a href="#adc1d65a5fecc70e248592912ceeeef95">More...</a><br /></td></tr>
 <tr class="separator:adc1d65a5fecc70e248592912ceeeef95"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -191,6 +195,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a36990e0c839827ff23a90edc95deb33a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#a36990e0c839827ff23a90edc95deb33a">waiterInterface</a> (<a class="el" href="structInterface.html">Interface</a> interface, char *mainText, char *secondaryText)</td></tr>
 <tr class="memdesc:a36990e0c839827ff23a90edc95deb33a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wait for a user entry while printing texts.  <a href="#a36990e0c839827ff23a90edc95deb33a">More...</a><br /></td></tr>
 <tr class="separator:a36990e0c839827ff23a90edc95deb33a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a743e5dab9e05978eb18fd6ba80fd0a2a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#a743e5dab9e05978eb18fd6ba80fd0a2a">displayScoreboard</a> (<a class="el" href="structInterface.html">Interface</a> interface, <a class="el" href="structPlayer.html">Player</a> player, int pos)</td></tr>
+<tr class="memdesc:a743e5dab9e05978eb18fd6ba80fd0a2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display the scoreboard.  <a href="#a743e5dab9e05978eb18fd6ba80fd0a2a">More...</a><br /></td></tr>
+<tr class="separator:a743e5dab9e05978eb18fd6ba80fd0a2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0fc32a3306b192c3822958a8cdb7151a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#a0fc32a3306b192c3822958a8cdb7151a">finishInterface</a> (<a class="el" href="structInterface.html">Interface</a> interface)</td></tr>
 <tr class="memdesc:a0fc32a3306b192c3822958a8cdb7151a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleting windows and ending the interface.  <a href="#a0fc32a3306b192c3822958a8cdb7151a">More...</a><br /></td></tr>
 <tr class="separator:a0fc32a3306b192c3822958a8cdb7151a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -336,11 +343,54 @@ Functions</h2></td></tr>
 <p>Display the player. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">interface</td><td>the interfaceed interface struct </td></tr>
+    <tr><td class="paramname">interface</td><td>the interface struct </td></tr>
     <tr><td class="paramname">player</td><td>the mazeGame player. </td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a class="anchor" id="a743e5dab9e05978eb18fd6ba80fd0a2a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int displayScoreboard </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structInterface.html">Interface</a>&#160;</td>
+          <td class="paramname"><em>interface</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structPlayer.html">Player</a>&#160;</td>
+          <td class="paramname"><em>player</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pos</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Display the scoreboard. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">interface</td><td>the ncurses interface. </td></tr>
+    <tr><td class="paramname">player</td><td>the game player. </td></tr>
+    <tr><td class="paramname">pos</td><td>the position of the player in the scoreboard.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>an int to specify if the player pressed the exit key or the entry key. </dd></dl>
 
 </div>
 </div>
@@ -607,6 +657,41 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">interface</td><td>the interface that needs to be printed </td></tr>
     <tr><td class="paramname">text</td><td>the printed message. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a37ac4078042aa215b870f05151c8d1bf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void printScore </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structInterface.html">Interface</a>&#160;</td>
+          <td class="paramname"><em>interface</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structPlayer.html">Player</a>&#160;</td>
+          <td class="paramname"><em>player</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Print the player score. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">interface</td><td>the interface struct </td></tr>
+    <tr><td class="paramname">player</td><td>the mazeGame player. </td></tr>
   </table>
   </dd>
 </dl>

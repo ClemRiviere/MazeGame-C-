@@ -114,6 +114,14 @@
  int processMazeGeneration(Maze *maze,int *nb_broken);
 
  /**
+  * @brief Generate objects such as chests and traps.
+  *
+  * @param maze the maze that will be transformed.
+  * @param mode the generation mode (TRAP_MODE or CHEST_MODE)
+  */
+ void generateObject(Maze *maze, int mode);
+
+ /**
   * @brief Test if the generation is finished
   *
   * @param maze the generated maze

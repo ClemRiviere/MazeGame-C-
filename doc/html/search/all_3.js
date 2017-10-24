@@ -8,5 +8,6 @@ var searchData=
   ['directions',['Directions',['../directions_8h.html#a04f362029ec2a624fbcb7a30b20ff5f5',1,'directions.h']]],
   ['directions_2eh',['directions.h',['../directions_8h.html',1,'']]],
   ['displaymaze',['displayMaze',['../interface_8c.html#ae0db2dfb99e12f348b09cadc37224ab1',1,'displayMaze(Interface interface):&#160;interface.c'],['../interface_8h.html#ae0db2dfb99e12f348b09cadc37224ab1',1,'displayMaze(Interface interface):&#160;interface.c']]],
-  ['displayplayer',['displayPlayer',['../interface_8c.html#a8c8a207b934dbe5038aac329ee61be47',1,'displayPlayer(Interface interface, Player player):&#160;interface.c'],['../interface_8h.html#a8c8a207b934dbe5038aac329ee61be47',1,'displayPlayer(Interface interface, Player player):&#160;interface.c']]]
+  ['displayplayer',['displayPlayer',['../interface_8c.html#a8c8a207b934dbe5038aac329ee61be47',1,'displayPlayer(Interface interface, Player player):&#160;interface.c'],['../interface_8h.html#a8c8a207b934dbe5038aac329ee61be47',1,'displayPlayer(Interface interface, Player player):&#160;interface.c']]],
+  ['displayscoreboard',['displayScoreboard',['../interface_8c.html#a743e5dab9e05978eb18fd6ba80fd0a2a',1,'displayScoreboard(Interface interface, Player player, int pos):&#160;interface.c'],['../interface_8h.html#a743e5dab9e05978eb18fd6ba80fd0a2a',1,'displayScoreboard(Interface interface, Player player, int pos):&#160;interface.c']]]
 ];
