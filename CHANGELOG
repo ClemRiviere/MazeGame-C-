@@ -20,4 +20,6 @@ version 2 :
   - Save / load maze
   - Play the game
 
-Please note that the generation of the perfect maze is not implemented yet
+version 3 (BETA) :
+ - Adding a score system
+ - Adding a top 10 scoreboard

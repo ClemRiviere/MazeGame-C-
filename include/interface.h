@@ -32,6 +32,7 @@
  #include <sys/ioctl.h>
  #include <locale.h>
  #include <ncurses.h>
+ #include <math.h>
 
  #include "../include/maze.h"
  #include "../include/player.h"
@@ -101,10 +102,18 @@
  /**
   * @brief Display the player.
   *
-  * @param interface the interfaceed interface struct
+  * @param interface the interface struct
   * @param player the mazeGame player.
   */
  void displayPlayer(Interface interface, Player player);
+
+ /**
+  * @brief Print the player score.
+  *
+  * @param interface the interface struct
+  * @param player the mazeGame player.
+  */
+ void printScore(Interface interface, Player player);
 
  /**
   * @brief Activate the highlighting for the next printed element
@@ -163,6 +172,16 @@
   * @return an int to specify if the player pressed the exit key or the entry key.
   */
  int waiterInterface(Interface interface, char *mainText, char *secondaryText);
+
+ /**
+  * @brief Display the scoreboard
+  * @param interface the ncurses interface.
+  * @param player the game player.
+  * @param pos the position of the player in the scoreboard.
+  *
+  * @return an int to specify if the player pressed the exit key or the entry key.
+  */
+ int displayScoreboard(Interface interface, Player player, int pos);
 
  /**
   * @brief Deleting windows and ending the interface.

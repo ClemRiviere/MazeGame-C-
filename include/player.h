@@ -33,23 +33,32 @@
 
  #include "../include/position.h"
  #include "../include/directions.h"
+ #include "../include/maze.h"
 
+ /**
+  * @brief A mazeGame player.
+  *
+  * The position, name and score of the player.
+  */
  typedef struct{
-   Position pos;
-   char *name;
+   Position pos;  /**< The position of the player */
+   char *name;    /**< The name of the player */
+   int score;     /**< The current score of the player */
  }Player;
 
  /**
   * @brief Initialize the player.
   * @param player the player that needs to be initialized.
+  * @param maze the maze.
   */
-void initPlayer(Player *player);
+void initPlayer(Player *player, Maze maze);
 
 /**
  * @brief Initialize the player.
+ * @param maze the maze.
  * @param player the player that needs to be mooved.
  * @param dir the direction where to moove.
  */
-void moovePlayer(Player *player, Directions dir);
+void moovePlayer(Player *player, Maze *maze, Directions dir);
 
 #endif

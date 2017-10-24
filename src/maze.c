@@ -92,7 +92,7 @@
 
 int exist(Maze maze){
     char *title = (char *)malloc((strlen(maze.name)+10)*sizeof(char));
-    sprintf(title,"saves/%s",maze.name);
+    sprintf(title,"saves/%s.cfg",maze.name);
     FILE *file = fopen(title,"r");
     if (file==NULL){
       return 0;
@@ -103,9 +103,9 @@ int exist(Maze maze){
 
 int saveMaze(Maze maze){
     int i;
-    char *title = (char *)malloc((strlen(maze.name)+10)*sizeof(char));
-    sprintf(title,"saves/%s",maze.name);
-    FILE *file = fopen(title,"w+");
+    char *path_name = (char *)malloc((strlen(maze.name)+10)*sizeof(char));
+    sprintf(path_name,"saves/%s.cfg",maze.name);
+    FILE *file = fopen(path_name,"w+");
     if (file==NULL){
       printf("Error opening file!\n");
       return -1;
@@ -114,7 +114,18 @@ int saveMaze(Maze maze){
     for (i=0; i<maze.d.row; i++)
       fwrite(maze.grid[i], sizeof(maze.grid[i][0]), maze.d.col, file);
     fclose(file);
-    /*free(title);*/
+
+    sprintf(path_name,"./saves/%s.scores",maze.name);
+      file = fopen(path_name,"w+");
+    if (file==NULL){
+      printf("Error opening file!\n");
+      return -1;
+    }
+
+    fprintf(file,"%d %d %d %d %d %d %d %d %d %d\n",0,0,0,0,0,0,0,0,0,0);
+    fprintf(file,"%s %s %s %s %s %s %s %s %s %s","UNKNOWN","UNKNOWN","UNKNOWN","UNKNOWN","UNKNOWN","UNKNOWN","UNKNOWN","UNKNOWN","UNKNOWN","UNKNOWN");
+
+    fclose(file);
     return 0;
 }
 
@@ -143,6 +154,11 @@ Maze readMaze(char *path_name){
       token = strtok(NULL, "/");
     }
 
+    /* get the first token */
+    token = strtok(maze_name, ".");
+    maze_name = (char *)realloc(maze_name,sizeof(char)*strlen(token));
+    strcpy(maze_name,token);
+
     maze.name = maze_name;
     for (i=0; i<maze.d.row; i++)
       fread(maze.grid[i], sizeof(int), maze.d.col, file);
@@ -154,13 +170,28 @@ Maze readMaze(char *path_name){
 
 void generateMaze(Maze *maze){
     int res;
+    int i,j;
     int nb_broken = 0;
     do{
       res = processMazeGeneration(maze,&nb_broken);
     }while(res == 0);
+
+    /* Fill all the maze with -1 */
+    for (i=0;i<maze->d.row;i++){
+      for (j=0;j<maze->d.col;j++){
+        if (maze->grid[i][j]!=WALL){
+          maze->grid[i][j]=-1;
+        }
+      }
+    }
+
+    generateObject(maze, CHEST_MODE);
+    generateObject(maze, TRAP_MODE);
+
     /* Entrance and exit cells */
     maze->grid[1][0] = maze->grid[1][1];
     maze->grid[maze->d.row-2][maze->d.col-1] = maze->grid[1][1];
+
 }
 
 int processMazeGeneration(Maze *maze, int *nb_broken){
@@ -191,17 +222,37 @@ int processMazeGeneration(Maze *maze, int *nb_broken){
       fill_id(maze, wall_pos);
       *nb_broken+=1;
     }
-    /* TEST PRINT
-    displayMaze(*maze);
-    printf("\n\n");*/
+
     return generation_end(*maze,*nb_broken);
  }
 
+ void generateObject(Maze *maze, int mode){
+   int cpt=1;
+   int randRow;
+   int randCol;
+   int value;
+   int n;
+   if ((maze->d.row*maze->d.col)/50 == 0){
+     n = 2;
+   }
+   else {
+     n = rand()%((maze->d.row*maze->d.col)/50)+2;
+   }
+   while(cpt<n){
+     value = (rand()%100)+10;
+     if (mode==TRAP_MODE){
+       value = -value;
+     }
+     randRow = rand()%maze->d.row;
+     randCol = rand()%maze->d.col;
+     if (maze->grid[randRow][randCol]!=WALL){
+       maze->grid[randRow][randCol] = value;
+       cpt++;
+     }
+   }
+ }
+
  int generation_end(Maze maze,int nb_broken){
-    /* Condition finded on the internet */
-    /* TEST PRINT
-    printf("NB_BROKEN : %d\n",nb_broken);
-    */
     if (nb_broken == (maze.d.row/2)*(maze.d.col/2)-1){
       return 1;
     }

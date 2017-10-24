@@ -11,5 +11,5 @@ var searchData=
   ['menu_2eh',['menu.h',['../menu_8h.html',1,'']]],
   ['menuprocess_2ec',['menuProcess.c',['../menuProcess_8c.html',1,'']]],
   ['menuprocess_2eh',['menuProcess.h',['../menuProcess_8h.html',1,'']]],
-  ['mooveplayer',['moovePlayer',['../player_8c.html#a635cdf2cd22e954af3d151ebd2149f9c',1,'moovePlayer(Player *player, Directions dir):&#160;player.c'],['../player_8h.html#a635cdf2cd22e954af3d151ebd2149f9c',1,'moovePlayer(Player *player, Directions dir):&#160;player.c']]]
+  ['mooveplayer',['moovePlayer',['../player_8c.html#a7a0207d0bd98e345051d6540ab6403ee',1,'moovePlayer(Player *player, Maze *maze, Directions dir):&#160;player.c'],['../player_8h.html#a7a0207d0bd98e345051d6540ab6403ee',1,'moovePlayer(Player *player, Maze *maze, Directions dir):&#160;player.c']]]
 ];

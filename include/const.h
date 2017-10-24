@@ -35,4 +35,7 @@
 /* Define the id of walls to 0. */
 #define WALL 0
 
+#define CHEST_MODE 0
+#define TRAP_MODE 1
+
 #endif

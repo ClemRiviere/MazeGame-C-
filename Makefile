@@ -15,7 +15,7 @@ RM = rm
 RMFLAGS = -rf
 CPPFLAGS = -Wall -Wextra
 CCFLAGS = -ansi
-LDFLAGS = -lncursesw
+LDFLAGS = -lncursesw -lm
 
 # All directories of files.
 INCLUDE_DIR = ./include
@@ -48,7 +48,8 @@ $(OBJ_DIR)/main.o: $(INCLUDE_DIR)/interface.h
 $(OBJ_DIR)/main.o: $(INCLUDE_DIR)/maze.h
 $(OBJ_DIR)/main.o: $(INCLUDE_DIR)/menu.h
 
-$(OBJ_DIR)/display.o: $(INCLUDE_DIR)/maze.h
+$(OBJ_DIR)/interface.o: $(INCLUDE_DIR)/maze.h
+$(OBJ_DIR)/interface.o: $(INCLUDE_DIR)/player.h
 
 $(OBJ_DIR)/menu.o: $(INCLUDE_DIR)/interface.h
 $(OBJ_DIR)/menu.o: $(INCLUDE_DIR)/menuProcess.h
@@ -58,6 +59,11 @@ $(OBJ_DIR)/menuProcess.o: $(INCLUDE_DIR)/maze.h
 $(OBJ_DIR)/menuProcess.o: $(INCLUDE_DIR)/game.h
 
 $(OBJ_DIR)/game.o: $(INCLUDE_DIR)/interface.h
+$(OBJ_DIR)/game.o: $(INCLUDE_DIR)/directions.h
+
+$(OBJ_DIR)/player.o: $(INCLUDE_DIR)/position.h
+$(OBJ_DIR)/player.o: $(INCLUDE_DIR)/directions.h
+$(OBJ_DIR)/player.o: $(INCLUDE_DIR)/maze.h
 
 $(OBJECTS): $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(INCLUDE_DIR)/%.h $(INCLUDE_DIR)/const.h
 	$(CC) $(CPPFLAGS) $(CCFLAGS) -c -I $(INCLUDE_DIR) -o $@ $<

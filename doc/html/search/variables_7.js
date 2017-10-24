@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['terminal_5fsize',['terminal_size',['../structInterface.html#a545be66f02054911bfd4fd5dfbef211c',1,'Interface']]]
+  ['score',['score',['../structPlayer.html#ace6abae8d66534ad0a1fd6458f786a6e',1,'Player']]],
+  ['secondary_5fwindow',['secondary_window',['../structInterface.html#aff2965035f7a6bf6ee36d6872d50c2db',1,'Interface']]]
 ];

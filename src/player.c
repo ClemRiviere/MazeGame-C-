@@ -25,19 +25,25 @@
 
  #include "../include/player.h"
 
-void initPlayer(Player *player){
+void initPlayer(Player *player, Maze maze){
+  int i,j;
   player->pos.x = 1;
   player->pos.y = 0;
-  /* FOR THE MOMENT */
-  player->name = (char *)malloc(sizeof(char)*strlen("clem"));
-  player->name = "clem";
+  for (i=0;i<maze.d.row;i++){
+    for (j=0;j<maze.d.col;j++){
+      if (maze.grid[i][j]<0)
+        player->score -= maze.grid[i][j];
+    }
+  }
 }
 
-void moovePlayer(Player *player, Directions dir){
+void moovePlayer(Player *player, Maze *maze, Directions dir){
   int new_x = player->pos.x;
   int new_y = player->pos.y;
+  int changeScore = 0;
 
   if(dir != INVALID){
+    changeScore = 1;
     switch(dir){
       case RIGHT:
         new_x = player->pos.x;
@@ -58,8 +64,12 @@ void moovePlayer(Player *player, Directions dir){
       default:
         new_x = player->pos.x;
         new_y = player->pos.y;
+        changeScore = 0;
     }
   }
   player->pos.x = new_x;
   player->pos.y = new_y;
+  if (changeScore == 1)
+    player->score += maze->grid[new_x][new_y];
+    maze->grid[new_x][new_y] = -1;
 }

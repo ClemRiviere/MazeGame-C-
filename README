@@ -1,5 +1,7 @@
 That's a beautifull MAZEGAME created by Clément Rivière.
 
-To exit the app any time, type 'q' while playing.
+Please note that the game must be played in the terminal fullscreen mode to have a better graphism experience.
+DO NOT RESIZE THE WINDOW WHILE PLAYING
+While playing, press "Q" to exit the game
 
 Please take a look at the INSTALLATION file to compile the project

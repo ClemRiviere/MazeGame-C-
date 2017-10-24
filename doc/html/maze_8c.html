@@ -133,6 +133,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a439a6cd6b5ad5dc8322e81f2328118bd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="maze_8c.html#a439a6cd6b5ad5dc8322e81f2328118bd">processMazeGeneration</a> (<a class="el" href="structMaze.html">Maze</a> *maze, int *nb_broken)</td></tr>
 <tr class="memdesc:a439a6cd6b5ad5dc8322e81f2328118bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">The process of one generation step.  <a href="#a439a6cd6b5ad5dc8322e81f2328118bd">More...</a><br /></td></tr>
 <tr class="separator:a439a6cd6b5ad5dc8322e81f2328118bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14b22df31bec6ad45d03c7c6a31aedf4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="maze_8c.html#a14b22df31bec6ad45d03c7c6a31aedf4">generateObject</a> (<a class="el" href="structMaze.html">Maze</a> *maze, int mode)</td></tr>
+<tr class="memdesc:a14b22df31bec6ad45d03c7c6a31aedf4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate objects such as chests and traps.  <a href="#a14b22df31bec6ad45d03c7c6a31aedf4">More...</a><br /></td></tr>
+<tr class="separator:a14b22df31bec6ad45d03c7c6a31aedf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b892f88d3594e87a32bb7dcf14f8f4b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="maze_8c.html#a7b892f88d3594e87a32bb7dcf14f8f4b">generation_end</a> (<a class="el" href="structMaze.html">Maze</a> maze, int nb_broken)</td></tr>
 <tr class="memdesc:a7b892f88d3594e87a32bb7dcf14f8f4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test if the generation is finished.  <a href="#a7b892f88d3594e87a32bb7dcf14f8f4b">More...</a><br /></td></tr>
 <tr class="separator:a7b892f88d3594e87a32bb7dcf14f8f4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -315,6 +318,41 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">maze</td><td>the maze that will be transformed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a14b22df31bec6ad45d03c7c6a31aedf4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void generateObject </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structMaze.html">Maze</a> *&#160;</td>
+          <td class="paramname"><em>maze</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>mode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generate objects such as chests and traps. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">maze</td><td>the maze that will be transformed. </td></tr>
+    <tr><td class="paramname">mode</td><td>the generation mode (TRAP_MODE or CHEST_MODE) </td></tr>
   </table>
   </dd>
 </dl>

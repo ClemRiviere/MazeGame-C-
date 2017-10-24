@@ -79,6 +79,23 @@
  void fillSaveList(char **list);
 
  /**
+  * @brief Tests if a maze can be displayed in the user terminal.
+  * @param maze the maze.
+  * @param term_size the terminal size.
+  *
+  * @return the result of the test.
+  */
+ int validDimensions(Maze maze, struct winsize term_size);
+
+ /**
+  * @brief Checks if the save files of a list are valid mazes.
+  * @param list the list of name of save files founded in saves directory.
+  * @param nSaves the number of save files in the list.
+  * @param term_size the terminal size.
+  */
+ void checkList(char **list, int *nSaves, struct winsize term_size);
+
+ /**
   * @brief Waiting for the user to choose a maze to load.
   * @param interface the ncurses interface.
   * @param list the list of save files.

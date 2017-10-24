@@ -48,7 +48,7 @@
   * @param interface the ncurses interface.
   * @param list the option list with their descriptions
   */
- void initMenu(Interface interface,char * list[4][2]);
+ void initMenu(Interface *interface,char * list[4][2]);
 
  /**
   * @brief Waiting for a menu selection.

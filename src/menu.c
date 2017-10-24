@@ -35,25 +35,31 @@
    return res;
  }
 
- void initMenu(Interface interface, char * list[4][2]){
+ void initMenu(Interface *interface, char * list[4][2]){
    int i;
+   char path[32];
    /* Print the title and the message of the current loaded maze */
-   clearInterface(interface);
-   printTitle(interface);
-   printLoadedMaze(interface);
+   clearInterface(*interface);
+   printTitle(*interface);
+   printLoadedMaze(*interface);
+   if (interface->init == 1){
+     sprintf(path,"./saves/%s.cfg",interface->maze.name);
+     destroyMaze(&interface->maze);
+     interface->maze = readMaze(path);
+   }
    for (i=0;i<4;i++){
      if (i==0){
-       activateHighlight(interface);
-       printMessage(interface,list[i][1]);
+       activateHighlight(*interface);
+       printMessage(*interface,list[i][1]);
      }
-     printMain(interface,getPosX(interface.terminal_size.ws_row,i),(interface.terminal_size.ws_col-17)/2,list[i][0]);
-     stopHighlight(interface);
+     printMain(*interface,getPosX(interface->terminal_size.ws_row,i),(interface->terminal_size.ws_col-17)/2,list[i][0]);
+     stopHighlight(*interface);
    }
 
-   refreshInterface(interface);
+   refreshInterface(*interface);
 
    noecho(); /* disable echoing of characters on the screen (user entry)*/
-   keypad(interface.main_window, TRUE ); /* enable keyboard input for the window. */
+   keypad(interface->main_window, TRUE ); /* enable keyboard input for the window. */
    curs_set(0); /* hide the default screen cursor. */
  }
 
@@ -132,7 +138,7 @@ void launchMenu(Interface interface){
                         {"--   Quitter   --","Quitter l'application."}
                       };
 
-   initMenu(interface,list);
+   initMenu(&interface,list);
 
    selected = selectMenu(interface,list);
 

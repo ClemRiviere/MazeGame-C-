@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['walls',['walls',['../structMaze.html#ab6dbd36abee381365b2b4e9cc36d1765',1,'Maze']]]
+  ['terminal_5fsize',['terminal_size',['../structInterface.html#a545be66f02054911bfd4fd5dfbef211c',1,'Interface']]]
 ];
